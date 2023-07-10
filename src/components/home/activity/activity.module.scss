@@ -1,0 +1,19 @@
+.activity {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 50px;
+  border-radius: 20px;
+
+  .image {
+    object-fit: contain;
+  }
+
+  .activityTitle {
+    position: absolute;
+    padding-bottom: 20px;
+    font-size: 1.5rem;
+    opacity: 80%;
+  }
+}

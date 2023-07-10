@@ -1,10 +1,13 @@
-import Image from 'next/image'
 import styles from './page.module.scss'
-import Hero from '@/components/hero/Hero'
-import HomeFilter from '@/components/homefilter/HomeFilter'
-import PopularDestinations from '@/components/popularDestinations/PopularDestinations'
-import AboutUs from '@/components/aboutUs/AboutUs'
-import Activities from '@/components/activities/Activities'
+import Hero from '@/components/home/hero/Hero'
+import HomeFilter from '@/components/home/homefilter/HomeFilter'
+import PopularDestinations from '@/components/home/popularDestinations/PopularDestinations'
+import AboutUs from '@/components/home/aboutUs/AboutUs'
+import Activities from '@/components/home/activities/Activities'
+import TibetTour from '@/components/home/tibetTour/tibetTour'
+import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
+import UseFull from '@/components/home/useFullLinks/UseFull'
+import Newsletter from '@/components/home/newsletter/Newsletter'
 
 export default function Home() {
   return (
@@ -14,6 +17,10 @@ export default function Home() {
       <PopularDestinations />
       <AboutUs />
       <Activities />
+      <LatestUpdates />
+      <TibetTour />
+      <UseFull />
+      <Newsletter />
     </div>
   )
 }

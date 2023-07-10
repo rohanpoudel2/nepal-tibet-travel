@@ -10,6 +10,7 @@ const PopularDestination = () => {
         alt="Everest Base Camp"
         width={1080}
         height={1920}
+        className={styles.image}
       />
       <div className={styles.details}>
         <span className={styles.countryName}>

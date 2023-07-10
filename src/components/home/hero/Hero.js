@@ -9,6 +9,7 @@ const Hero = () => {
         width={1920}
         height={1080}
         alt="Hero Image"
+        className={styles.image}
       />
       <div className={styles.details}>
         <h1 className={styles.countryName}>

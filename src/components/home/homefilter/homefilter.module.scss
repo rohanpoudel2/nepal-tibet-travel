@@ -26,11 +26,11 @@
       font-size: 1.4rem;
 
       .input {
-        label {
+        .label {
           font-weight: bold;
         }
 
-        select {
+        .select {
           background: transparent;
           border: none;
           font-size: 1rem;
@@ -38,7 +38,7 @@
       }
     }
 
-    button {
+    .button {
       font-size: 1.2rem;
       padding: 10px 8px;
       border-radius: 10px;

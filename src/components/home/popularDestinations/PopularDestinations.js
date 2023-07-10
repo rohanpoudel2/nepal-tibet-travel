@@ -23,12 +23,14 @@ const PopularDestinations = () => {
         <div className={styles.destinations}>
           <Swiper
             pagination={{
-              type: 'progressbar',
+              type: "progressbar"
             }}
             slidesPerView={3}
             spaceBetween={50}
             navigation={true}
-            mousewheel={true}
+            mousewheel={{
+              forceToAxis: true
+            }}
             direction="horizontal"
             modules={[Pagination, Navigation, Mousewheel]}
             className={styles.mySwiper}

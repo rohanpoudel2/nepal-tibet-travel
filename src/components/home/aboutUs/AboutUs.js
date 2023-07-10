@@ -13,7 +13,7 @@ const AboutUs = () => {
               Our consultants have all travelled extensively throughout Nepal, Tibet, Bhutan, Sikkim and Darjeeling and our recommendations are based on personal experience. Our professional tour and trek guides accompany you in all our tours to assist and answer your questions.
             </p>
           </div>
-          <button>
+          <button className={styles.btn}>
             Learn More
           </button>
         </div>
@@ -23,6 +23,7 @@ const AboutUs = () => {
             alt="Narayan MacTrek"
             width={800}
             height={800}
+            className={styles.image}
           />
           <div className={styles.details}>
             <span className={styles.name}>
