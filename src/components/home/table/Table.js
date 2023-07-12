@@ -18,27 +18,27 @@ const rows = [
       Book Now
     </Button>
   ),
-  createData('Lhasa Tour', "5 Days", "800 USD",
+  createData('Lhasa Tours', "5 Days", "800 USD",
     <Button variant="text">
       Book Now
     </Button>
   ),
-  createData('Lhasa Tour', "5 Days", "800 USD",
+  createData('Lhasa Tourss', "5 Days", "800 USD",
     <Button variant="text">
       Book Now
     </Button>
   ),
-  createData('Lhasa Tour', "5 Days", "800 USD",
+  createData('Lhasa Toursss', "5 Days", "800 USD",
     <Button variant="text">
       Book Now
     </Button>
   ),
-  createData('Lhasa Tour', "5 Days", "800 USD",
+  createData('Lhasa Tourssss', "5 Days", "800 USD",
     <Button variant="text">
       Book Now
     </Button>
   ),
-  createData('Lhasa Tour', "5 Days", "800 USD",
+  createData('Lhasa Toursssss', "5 Days", "800 USD",
     <Button variant="text">
       Book Now
     </Button>

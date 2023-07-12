@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./nav.module.scss";
 import { useEffect, useState } from "react";
+import MenuItem from "./MenuItem/MenuItem";
 
 const Nav = () => {
 
@@ -23,6 +24,8 @@ const Nav = () => {
     }
   }, []);
 
+
+
   return (
     <div className={styles.navbar} style={{ backgroundColor: colourChange ? "white" : "rgba(255,255,255,0.5)" }} >
       <div className="container">
@@ -36,9 +39,104 @@ const Nav = () => {
           </div>
           <div className={styles.navItems}>
             <div className={styles.navItem}>home</div>
-            <div className={styles.navItem}>nepal</div>
-            <div className={styles.navItem}>tibet</div>
-            <div className={styles.navItem}>bhutan</div>
+            <MenuItem
+              data={
+                {
+                  title: "nepal",
+                  link: "#",
+                  subMenu: [
+                    {
+                      name: "Nepal Information",
+                      link: "#",
+                    },
+                    {
+                      name: "Trekking",
+                      link: "#",
+                    },
+                    {
+                      name: "Tour",
+                      link: "#",
+                    },
+                    {
+                      name: "Peak Climbing",
+                      link: "#",
+                    },
+                    {
+                      name: "Jungle Safari",
+                      link: "#",
+                    },
+                    {
+                      name: "Expedition",
+                      link: "#",
+                    },
+                    {
+                      name: "Adventure Activities",
+                      link: "#",
+                    },
+                  ]
+                }
+              }
+            />
+            <div className={styles.navItem}>
+              <MenuItem
+                data={
+                  {
+                    title: "tibet",
+                    link: "#",
+                    subMenu: [
+                      {
+                        name: "Tibet Information",
+                        link: "#",
+                      },
+                      {
+                        name: "Expedition",
+                        link: "#",
+                      },
+                      {
+                        name: "Tour",
+                        link: "#",
+                      },
+                      {
+                        name: "Kailash Manosarovar Tour",
+                        link: "#",
+                      },
+                      {
+                        name: "Festival Tour",
+                        link: "#",
+                      },
+                      {
+                        name: "Adventure Activities",
+                        link: "#",
+                      },
+                    ]
+                  }
+                }
+              />
+            </div>
+            <div className={styles.navItem}>
+              <MenuItem
+                data={
+                  {
+                    title: "bhutan",
+                    link: "#",
+                    subMenu: [
+                      {
+                        name: "Bhutan Information",
+                        link: "#",
+                      },
+                      {
+                        name: "Tour",
+                        link: "#",
+                      },
+                      {
+                        name: "Trekking",
+                        link: "#",
+                      }
+                    ]
+                  }
+                }
+              />
+            </div>
             <div className={styles.navItem}>
               <div className={styles.search}>
                 <i className="fa-solid fa-magnifying-glass"></i>

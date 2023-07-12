@@ -19,7 +19,6 @@ export default function Home() {
       <LatestUpdates />
       <TibetTour />
       <UseFull />
-      <Hero />
     </div>
   )
 }
