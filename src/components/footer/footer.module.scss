@@ -1,12 +1,53 @@
+@import "../../styles/colors.scss";
+
 .footer {
-  padding: 20px 0px;
+  padding: 20px 0px 0px 0px;
   border-top: 1px solid #333;
 
-  .backtotop {
-    display: inline-flex;
-    margin-bottom: 50px;
+  .top {
+    display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    .backtotop {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      color: white;
+      background-color: $primary-color;
+      padding: 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .newsletter {
+      padding: 0px;
+      margin: 0px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      .input {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #e5e5e5;
+        outline: none;
+        width: 200px;
+      }
+
+      .btn {
+        padding: 10px 5px;
+        background-color: $primary-color;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 12px;
+        border-radius: 50px;
+      }
+    }
   }
 
   .content {
@@ -19,14 +60,14 @@
       gap: 50px;
 
       .title {
-        font-size: 18px;
+        font-size: 20px;
         margin-bottom: 10px;
       }
 
       .links {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
         font-size: 16px;
         font-weight: light;
 
@@ -36,19 +77,41 @@
       }
     }
 
-    .featuredTweet {
-      width: 500px;
-      height: 210px;
-      overflow: hidden;
+    .featuredWebsite {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+
+      &:hover {
+        cursor: pointer;
+
+        .image {
+          border-radius: 40px;
+          transition: 0.2s ease-in-out;
+        }
+      }
+
+      .image {
+        transition: 0.2s ease-in-out;
+        object-fit: cover;
+        border-radius: 50px;
+      }
+
+      .featuredWebsites {
+        position: absolute;
+        font-size: 1.6rem;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+      }
     }
 
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
 
   .companystrip {
     width: 100%;
     height: fit-content;
     font-weight: bold;
-    border-top: 1px solid #333;
   }
 }

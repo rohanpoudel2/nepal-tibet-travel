@@ -5,10 +5,18 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <span className={styles.backtotop}>
-          <i className="fa-solid fa-arrow-up"></i>
-          Back to top
-        </span>
+        <div className={styles.top}>
+          <span className={styles.backtotop}>
+            <i className="fa-solid fa-arrow-up"></i>
+            Back to top
+          </span>
+          <form className={styles.newsletter}>
+            <input type="email" className={styles.input} placeholder="Subscribe to our newsletter" />
+            <button className={styles.btn}>
+              Subscribe
+            </button>
+          </form>
+        </div>
         <div className={styles.content}>
           <div className={styles.items}>
             <div className={styles.item}>
@@ -51,8 +59,17 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className={styles.featuredTweet}>
-            <blockquote className="twitter-tweet"><p lang="en" dir="ltr">Congratulations Mr. Ravi Lamichhane <a href="https://twitter.com/hamrorabi?ref_src=twsrc%5Etfw">@hamrorabi</a> for being the first human without nation and geographic boundaries. The globe is round and spinning..there is light on the other side..never give up the hope, better days are coming 🙏</p>&mdash; Narayan Poudel (@NarayanMactrek) <a href="https://twitter.com/NarayanMactrek/status/1618966276638142465?ref_src=twsrc%5Etfw">January 27, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+          <div className={styles.featuredWebsite}>
+            <Image
+              src="/images/ebc.jpeg"
+              alt="Great Himalaya Trek"
+              width={500}
+              height={100}
+              className={styles.image}
+            />
+            <h4 className={styles.featuredWebsites}>
+              Great Himalaya Trek
+            </h4>
           </div>
         </div>
       </div>

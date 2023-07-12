@@ -7,7 +7,6 @@ import Activities from '@/components/home/activities/Activities'
 import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
 import UseFull from '@/components/home/useFullLinks/UseFull'
-import Newsletter from '@/components/home/newsletter/Newsletter'
 
 export default function Home() {
   return (
@@ -20,7 +19,6 @@ export default function Home() {
       <LatestUpdates />
       <TibetTour />
       <UseFull />
-      <Newsletter />
     </div>
   )
 }

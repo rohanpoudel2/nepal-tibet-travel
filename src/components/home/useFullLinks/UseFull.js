@@ -13,7 +13,7 @@ const UseFull = () => {
         <div className={styles.right}>
           <div className={styles.links}>
             <Link image={"/images/helicopter.jpg"} text={"Helicopter Tour - Everest View"} />
-            <Link image={"/images/pilgrimage.jpg"} text={"Nepal Pilgrimage Tour"} />
+            <Link image={"/images/pilgrimage.jpg"} text={"Nepal Pilgrimage Tours"} />
             <Link image={"/images/flights.jpg"} text={"Nepal Cheap Flights"} />
             <Link image={"/images/nepalsafe.jpg"} text={"Is Nepal Safe ?"} />
           </div>
