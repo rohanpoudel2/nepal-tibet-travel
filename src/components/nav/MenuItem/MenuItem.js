@@ -23,12 +23,11 @@ const MenuItem = ({ data }) => {
           <div className={styles.subMenu}>
             {
               data?.subMenu.map((data, index) => (
-                <div className={styles.submenu_item} key={index}>
-                  <SubMenuItem
-                    name={data?.name}
-                    link={data?.link}
-                  />
-                </div>
+                <SubMenuItem
+                  key={index}
+                  name={data?.name}
+                  link={data?.link}
+                />
               ))
             }
           </div>

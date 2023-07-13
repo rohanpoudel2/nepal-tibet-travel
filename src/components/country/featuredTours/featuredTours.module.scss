@@ -1,0 +1,33 @@
+.featuredTours {
+  .titles {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .subtitle {
+      font-size: 18px;
+      font-weight: light;
+    }
+
+    .title {
+      font-size: 2rem;
+    }
+  }
+
+
+  .destinations {
+    display: flex;
+
+    .mySwiper {
+
+      height: 350px;
+
+      .swiperCard {
+        width: 400px;
+        height: 300px;
+      }
+
+    }
+
+  }
+}

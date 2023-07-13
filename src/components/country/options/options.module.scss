@@ -1,0 +1,20 @@
+.options {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  position: sticky;
+  top: 100px;
+  padding: 20px;
+  margin: 10px 0px;
+  width: 100%;
+  background-color: white;
+  justify-content: center;
+
+  .option {
+    padding: 5px;
+    background-color: #e3e3e3;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

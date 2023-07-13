@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./nav.module.scss";
 import { useEffect, useState } from "react";
 import MenuItem from "./MenuItem/MenuItem";
+import Link from "next/link";
 
 const Nav = () => {
 
@@ -30,48 +31,54 @@ const Nav = () => {
     <div className={styles.navbar} style={{ backgroundColor: colourChange ? "white" : "rgba(255,255,255,0.5)" }} >
       <div className="container">
         <div className={styles.nav}>
-          <div className={styles.logo}>
-            <Image
-              src="/images/mactrek.svg"
-              fill
-              className={styles.image}
-            />
-          </div>
+          <Link href="/">
+            <div className={styles.logo}>
+              <Image
+                src="/images/mactrek.svg"
+                fill
+                className={styles.image}
+              />
+            </div>
+          </Link>
           <div className={styles.navItems}>
-            <div className={styles.navItem}>home</div>
+            <div className={styles.navItem}>
+              <Link href="/">
+                home
+              </Link>
+            </div>
             <MenuItem
               data={
                 {
                   title: "nepal",
-                  link: "#",
+                  link: "/country/nepal",
                   subMenu: [
                     {
                       name: "Nepal Information",
-                      link: "#",
+                      link: "/country/nepal",
                     },
                     {
                       name: "Trekking",
-                      link: "#",
+                      link: "/country/nepal/trekking",
                     },
                     {
                       name: "Tour",
-                      link: "#",
+                      link: "/country/nepal/tour",
                     },
                     {
                       name: "Peak Climbing",
-                      link: "#",
+                      link: "/country/nepal/peak-climbing",
                     },
                     {
                       name: "Jungle Safari",
-                      link: "#",
+                      link: "/country/nepal/jungle-safari",
                     },
                     {
                       name: "Expedition",
-                      link: "#",
+                      link: "/country/nepal/expedition",
                     },
                     {
                       name: "Adventure Activities",
-                      link: "#",
+                      link: "/country/nepal/adventure-activities",
                     },
                   ]
                 }
@@ -82,19 +89,19 @@ const Nav = () => {
                 data={
                   {
                     title: "tibet",
-                    link: "#",
+                    link: "/country/tibet",
                     subMenu: [
                       {
                         name: "Tibet Information",
-                        link: "#",
+                        link: "/country/tibet",
                       },
                       {
                         name: "Expedition",
-                        link: "#",
+                        link: "/country/tibet/expedition",
                       },
                       {
                         name: "Tour",
-                        link: "#",
+                        link: "/country/tibet/tour",
                       },
                       {
                         name: "Kailash Manosarovar Tour",
@@ -102,11 +109,11 @@ const Nav = () => {
                       },
                       {
                         name: "Festival Tour",
-                        link: "#",
+                        link: "/country/tibet/festival-tour",
                       },
                       {
                         name: "Adventure Activities",
-                        link: "#",
+                        link: "/country/tibet/adventure-activities",
                       },
                     ]
                   }
@@ -118,19 +125,19 @@ const Nav = () => {
                 data={
                   {
                     title: "bhutan",
-                    link: "#",
+                    link: "/country/bhutan",
                     subMenu: [
                       {
                         name: "Bhutan Information",
-                        link: "#",
+                        link: "/country/bhutan",
                       },
                       {
                         name: "Tour",
-                        link: "#",
+                        link: "/country/bhutan/tour",
                       },
                       {
                         name: "Trekking",
-                        link: "#",
+                        link: "/country/bhutan/trekking",
                       }
                     ]
                   }

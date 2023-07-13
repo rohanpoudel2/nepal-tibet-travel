@@ -13,14 +13,6 @@
     display: flex;
     flex-direction: column;
 
-    .submenu_item {
-      border-bottom: 1px solid #333;
-      padding: 10px 0px;
-
-      &:hover {
-        background-color: rgba($color: white, $alpha: 0.2);
-      }
-    }
 
   }
 }

@@ -1,0 +1,24 @@
+@import "../../../../styles/colors.scss";
+
+.trekkingtours {
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .image {
+    object-fit: cover;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .option {
+      text-decoration: underline;
+      color: $primary-color;
+    }
+
+  }
+}

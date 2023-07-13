@@ -1,0 +1,23 @@
+.facts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 0px;
+
+  .main_title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+
+  .factsData {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .shortDesc {
+    margin-top: 30px;
+  }
+
+}
