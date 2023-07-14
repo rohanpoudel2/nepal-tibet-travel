@@ -1,0 +1,18 @@
+.itinerary {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .days {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .dayno {
+      font-weight: bold;
+    }
+  }
+}

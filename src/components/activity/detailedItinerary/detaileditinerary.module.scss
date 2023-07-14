@@ -1,0 +1,27 @@
+.detailedItinerary {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+
+  .days {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .day {
+      .head {
+        margin-bottom: 10px;
+        font-size: 18px;
+        background-color: #f0f0f0;
+        padding: 10px 0px;
+      }
+
+      .desc {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import "../../../../styles/colors.scss";
+
+.details {
+  position: absolute;
+  margin-left: 50px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px 16px 0px 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .name_review {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 1.1rem;
+
+        .activityName {
+          color: #333;
+          font-weight: bold;
+        }
+
+        .review {
+          color: #F5931D;
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+
+      .title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .btn {
+        padding: 10px 10px;
+        border-radius: 5px;
+        background-color: $primary-color;
+        font-size: 18px;
+        color: white;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+}
