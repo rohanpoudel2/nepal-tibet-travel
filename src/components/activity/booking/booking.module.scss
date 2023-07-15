@@ -1,0 +1,48 @@
+@import "../../../styles/colors.scss";
+
+.booking {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 50px;
+  }
+
+  .dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    .date {
+      background-color: white;
+      padding: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid #333;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $primary-color;
+        transition: 0.2s ease-in-out;
+        color: white;
+      }
+    }
+
+    .selected {
+      background-color: $primary-color;
+      color: white;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: white;
+        color: #333;
+        transition: 0.2s ease-in-out;
+      }
+    }
+  }
+}

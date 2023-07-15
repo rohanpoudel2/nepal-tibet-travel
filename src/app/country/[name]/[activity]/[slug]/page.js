@@ -10,6 +10,7 @@ import Links from "@/components/activity/links/Links";
 import Testimonial from "@/components/activity/testimonial/Testimonial";
 import Recommendation from "@/components/activity/recommendation/Recommendation";
 import Nav from "@/components/activity/nav/Nav";
+import Booking from "@/components/activity/booking/Booking";
 
 const Activity = ({ params }) => {
 
@@ -47,6 +48,9 @@ const Activity = ({ params }) => {
       </section>
       <section className={styles.links} id="faq">
         <Links />
+      </section>
+      <section className={styles.booking} id="booking">
+        <Booking />
       </section>
       <section className={styles.testimonial} id="reviews">
         <Testimonial />
