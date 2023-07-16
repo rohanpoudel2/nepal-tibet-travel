@@ -29,6 +29,8 @@ const ShareModel = ({ open, setOpen }) => {
 
   const handleClose = () => setOpen(false);
 
+  const hostname = window.location.href;
+
   return (
     <div className={styles.shareModel}>
       <Modal
@@ -46,7 +48,7 @@ const ShareModel = ({ open, setOpen }) => {
             Spread the joy of trekking and ignite a passion for exploration!
           </h4>
           <div className={styles.shareLink} style={{ width: "100%", height: "50px", backgroundColor: "#e3e3e3e3", borderRadius: "20px", padding: "20px", textAlign: "center", display: "flex", gap: "10px", alignItems: "center", justifyContent: "center", fontSize: "20px", letterSpacing: "1.2px", margin: "20px 0px" }}>
-            https://www.nepaltibettravel.com
+            {hostname}
             <i className="fa-regular fa-clipboard"></i>
           </div>
           <div className={styles.socialIcons} style={socialIcons}>
