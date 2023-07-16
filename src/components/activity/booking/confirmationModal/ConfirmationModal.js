@@ -1,6 +1,7 @@
 import styles from "./confirmationModal.module.scss";
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import Link from "next/link";
 
 
 const style = {
@@ -96,22 +97,30 @@ const ConfirmationModal = ({ open, setOpen }) => {
                 (Available)
               </span>
             </div>
-            <button
-              className={styles.btn}
+            <Link href="/booking"
               style={{
-                padding: "10px",
-                fontSize: "1.2rem",
-                margin: "0px auto",
-                backgroundColor: "#47A5CF",
-                borderRadius: "10px",
-                cursor: "pointer",
-                border: "none",
-                fontWeight: "bold",
-                color: "white"
+                display: "flex",
+                alignContent: "center",
+                justifyContent: "center",
               }}
             >
-              Book Now
-            </button>
+              <button
+                className={styles.btn}
+                style={{
+                  padding: "10px",
+                  fontSize: "1.2rem",
+                  margin: "0px auto",
+                  backgroundColor: "#47A5CF",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                  border: "none",
+                  fontWeight: "bold",
+                  color: "white"
+                }}
+              >
+                Book Now
+              </button>
+            </Link>
           </div>
         </Box>
       </Modal>

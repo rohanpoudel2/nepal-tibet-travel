@@ -35,6 +35,7 @@ const Nav = () => {
             <div className={styles.logo}>
               <Image
                 src="/images/mactrek.svg"
+                alt="logo"
                 fill
                 className={styles.image}
               />

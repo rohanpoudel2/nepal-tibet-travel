@@ -1,0 +1,119 @@
+@import "../../../styles/colors.scss";
+
+.bookingForm {
+  margin-top: 50px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    .error {
+      color: red;
+    }
+
+    .formElement {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+
+      .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .sn {
+          font-size: 1.2rem;
+        }
+
+        .title {
+          font-size: 2rem;
+        }
+
+      }
+
+      .right {
+        flex: 2;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .input {
+          width: 300px;
+          padding: 15px 10px;
+          font-size: 1.2rem;
+          outline-color: $primary-color;
+        }
+
+        .cardInput {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 20px;
+
+          .card {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            .cardInput {
+              padding-left: 60px;
+              width: 400px;
+            }
+
+            .image {
+              position: absolute;
+            }
+          }
+
+          .expire {
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+            gap: 20px;
+
+            span {
+              font-size: 1.7rem;
+              position: absolute;
+            }
+
+            .input {
+              padding: 5px;
+              width: 53px;
+            }
+          }
+
+          .cvv {
+            width: 75px;
+          }
+        }
+      }
+
+      .terms {
+        width: 100%;
+        margin-top: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        background-color: $primary-color;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+    }
+
+
+  }
+}
