@@ -1,34 +1,49 @@
 "use client"
 import { useForm } from "react-hook-form";
 import styles from "./form.module.scss";
-import Image from "next/image";
-import Visa from "@/../public/images/visa.png";
-import MasterCard from "@/../public/images/master_card.png";
-import AmericanExpress from "@/../public/images/american_express.png";
 import { countries } from "@/utils/countryList";
-import { useEffect, useState } from "react";
+import validator from "validator";
+import { useState } from "react";
 
 const Form = () => {
-
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardImage, setCardImage] = useState(null);
+  const [cardErrorMSG, setCardErrorMSG] = useState(null);
 
   const { register, handleSubmit, formState: { errors } } = useForm();
+
   const onSubmit = (data) => {
-    console.log(data)
+    setCardErrorMSG(null);
+    if (validator.isCreditCard(data?.cardnumber)) {
+      console.log("ALL GOOD");
+      console.log(data);
+    } else {
+      console.log("NOT GOOD");
+      setCardErrorMSG("Enter a valid card number");
+    }
   }
 
-  useEffect(() => {
-    if (cardNumber.charAt(0) === "4") {
-      setCardImage(Visa);
-    } else if (cardNumber.charAt(0) === "2" || cardNumber.charAt(0) === "5") {
-      setCardImage(MasterCard);
-    } else if (cardNumber.charAt(0) === "3") {
-      setCardImage(AmericanExpress);
-    } else {
-      setCardImage(null);
+  let date = 0;
+
+  const month = [];
+  const year = [];
+  const multiplesOfTwo = [1];
+
+  while (true) {
+    date = date + 1;
+    month.push(String(date).padStart(2, '0'));
+    if (date === 12) {
+      const currentYear = parseInt(new Date().getFullYear().toString().slice(-2));
+      const endYear = currentYear + 10;
+      for (let i = currentYear; i <= endYear; i++) {
+        year.push(i.toString().padStart(2, '0'));
+      }
+
+      for (let i = 2; i <= 20; i += 2) {
+        multiplesOfTwo.push(i);
+      }
+
+      break;
     }
-  }, [cardNumber]);
+  }
 
   return (
     <div className={styles.bookingForm}>
@@ -59,7 +74,7 @@ const Form = () => {
               {errors.email?.type === 'pattern' && <p className={styles.error} role="alert">Enter a valid email</p>}
             </div>
             <div className={styles.inputElement}>
-              <select type="country" {...register("country", { required: true })} placeholder="Email Address" className={styles.input} aria-invalid={errors.country ? "true" : "false"} >
+              <select {...register("country", { required: true })} placeholder="Select Country" className={styles.input} aria-invalid={errors.country ? "true" : "false"} >
                 {countries?.map((country, index) => (
                   <option value={country.name} key={index}>
                     {country.name}
@@ -77,64 +92,101 @@ const Form = () => {
               02
             </span>
             <h2 className={styles.title}>
+              Trip Details
+            </h2>
+          </div>
+          <div className={styles.right}>
+            <div className={styles.inputElement}>
+              <input type="text" {...register("trip", { required: true })} placeholder="Trip / Trek Name" className={styles.input} aria-invalid={errors.trip ? "true" : "false"} readOnly value="Everest Base Camp Trek" id="12" />
+              {errors.trip?.type === 'required' && <p className={styles.error} role="alert">Please refresh the page</p>}
+            </div>
+            <div className={styles.inputElement}>
+              <select {...register("size", { required: true, pattern: /^\d+$/ })} className={`${styles.input}`} defaultValue="Group Size">
+                <option value="Group Size" disabled selected hidden>Group Size</option>
+                {
+                  multiplesOfTwo?.map((size, index) => (
+                    <option value={size} key={index}>
+                      {size}
+                    </option>
+                  ))
+                }
+              </select>
+              {errors.size?.type === 'pattern' && <p className={styles.error} role="alert">Select your Group Size</p>}
+            </div>
+          </div>
+        </div>
+        <div className={styles.formElement}>
+          <div className={styles.left}>
+            <span className={styles.sn}>
+              03
+            </span>
+            <h2 className={styles.title}>
               Payment Method
             </h2>
           </div>
           <div className={styles.right}>
+            <div className={styles.paymentOptions}>
+              <span>Payment Options</span>
+              <div className={styles.paymentOption}>
+                <label htmlFor="full">Pay Full Amount</label>
+                <input type="radio" {...register("payment_type", { required: true })} name="full" className={styles.radioInput} required />
+              </div>
+              <div className={styles.paymentOption}>
+                <label htmlFor="full">Pay Deposit Only</label>
+                <input type="radio" {...register("payment_type", { required: true })} name="full" className={styles.radioInput} />
+              </div>
+              {errors.payment_type?.type === 'required' && <p className={styles.error} role="alert">Payment Type is Required</p>}
+            </div>
             <div className={styles.cardInput}>
-              <div className={styles.inputElement}>
-                <div className={styles.card}>
+              <div className={styles.cardNumber}>
+                <input type="number" pattern="[0-9]" {...register("cardnumber", { required: true })} className={`${styles.input} ${styles.cardNumberInput}`} placeholder="Credit / Debit Card Number" />
+                {errors.cardnumber?.type === 'required' && <p className={styles.error} role="alert">Card Number is Required</p>}
+                {cardErrorMSG && <p className={styles.error} role="alert">{cardErrorMSG}</p>}
+              </div>
+              <div className={styles.cardMonth}>
+                <select {...register("cardmonth", { required: true, pattern: /^\d+$/ })} className={`${styles.input} ${styles.cardDate}`} defaultValue="MM">
+                  <option value="MM" disabled selected hidden>MM</option>
                   {
-                    cardImage &&
-                    <Image
-                      src={cardImage}
-                      alt="Card Type"
-                      width={50}
-                      height={50}
-                      className={styles.image}
-                    />
+                    month?.map((month, index) => (
+                      <option value={month} key={index}>
+                        {month}
+                      </option>
+                    ))
                   }
-
-                  <input type="text" {...register("cardnumber", { required: true, pattern: /^((4\d{3}|\d{4})[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}|5[1-5]\d{2}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}|6011[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}|3\d{3}[- ]?\d{6}[- ]?\d{5})$/ })} placeholder="Credit/Debit Card Number" className={`${styles.input} ${styles.cardInput}`} aria-invalid={errors.cardnumber ? "true" : "false"} onChange={(e) => setCardNumber(e.target.value)} />
-                </div>
-                {errors.cardnumber?.type === 'required' && <p className={styles.error} role="alert">Card Number is required</p>}
-                {errors.cardnumber?.type === 'pattern' && <p className={styles.error} role="alert">Enter a valid card</p>}
+                </select>
+                {errors.cardmonth?.type === 'pattern' && <p className={styles.error} role="alert">Select a Exp Month</p>}
               </div>
-              <div className={styles.expire}>
-                <div className={styles.inputElement}>
-                  <input type="text" {...register("month", { required: true, pattern: /^(0?[1-9]|1[0-2])$/, maxLength: 2 })} placeholder="MM" className={styles.input} aria-invalid={errors.month ? "true" : "false"} />
-                  {errors.month?.type === 'required' && <p className={styles.error} role="alert">!</p>}
-                  {errors.month?.type === 'pattern' && <p className={styles.error} role="alert">Enter valid Month</p>}
-                </div>
-                <span>
-                  /
-                  {errors.month?.type === 'required' && <p className={styles.error} role="alert"> -</p>}
-                  {errors.month?.type === 'pattern' && <p className={styles.error} role="alert"> -</p>}
-                </span>
-                <div className={styles.inputElement}>
-                  <input type="text" {...register("year", { required: true, pattern: /^[1-9][0-9]$/, maxLength: 2 })} placeholder="DD" className={styles.input} aria-invalid={errors.year ? "true" : "false"} />
-                  {errors.year?.type === 'required' && <p className={styles.error} role="alert">!</p>}
-                  {errors.year?.type === 'pattern' && <p className={styles.error} role="alert">Enter valid Year</p>}
-                </div>
+              <div className={styles.cardYear}>
+                <select {...register("cardyear", { required: true, pattern: /^\d+$/ })} className={`${styles.input} ${styles.cardDate}`} defaultValue="YY">
+                  <option value="YY" disabled hidden>YY</option>
+                  {
+                    year?.map((year, index) => (
+                      <option value={year} key={index}>
+                        {year}
+                      </option>
+                    ))
+                  }
+                </select>
+                {errors.cardyear?.type === 'pattern' && <p className={styles.error} role="alert">Select a Exp Year</p>}
               </div>
-              <div className={styles.inputElement}>
-                <input type="text" {...register("cvv", { required: true, pattern: /^\d{3,4}$/, maxLength: 4 })} placeholder="CVV" className={`${styles.input} ${styles.cvv}`} aria-invalid={errors.cvv ? "true" : "false"} />
-                {errors.cvv?.type === 'required' && <p className={styles.error} role="alert">CVV is required</p>}
-                {errors.cvv?.type === 'pattern' && <p className={styles.error} role="alert">Enter valid CVV</p>}
+              <div className={styles.cardCVV}>
+                <input type="number" pattern="[0-9]" {...register("cvv", { required: true, pattern: /^\d{3,4}$/ })} className={styles.input} placeholder="CVV" />
+                {errors.cvv?.type === 'required' && <p className={styles.error} role="alert">Card Number is Required</p>}
+                {errors.cvv?.type === 'pattern' && <p className={styles.error} role="alert">Enter a valid cvv</p>}
               </div>
             </div>
-            <div className={styles.terms}>
-              <input type="checkbox" {...register("terms", { required: true })} />
-              <span>I accept booking terms and conditions.</span>
-              {errors.terms?.type === 'required' && <p className={styles.error} role="alert">Terms & Condition must be accepted</p>}
-            </div>
-            <button type="submit" className={styles.btn}>
-              Pay Now
-            </button>
           </div>
+          <div className={styles.terms}>
+            <input type="checkbox" {...register("terms", { required: true })} />
+            <span>I accept booking terms and conditions.</span>
+            {errors.terms?.type === 'required' && <p className={styles.error} role="alert">Terms & Condition must be accepted</p>}
+          </div>
+          <button type="submit" className={styles.btn}>
+            Pay Now
+          </button>
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   )
 }
 

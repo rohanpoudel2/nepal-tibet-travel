@@ -53,42 +53,7 @@
 
       .right {
         flex: 1;
-        width: 100%;
-
-        .no {
-          font-size: 1.1rem;
-          padding: 10px 0px;
-          border-top: 1px solid #909090;
-          border-bottom: 1px solid #909090;
-          margin: 20px 0px;
-        }
-
-        .items {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-
-          .item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          }
-        }
-
-        .totalAmountDue {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-top: 50px;
-          background-color: $primary-color;
-          padding: 20px 10px;
-          color: white;
-          font-size: 1.1rem;
-
-          .price {
-            font-weight: bold;
-          }
-        }
+        position: relative;
       }
     }
   }

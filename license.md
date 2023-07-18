@@ -2,7 +2,7 @@
 
 ## Terms of Use
 
-The following terms and conditions govern the use of the software and any associated documentation (the "Work") created by Rohan Poudel ("Licensor"). By accessing or using the Work, you agree to comply with these terms and conditions.
+The following terms and conditions govern the use of the software and any associated documentation of this work created by Rohan Poudel. By accessing or using the Work, you agree to comply with these terms and conditions.
 
 1. **Authorization Requirement:** Except as otherwise expressly permitted by Licensor in writing, you may not use, copy, modify, distribute, or otherwise make any use of the Work.
 

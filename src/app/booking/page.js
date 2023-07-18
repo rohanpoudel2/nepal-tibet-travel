@@ -1,6 +1,7 @@
 "use client"
 import Form from "@/components/booking/form/Form";
 import styles from "./booking.module.scss";
+import PaymentSummary from "@/components/booking/paymentSummary/PaymentSummary";
 
 const Booking = () => {
   return (
@@ -27,34 +28,7 @@ const Booking = () => {
               <Form />
             </div>
             <div className={styles.right}>
-              <h2 className={styles.title}>
-                Your Payment Summary
-              </h2>
-              <div className={styles.no}>
-                Number of travellers: 1
-              </div>
-              <div className={styles.items}>
-                <div className={styles.item}>
-                  <h3 className={styles.title}>Tour Price</h3>
-                  <span className={styles.price}>
-                    USD $1825
-                  </span>
-                </div>
-                <div className={styles.item}>
-                  <h3 className={styles.title}>Bank Charge</h3>
-                  <span className={styles.price}>
-                    USD ${182}
-                  </span>
-                </div>
-              </div>
-              <div className={styles.totalAmountDue}>
-                <div className={styles.title}>
-                  Amount Due
-                </div>
-                <div className={styles.price}>
-                  USD 1980
-                </div>
-              </div>
+              <PaymentSummary />
             </div>
           </div>
         </div>

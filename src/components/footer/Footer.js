@@ -78,7 +78,7 @@ const Footer = () => {
         <div className="container">
           <div className={styles.logo} style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
             <Image
-              src="/images/mactrek.svg"
+              src="/images/mactrek_small.svg"
               alt="MacTrek Logo"
               width={50}
               height={50}
