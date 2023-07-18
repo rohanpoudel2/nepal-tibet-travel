@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./details.module.scss";
 import ShareButton from "./shareButton/ShareButton";
 
@@ -27,9 +28,11 @@ const Details = () => {
             <div className={styles.title}>
               Everest Base Camp Trek
             </div>
-            <button className={styles.btn}>
-              Book Now
-            </button>
+            <Link href="#booking">
+              <button className={styles.btn}>
+                Book Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

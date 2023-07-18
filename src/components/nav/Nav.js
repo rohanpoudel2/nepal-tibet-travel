@@ -4,10 +4,14 @@ import styles from "./nav.module.scss";
 import { useEffect, useState } from "react";
 import MenuItem from "./MenuItem/MenuItem";
 import Link from "next/link";
+import SearchModal from "./searchModal/SearchModal";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
 
   const [colourChange, setColourChange] = useState(false);
+  const [showSearchModal, setShowSearchModal] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const changeNavColour = () => {
@@ -24,6 +28,10 @@ const Nav = () => {
       window.removeEventListener("scroll", changeNavColour);
     }
   }, []);
+
+  useEffect(() => {
+    setShowSearchModal(false);
+  }, [pathname])
 
 
 
@@ -146,13 +154,16 @@ const Nav = () => {
               />
             </div>
             <div className={styles.navItem}>
-              <div className={styles.search}>
+              <div className={styles.search} onClick={() => setShowSearchModal(!showSearchModal)}>
                 <i className="fa-solid fa-magnifying-glass"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {
+        showSearchModal && <SearchModal setShowModal={setShowSearchModal} showModal={showSearchModal} />
+      }
     </div >
   )
 }

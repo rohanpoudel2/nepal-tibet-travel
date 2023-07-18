@@ -56,7 +56,7 @@ const ConfirmationModal = ({ open, setOpen }) => {
                 justifyContent: "center",
                 fontSize: "1.4rem",
                 gap: "20px",
-                background: "#FF8400",
+                background: "#47A5CF",
                 padding: "10px",
                 color: "white"
               }}
@@ -64,7 +64,17 @@ const ConfirmationModal = ({ open, setOpen }) => {
               <div className={styles.startDate} style={{ fontWeight: "bold" }}>
                 7 July
               </div>
-              <i className="fa-solid fa-arrow-right" style={{ border: "1px solid white", borderRadius: "50px", width: 30, height: 30, display: "flex", justifyContent: "center", alignItems: "center" }}></i>
+              <i
+                className="fa-solid fa-arrow-right"
+                style={{
+                  border: "1px solid white",
+                  borderRadius: "50px",
+                  width: 30,
+                  height: 30,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}></i>
               <div className={styles.endDate} style={{ fontWeight: "bold" }}>
                 23 July
               </div>
@@ -81,7 +91,7 @@ const ConfirmationModal = ({ open, setOpen }) => {
                 style={{
                   fontSize: "1.8rem",
                   fontWeight: "bold",
-                  color: "orangered"
+                  color: "green"
                 }}
               >
                 USD $1800

@@ -29,6 +29,11 @@
       gap: 50px;
       z-index: 1000;
 
+      .navItem {
+        .search {
+          cursor: pointer;
+        }
+      }
     }
   }
 }
