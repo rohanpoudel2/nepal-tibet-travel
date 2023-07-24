@@ -1,0 +1,18 @@
+@import "../../../../styles/colors.scss";
+
+.blogRecommendation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+
+  .title {
+    font-weight: bold;
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}

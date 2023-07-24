@@ -6,6 +6,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 
 import "swiper/css"
 import "swiper/css/navigation";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -34,9 +35,11 @@ const Hero = () => {
             <h3 className={styles.tagline}>
               8th wonder of the world
             </h3>
-            <button className={styles.exploreBtn}>
-              Explore
-            </button>
+            <Link href="/country/nepal">
+              <button className={styles.exploreBtn}>
+                Explore
+              </button>
+            </Link>
           </div>
         </div>
       </SwiperSlide>
@@ -51,7 +54,7 @@ const Hero = () => {
           />
           <div className={styles.details}>
             <h1 className={styles.countryName}>
-              Nepal
+              Tibet
             </h1>
             <h3 className={styles.tagline}>
               8th wonder of the world
@@ -73,7 +76,7 @@ const Hero = () => {
           />
           <div className={styles.details}>
             <h1 className={styles.countryName}>
-              Nepal
+              Bhutan
             </h1>
             <h3 className={styles.tagline}>
               8th wonder of the world

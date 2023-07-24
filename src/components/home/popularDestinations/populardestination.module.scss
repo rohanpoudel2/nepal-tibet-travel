@@ -16,16 +16,11 @@
 
   .destinations {
     display: flex;
+    gap: 50px;
 
-    .mySwiper {
-
-      height: 550px;
-
-      .swiperCard {
-        width: 400px;
-        height: 500px;
-      }
-
+    .destination {
+      width: 400px;
+      height: 500px;
     }
 
   }

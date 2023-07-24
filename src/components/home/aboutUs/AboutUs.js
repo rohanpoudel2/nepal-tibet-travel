@@ -30,7 +30,7 @@ const AboutUs = () => {
               Narayan Poudel
             </span>
             <div className={styles.position}>
-              Owner - MacTrek
+              Founder/Team Mentor - Mac Treks
             </div>
           </div>
         </div>

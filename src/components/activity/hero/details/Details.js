@@ -1,6 +1,6 @@
-import Link from "next/link";
-import styles from "./details.module.scss";
-import ShareButton from "./shareButton/ShareButton";
+import Link from "next/link"
+import styles from "./details.module.scss"
+import ShareButton from './shareButton/ShareButton'
 
 const Details = () => {
   return (

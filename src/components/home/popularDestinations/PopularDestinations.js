@@ -1,12 +1,5 @@
-"use client"
 import styles from "./populardestination.module.scss";
 import PopularDestination from "../popularDestination/PopularDestination";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Mousewheel } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 const PopularDestinations = () => {
   return (
@@ -21,40 +14,15 @@ const PopularDestinations = () => {
           </h2>
         </div>
         <div className={styles.destinations}>
-          <Swiper
-            pagination={{
-              type: "progressbar"
-            }}
-            slidesPerView={3}
-            spaceBetween={50}
-            navigation={true}
-            mousewheel={{
-              forceToAxis: true
-            }}
-            direction="horizontal"
-            modules={[Pagination, Navigation, Mousewheel]}
-            className={styles.mySwiper}
-          >
-            <SwiperSlide className={styles.swiperCard}>
-              <PopularDestination />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperCard}>
-              <PopularDestination />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperCard}>
-              <PopularDestination />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperCard}>
-              <PopularDestination />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperCard}>
-              <PopularDestination />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperCard}>
-              <PopularDestination />
-            </SwiperSlide>
-          </Swiper>
-
+          <div className={styles.destination}>
+            <PopularDestination />
+          </div>
+          <div className={styles.destination}>
+            <PopularDestination />
+          </div>
+          <div className={styles.destination}>
+            <PopularDestination />
+          </div>
         </div>
       </section >
     </div >

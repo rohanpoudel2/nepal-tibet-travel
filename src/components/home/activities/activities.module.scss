@@ -14,13 +14,10 @@
     }
   }
 
-  .swiper {
-    height: 500px;
-
-    .swiperSlide {
-      width: 250px;
-      height: 200px;
-    }
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
   }
 
 }

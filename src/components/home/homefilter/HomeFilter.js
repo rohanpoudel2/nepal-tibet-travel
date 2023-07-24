@@ -37,17 +37,6 @@ const HomeFilter = () => {
             </select>
           </div>
         </div>
-        <div className={styles.item}>
-          <i className="fa-solid fa-compass"></i>
-          <div className={styles.input}>
-            <label className={styles.label}>Days</label>
-            <select className={styles.select} name="location" id="location" required>
-              <option value="Nepal">Nepal</option>
-              <option value="Tibet">Tibet</option>
-              <option value="Bhutan">Bhutan</option>
-            </select>
-          </div>
-        </div>
         <button className={styles.button}>
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>

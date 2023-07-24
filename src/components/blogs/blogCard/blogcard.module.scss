@@ -1,0 +1,50 @@
+.blogcard {
+  position: relative;
+  width: 359px;
+  height: 200px;
+
+  &:hover {
+    cursor: pointer;
+
+    .blogDetails {
+      height: 100px;
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .blogDetails {
+    transition: 0.2s ease-in-out;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px 16px 5px 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    height: 60px;
+    overflow: hidden;
+
+    .title {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .category {
+      border: 1px solid white;
+      border-radius: 20px;
+      width: fit-content;
+      padding: 5px;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 "use client"
-import ShareModel from "@/components/activity/shareModel/ShareModel";
+import ShareModel from "@/components/modal/Modal";
 import styles from "./sharebutton.module.scss";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ const ShareButton = () => {
         <i className="fa-solid fa-arrow-up-from-bracket"></i>
         Share this Trek
       </button>
-      <ShareModel open={open} setOpen={setOpen} />
+      {open && <ShareModel set={setOpen} show={open} />}
     </>
   )
 }

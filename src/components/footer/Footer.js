@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import styles from "./footer.module.scss";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -31,9 +32,9 @@ const Footer = () => {
                 <span className={styles.link}>
                   Work with us
                 </span>
-                <span className={styles.link}>
+                <Link href="/blogs" className={styles.link}>
                   Blog and News
-                </span>
+                </Link>
               </div>
             </div>
             <div className={styles.item}>

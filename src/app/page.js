@@ -6,7 +6,6 @@ import AboutUs from '@/components/home/aboutUs/AboutUs'
 import Activities from '@/components/home/activities/Activities'
 import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
-import UseFull from '@/components/home/useFullLinks/UseFull'
 
 export default function Home() {
   return (
@@ -16,9 +15,12 @@ export default function Home() {
       <PopularDestinations />
       <AboutUs />
       <Activities />
-      <LatestUpdates />
       <TibetTour />
-      <UseFull />
+      <Activities />
+      <TibetTour />
+      <Activities />
+      <TibetTour />
+      <LatestUpdates />
     </div>
   )
 }

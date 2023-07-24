@@ -7,7 +7,7 @@ const Activity = ({ colour }) => {
       <Image
         src="/images/Trekking.png"
         alt="Trekking Icon"
-        width={250}
+        width={359}
         height={200}
         className={styles.image}
       />
