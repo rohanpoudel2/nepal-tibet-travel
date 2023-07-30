@@ -1,79 +1,61 @@
 @import "../../../../styles/colors.scss";
 
-.details {
+
+.detail {
   position: absolute;
-  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  bottom: 0;
   padding: 20px;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 16px 16px 0px 0px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 16px 16px 0px 0px;
-    content: "";
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 1;
-  }
-
-
   border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 5;
 
-  .detail {
-    position: relative;
+  .top {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 2;
+    align-items: center;
+    justify-content: space-between;
 
-    .top {
+    .name_review {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 20px;
+      font-size: 1.1rem;
 
-      .name_review {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        font-size: 1.1rem;
+      .activityName {
+        color: #333;
+        font-weight: bold;
+      }
 
-        .activityName {
-          color: #333;
-          font-weight: bold;
-        }
-
-        .review {
-          color: #F5931D;
-        }
+      .review {
+        color: #F5931D;
       }
     }
+  }
 
-    .bottom {
-      display: flex;
-      align-items: center;
-      gap: 50px;
+  .bottom {
+    display: flex;
+    align-items: center;
+    gap: 50px;
 
-      .title {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #333;
-      }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+    }
 
-      .btn {
-        padding: 10px 10px;
-        border-radius: 5px;
-        background-color: $primary-color;
-        font-size: 18px;
-        color: white;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-      }
+    .btn {
+      padding: 10px 10px;
+      border-radius: 5px;
+      background-color: $primary-color;
+      font-size: 18px;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
     }
   }
 }

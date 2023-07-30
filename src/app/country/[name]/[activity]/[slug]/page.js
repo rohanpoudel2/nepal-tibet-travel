@@ -21,43 +21,45 @@ const Activity = ({ params }) => {
   return (
     <div className={styles.activity}>
       <Hero />
-      <Nav />
-      <section className={styles.content} id="overview">
-        <Content />
-      </section>
-      <section className={styles.itinerary} id="itinerary">
-        <div className="container">
-          <div className={styles.bottomItems}>
-            <div className={styles.left}>
-              <Itinerary />
-            </div>
-            <div className={styles.right}>
-              <TripFacts />
-              <PriceList />
+      <div className={styles.detail}>
+        <Nav />
+        <section className={styles.content} id="overview">
+          <Content />
+        </section>
+        <section className={styles.itinerary} id="itinerary">
+          <div className="container">
+            <div className={styles.bottomItems}>
+              <div className={styles.left}>
+                <Itinerary />
+              </div>
+              <div className={styles.right}>
+                <TripFacts />
+                <PriceList />
+              </div>
             </div>
           </div>
+        </section>
+        <section className={styles.routeMap} id="routemap">
+          <Map
+            activityName={activityName}
+          />
+        </section>
+        <section className={styles.detailedItinerary} id="detailed_itinerary">
+          <DetailedItinerary />
+        </section>
+        <section className={styles.links} id="faq">
+          <Links />
+        </section>
+        <section className={styles.booking} id="booking">
+          <Booking />
+        </section>
+        <section className={styles.testimonial} id="reviews">
+          <Testimonial />
+        </section>
+        <div className={styles.recommendation}>
+          <Recommendation />
         </div>
-      </section>
-      <section className={styles.routeMap} id="routemap">
-        <Map
-          activityName={activityName}
-        />
-      </section>
-      <section className={styles.detailedItinerary} id="detailed_itinerary">
-        <DetailedItinerary />
-      </section>
-      <section className={styles.links} id="faq">
-        <Links />
-      </section>
-      <section className={styles.booking} id="booking">
-        <Booking />
-      </section>
-      <section className={styles.testimonial} id="reviews">
-        <Testimonial />
-      </section>
-      <section className={styles.recommendation}>
-        <Recommendation />
-      </section>
+      </div>
     </div>
   )
 }

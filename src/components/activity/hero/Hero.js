@@ -12,7 +12,9 @@ const Hero = () => {
         height={1080}
         className={styles.image}
       />
-      <Details />
+      <div className="container">
+        <Details />
+      </div>
     </div>
   )
 }
