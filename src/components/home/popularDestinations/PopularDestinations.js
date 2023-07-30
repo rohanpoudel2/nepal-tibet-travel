@@ -1,5 +1,6 @@
 import styles from "./populardestination.module.scss";
 import PopularDestination from "../popularDestination/PopularDestination";
+import Divider from "@/components/ui/divider/Divider";
 
 const PopularDestinations = () => {
   return (
@@ -12,6 +13,7 @@ const PopularDestinations = () => {
           <h2 className={styles.title}>
             Popular destinations
           </h2>
+          <Divider />
         </div>
         <div className={styles.destinations}>
           <div className={styles.destination}>

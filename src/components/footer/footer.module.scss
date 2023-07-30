@@ -85,6 +85,8 @@
       align-items: center;
       justify-content: center;
       color: white;
+      width: 500px;
+      height: 100px;
 
       &:hover {
         cursor: pointer;
@@ -95,6 +97,8 @@
         transition: 0.2s ease-in-out;
         object-fit: cover;
         border-radius: 50px;
+        width: 100%;
+        height: 100%;
       }
 
       .titles {

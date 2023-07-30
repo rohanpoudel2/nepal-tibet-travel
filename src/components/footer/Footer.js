@@ -132,15 +132,15 @@ const Footer = () => {
                   className={styles.affiliate_Image}
                 />
                 <Image
-                  src="/images/mtb.jpeg"
-                  alt="Nepal Tourism Board"
+                  src="/images/nma.png"
+                  alt="Nepal Mountaineering Association"
                   width={50}
                   height={50}
                   className={styles.affiliate_Image}
                 />
                 <Image
-                  src="/images/tann.png"
-                  alt="Nepal Tourism Board"
+                  src="/images/tann.jpeg"
+                  alt="Trekking Agencies Association of Nepal"
                   width={50}
                   height={50}
                   className={styles.affiliate_Image}

@@ -1,3 +1,4 @@
+import Divider from "@/components/ui/divider/Divider";
 import Activity from "../activity/Activity";
 import styles from "./activities.module.scss";
 import { ColourPallet } from "@/utils/colourPallet";
@@ -14,6 +15,7 @@ const Activities = () => {
           <h2 className={styles.title}>
             Nepal activities
           </h2>
+          <Divider />
         </div>
         <div className={styles.items}>
           {
