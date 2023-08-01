@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 
 export function DataTable({
   columns,
@@ -47,11 +48,11 @@ export function DataTable({
   return (
     <>
       <div className="flex justify-between items-center py-4">
-        <h2 className="text-3xl">
-          Nepal Trekking Packages
+        <h2 className="text-2xl">
+          Kanchenjunga Trekking Packages
         </h2>
         <Input
-          placeholder="Search Tours..."
+          placeholder="Search Kanchenjunga Treks..."
           value={(table.getColumn("name")?.getFilterValue()) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
@@ -88,7 +89,9 @@ export function DataTable({
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      <Link href={`${window.location}/everest-base-camp`} >
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </Link>
                     </TableCell>
                   ))}
                 </TableRow>
@@ -122,7 +125,7 @@ export function DataTable({
             Next Page
           </Button>
         </div>
-      </div>
+      </div >
     </>
   )
 }

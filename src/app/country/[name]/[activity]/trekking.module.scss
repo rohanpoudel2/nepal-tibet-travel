@@ -6,4 +6,26 @@
       text-align: justify;
     }
   }
+
+  .importantLinks {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .trekkingAreas {
+    .areaSection {
+      .areaDescription {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .areaTitle {
+          font-size: 2rem;
+        }
+
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
