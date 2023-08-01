@@ -1,20 +1,15 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useContext } from "react"
 import styles from "./share.module.scss"
-import { usePathname } from "next/navigation";
+import { ModalContext } from "@/context/ModalContext"
 
 const ShareBtn = () => {
 
-  const [showModal, setShowModal] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setShowModal(false);
-  }, [pathname]);
+  const { setOpenModal } = useContext(ModalContext);
 
   return (
     <>
-      <button className={styles.shareBtn} onClick={() => setShowModal(!showModal)}>
+      <button className={styles.shareBtn} onClick={() => setOpenModal(true)}>
         <span>Share this Blog</span>
         <i className="fa-solid fa-arrow-up-from-bracket"></i>
       </button>

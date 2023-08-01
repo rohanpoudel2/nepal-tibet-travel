@@ -5,9 +5,9 @@ import BlogRecommendation from "@/components/blogs/blogLayout/blogRecommendation
 
 const Blog = () => {
   return (
-    <div className="container">
-      <div className={styles.blog}>
-        <Hero />
+    <div className={styles.blog}>
+      <Hero />
+      <div className="container">
         <BlogContent />
         <BlogRecommendation />
       </div>

@@ -8,10 +8,10 @@ const DetailsCard = () => {
       <div className={styles.author}>
         <div className={styles.authorProfile}>
           <Image
-            src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            src="https://images.pexels.com/photos/15277728/pexels-photo-15277728/free-photo-of-elderly-man-near-the-buddha-stupa-kathmandu-nepal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Profile Picture"
-            width={50}
-            height={50}
+            width={100}
+            height={100}
             className={styles.image}
           />
         </div>

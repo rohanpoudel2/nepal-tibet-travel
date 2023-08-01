@@ -8,8 +8,7 @@ const Hero = () => {
       <Image
         src="https://images.pexels.com/photos/9206628/pexels-photo-9206628.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt="HeroImage"
-        width={1920}
-        height={1080}
+        fill
         className={styles.image}
       />
       <DetailsCard />

@@ -18,7 +18,7 @@ const Modal = () => {
           className="flex justify-between items center border-b border-gray-200 py-3"
         >
           <div className="flex items-center justify-center">
-            <p className="text-xl font-bold text-gray-800">Share This Trek</p>
+            <p className="text-xl font-bold text-gray-800">Share this with your friends</p>
           </div>
 
           <div
