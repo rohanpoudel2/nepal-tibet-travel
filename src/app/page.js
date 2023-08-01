@@ -14,11 +14,11 @@ export default function Home() {
       <HomeFilter />
       <PopularDestinations />
       <AboutUs />
-      <Activities />
+      <Activities type="icon" />
       <TibetTour />
-      <Activities />
+      <Activities type="image" />
       <TibetTour />
-      <Activities />
+      <Activities type="image" />
       <TibetTour />
       <LatestUpdates />
     </div>

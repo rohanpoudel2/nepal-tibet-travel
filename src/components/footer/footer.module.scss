@@ -13,18 +13,6 @@
     justify-content: space-between;
     margin-bottom: 50px;
 
-    .backtotop {
-      display: inline-flex;
-      align-items: center;
-      gap: 20px;
-      color: white;
-      background-color: $primary-color;
-      padding: 10px;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
     .socials {
       display: flex;
       flex-direction: column;

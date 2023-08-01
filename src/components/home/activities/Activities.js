@@ -3,7 +3,28 @@ import Activity from "../activity/Activity";
 import styles from "./activities.module.scss";
 import { ColourPallet } from "@/utils/colourPallet";
 
-const Activities = () => {
+const Activities = ({ type }) => {
+
+  const data = [
+    {
+      image: "https://images.pexels.com/photos/13548334/pexels-photo-13548334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      image: "https://images.pexels.com/photos/13548334/pexels-photo-13548334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      image: "https://images.pexels.com/photos/13548334/pexels-photo-13548334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      image: "https://images.pexels.com/photos/13548334/pexels-photo-13548334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      image: "https://images.pexels.com/photos/13548334/pexels-photo-13548334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+    {
+      image: "https://images.pexels.com/photos/13548334/pexels-photo-13548334.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+  ]
 
   return (
     <div className="container">
@@ -19,11 +40,19 @@ const Activities = () => {
         </div>
         <div className={styles.items}>
           {
-            ColourPallet(6).map((colour, index) => (
-              <div className={styles.element} key={index} >
-                <Activity colour={colour} />
-              </div>
-            ))
+            type === "icon"
+              ?
+              ColourPallet(6).map((colour, index) => (
+                <div className={styles.element} key={index} >
+                  <Activity colour={colour} />
+                </div>
+              ))
+              :
+              data.map(({ image }, index) => (
+                <div className={styles.element} key={index}>
+                  <Activity image={image} />
+                </div>
+              ))
           }
         </div>
       </section >

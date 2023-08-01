@@ -7,6 +7,7 @@
   border-radius: 20px;
   width: 359px;
   height: 200px;
+  cursor: pointer;
 
   .image {
     width: 100%;
@@ -19,5 +20,37 @@
     padding-bottom: 20px;
     font-size: 1.5rem;
     opacity: 80%;
+  }
+}
+
+.activityImage {
+
+  &:hover {
+    .activityTitle {
+      height: 50%;
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  .image {
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .activityTitle {
+    position: absolute;
+    padding: 0px 20px;
+    font-size: 1.5rem;
+    opacity: 100%;
+    width: 100%;
+    height: 20%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
   }
 }

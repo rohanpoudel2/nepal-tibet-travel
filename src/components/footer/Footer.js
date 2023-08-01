@@ -1,16 +1,14 @@
 import Image from "next/image";
 import styles from "./footer.module.scss";
 import Link from "next/link";
+import ScrollToTop from "./scrollToTop/ScrollToTop";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.top}>
-          <span className={styles.backtotop}>
-            <i className="fa-solid fa-arrow-up"></i>
-            Back to top
-          </span>
+          <ScrollToTop />
           <div className={styles.socials}>
             <span className={styles.title}>
               Find us on
