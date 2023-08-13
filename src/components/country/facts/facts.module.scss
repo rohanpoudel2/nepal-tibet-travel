@@ -1,3 +1,5 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .facts {
   display: flex;
   align-items: center;
@@ -14,6 +16,10 @@
     display: flex;
     align-items: center;
     gap: 50px;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   .shortDesc {

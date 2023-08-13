@@ -4,6 +4,10 @@
   height: 80vh;
   margin-top: -100px;
 
+  @include mobile {
+    height: 70vh;
+  }
+
   .hero {
     display: flex;
     align-items: center;

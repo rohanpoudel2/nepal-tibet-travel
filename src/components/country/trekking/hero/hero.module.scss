@@ -1,3 +1,5 @@
+@import "../../../../styles/mixins/responsive.scss";
+
 .hero {
   margin-top: -100px;
   height: 80vh;
@@ -5,6 +7,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include mobile {
+    height: 70vh;
+  }
 
   .video {
     width: 100%;
@@ -26,5 +32,6 @@
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
     font-size: 4rem;
     text-transform: capitalize;
+    text-align: center;
   }
 }

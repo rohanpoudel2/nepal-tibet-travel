@@ -1,3 +1,5 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .hero {
   display: flex;
   align-items: flex-end;
@@ -5,6 +7,10 @@
   margin-top: -100px;
   position: relative;
   height: 80vh;
+
+  @include mobile {
+    height: 70vh;
+  }
 
   .image {
     width: 100%;

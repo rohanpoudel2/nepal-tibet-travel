@@ -1,3 +1,5 @@
+@import "../../../../styles/mixins/responsive.scss";
+
 .details {
   position: absolute;
   bottom: -80px;
@@ -9,23 +11,44 @@
   padding: 20px;
   border-radius: 20px;
 
+  @include mobile {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   .author {
     position: relative;
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: space-between;
 
-    .image {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
+    @include mobile {
+      flex-direction: column-reverse;
+      align-items: flex-start;
     }
 
-    .authorName {
-      font-weight: bold;
-    }
+    .authorProfile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
+      .image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+
+      .authorDetails {
+        display: flex;
+
+        .authorName {
+          font-weight: bold;
+        }
+      }
+    }
 
   }
 

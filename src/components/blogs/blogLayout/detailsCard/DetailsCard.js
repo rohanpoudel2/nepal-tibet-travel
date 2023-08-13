@@ -14,14 +14,16 @@ const DetailsCard = () => {
             height={100}
             className={styles.image}
           />
+          <div className={styles.authorDetails}>
+            <span className={styles.authorName}>
+              Narayan Poudel
+            </span>
+            -
+            <span className={styles.publishedDate}>
+              20 Jan, 2024
+            </span>
+          </div>
         </div>
-        <span className={styles.authorName}>
-          Narayan Poudel
-        </span>
-        -
-        <span className={styles.publishedDate}>
-          20 Jan 2024
-        </span>
         <ShareBtn />
       </div>
       <h1 className={styles.title}>
