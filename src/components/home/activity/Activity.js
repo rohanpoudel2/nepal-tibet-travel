@@ -1,15 +1,14 @@
 import Image from "next/image";
 import styles from "./activity.module.scss";
 
-const Activity = ({ colour, image }) => {
+const Activity = ({ colour, image, areas }) => {
   if (colour) {
     return (
-      <div className={styles.activity} style={{ backgroundColor: colour }}>
+      <div className={styles.activity} style={{ backgroundColor: colour, width: "279px", height: "180px" }}>
         <Image
           src="/images/Trekking.png"
           alt="Trekking Icon"
-          width={359}
-          height={200}
+          fill
           className={styles.image}
         />
         <h4 className={styles.activityTitle}>
@@ -19,7 +18,7 @@ const Activity = ({ colour, image }) => {
     )
   } else {
     return (
-      <div className={`${styles.activity} ${styles.activityImage}`}>
+      <div className={`${styles.activity} ${styles.activityImage}`} style={{ width: areas ? "244px" : "359px", height: areas ? "200px" : "200px" }}>
         <Image
           src={image}
           alt="Trekking Image"

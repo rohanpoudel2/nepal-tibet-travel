@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../styles/mixins/responsive.scss";
 
 @layer base {
   :root {
@@ -98,6 +99,10 @@
     font-size: 16px;
     line-height: 1.8rem;
     letter-spacing: .08rem;
+
+    @include mobile {
+      font-size: 0.8rem;
+    }
   }
 
   h1,

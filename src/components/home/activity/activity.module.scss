@@ -1,3 +1,5 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .activity {
   position: relative;
   display: flex;
@@ -5,9 +7,11 @@
   justify-content: center;
   margin-top: 50px;
   border-radius: 20px;
-  width: 359px;
-  height: 200px;
   cursor: pointer;
+
+  @include mobile {
+    width: 100% !important;
+  }
 
   .image {
     width: 100%;
@@ -20,15 +24,22 @@
     padding-bottom: 20px;
     font-size: 1.5rem;
     opacity: 80%;
+
+    @include mobile {
+      text-align: center;
+    }
   }
 }
 
 .activityImage {
-
   &:hover {
     .activityTitle {
       height: 50%;
       transition: 0.2s ease-in-out;
+
+      @include mobile {
+        height: auto;
+      }
     }
   }
 

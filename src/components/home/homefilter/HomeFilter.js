@@ -39,6 +39,7 @@ const HomeFilter = () => {
         </div>
         <button className={styles.button}>
           <i className="fa-solid fa-magnifying-glass"></i>
+          Search
         </button>
       </form>
     </div>

@@ -1,3 +1,5 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .swiper {
   height: 80vh;
   margin-top: -100px;
@@ -24,11 +26,19 @@
 
       .countryName {
         font-size: 8rem;
+
+        @include mobile {
+          font-size: 4rem;
+        }
       }
 
       .tagline {
         font-size: 1.7rem;
         font-weight: lighter;
+
+        @include mobile {
+          font-size: 1.2rem;
+        }
       }
 
       .exploreBtn {
@@ -39,6 +49,10 @@
         font-size: 1rem;
         color: white;
         transition: 0.2s ease-in-out;
+
+        @include mobile {
+          font-size: 0.8rem;
+        }
 
         &:hover {
           transition: 0.2s ease-in-out;

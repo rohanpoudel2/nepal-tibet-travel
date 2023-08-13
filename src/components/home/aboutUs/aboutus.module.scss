@@ -1,9 +1,14 @@
 @import "../../../styles/colors.scss";
+@import "../../../styles/mixins/responsive.scss";
 
 .aboutus {
   display: flex;
   gap: 50px;
   margin-top: 100px;
+
+  @include mobile {
+    flex-direction: column;
+  }
 
   .left {
     flex: 2;
@@ -13,11 +18,23 @@
 
     .title {
       font-size: 2rem;
+
+      @include mobile {
+        font-size: 1.5rem;
+      }
     }
 
     .desc {
       p {
         text-align: justify;
+
+        @include mobile {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          line-clamp: 5;
+          -webkit-box-orient: vertical;
+        }
       }
     }
 
@@ -33,6 +50,11 @@
 
       &:hover {
         cursor: pointer;
+      }
+
+      @include mobile {
+        padding: 10px;
+        font-size: 0.8rem;
       }
     }
   }
@@ -50,6 +72,11 @@
       height: 100%;
       border-radius: 20px;
       object-fit: cover;
+
+      @include mobile {
+        height: 300px;
+        object-position: top;
+      }
     }
 
     .details {
@@ -73,10 +100,18 @@
 
       .name {
         font-size: 1.8rem;
+
+        @include mobile {
+          font-size: 1.4rem;
+        }
       }
 
       .position {
         font-size: 1.2rem;
+
+        @include mobile {
+          font-size: 1remr;
+        }
       }
     }
   }

@@ -1,4 +1,8 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .activities {
+  width: 100%;
+
   .titles {
     display: flex;
     flex-direction: column;
@@ -11,13 +15,22 @@
 
     .title {
       font-size: 2rem;
+
+      @include mobile {
+        font-size: 1.5rem;
+      }
     }
   }
 
   .items {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 50px;
+    align-items: center;
+    justify-content: center;
+
+    .element {
+      width: 100%;
+    }
   }
 
 }

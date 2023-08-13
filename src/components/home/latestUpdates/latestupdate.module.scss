@@ -1,4 +1,8 @@
+@import "../../../styles/mixins/responsive.scss";
+@import "../../../styles/mixins/responsive.scss";
+
 .latestUpdate {
+
   .title {
     font-size: 2rem;
     margin-bottom: 30px;
@@ -12,6 +16,14 @@
     grid-row-gap: 50px;
 
     .update {
+      @include mobile {
+        height: 250px;
+      }
+
+      @include custom {
+        height: 300px;
+      }
+
       &:first-of-type {
         grid-area: 1 / 1 / 2 / 3;
       }
@@ -23,6 +35,11 @@
       &:last-of-type {
         grid-area: 2 / 2 / 3 / 3;
       }
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

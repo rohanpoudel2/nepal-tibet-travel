@@ -14,13 +14,13 @@ const PopularDestination = () => {
       />
       <div className={styles.details}>
         <span className={styles.countryName}>
-          Nepal
+          Cross Country Tour
         </span>
         <h4 className={styles.tripName}>
-          Everest Base Camp Trek
+          Nepal and Tibet
         </h4>
         <button className={styles.price}>
-          USD 1350
+          View Details
         </button>
       </div>
     </div>

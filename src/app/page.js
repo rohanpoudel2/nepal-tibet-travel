@@ -14,7 +14,7 @@ export default function Home() {
       <HomeFilter />
       <PopularDestinations />
       <AboutUs />
-      <Activities type="icon" />
+      <Activities type="image" />
       <TibetTour />
       <Activities type="image" />
       <TibetTour />

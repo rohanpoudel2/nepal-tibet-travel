@@ -13,6 +13,7 @@ const Nav = () => {
 
   const [colourChange, setColourChange] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
   const { openModal } = useContext(ModalContext);
   const pathname = usePathname();
 
@@ -25,16 +26,33 @@ const Nav = () => {
       }
     };
 
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setShowMobileNav(false);
+      }
+    }
+
     window.addEventListener("scroll", changeNavColour);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", changeNavColour);
+      window.removeEventListener("resize", handleResize);
     }
   }, []);
 
   useEffect(() => {
     setShowSearchModal(false);
   }, [pathname])
+
+  const showMobileItems = () => {
+    setShowMobileNav(p => !p);
+    if (!showMobileNav) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }
 
 
 
@@ -49,6 +67,12 @@ const Nav = () => {
                 alt="logo"
                 fill
                 className={styles.image}
+              />
+              <Image
+                src="/images/mactrek_small.svg"
+                alt="logo"
+                fill
+                className={styles.image_small}
               />
             </div>
           </Link>
@@ -161,6 +185,55 @@ const Nav = () => {
                 <i className="fa-solid fa-magnifying-glass"></i>
               </div>
             </div>
+          </div>
+          <div id="mobile_nav_items" className={styles.mobile_nav_items} style={{ display: showMobileNav ? "flex" : "none" }}>
+            <Image
+              src="/images/mobile_nav_background.jpeg"
+              alt="nav_background"
+              fill
+              className={styles.mobile_nav_background}
+            />
+            <div className={styles.close_nav} onClick={showMobileItems}>
+              <i className="fa-solid fa-xmark"></i>
+            </div>
+            <div className={styles.mobile_nav_item}>
+              <MenuItem
+                data={
+                  {
+                    title: "nepal",
+                    link: "/country/nepal",
+                  }
+                }
+              />
+            </div>
+            <div className={styles.mobile_nav_item}>
+              <MenuItem
+                data={
+                  {
+                    title: "tibet",
+                    link: "/country/nepal",
+                  }
+                }
+              />
+            </div>
+            <div className={styles.mobile_nav_item}>
+              <MenuItem
+                data={
+                  {
+                    title: "bhutal",
+                    link: "/country/nepal",
+                  }
+                }
+              />
+            </div>
+            <div className={styles.navItem}>
+              <div className={styles.search} onClick={() => setShowSearchModal(!showSearchModal)}>
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+          </div>
+          <div className={styles.open_nav} onClick={showMobileItems}>
+            <i className="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>

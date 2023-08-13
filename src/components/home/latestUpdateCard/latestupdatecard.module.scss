@@ -1,4 +1,5 @@
 @import "../../../styles/colors.scss";
+@import "../../../styles/mixins/responsive.scss";
 
 .latestUpdateCard {
   position: relative;
@@ -23,6 +24,14 @@
     display: flex;
     gap: 80px;
     justify-content: space-between;
+
+    @include mobile {
+      gap: 20px;
+    }
+
+    @include custom {
+      flex-direction: column;
+    }
 
     .left {
       display: flex;
@@ -67,6 +76,10 @@
 
       .title {
         font-size: 2rem;
+
+        @include mobile {
+          font-size: 1.5rem;
+        }
       }
     }
   }

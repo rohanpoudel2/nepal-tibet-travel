@@ -1,4 +1,7 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .homefilter {
+
   z-index: 10;
   position: relative;
   background: rgba(255, 255, 255, 0.7);
@@ -7,11 +10,18 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 800px;
+  width: 750px;
   height: 150px;
   margin: 0px auto;
   margin-top: -80px;
   padding: 1.8rem;
+
+  @include mobile {
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 
   .items {
     width: 100%;
@@ -19,6 +29,12 @@
     display: flex;
     align-items: center;
     gap: 50px;
+
+    @include mobile {
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     .item {
       display: flex;
@@ -37,6 +53,11 @@
           border: none;
           font-size: 1rem;
         }
+
+        @include mobile {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
 
@@ -54,6 +75,12 @@
         background-color: white;
         color: #333;
         transition: 0.2s ease-in-out;
+      }
+
+      @include mobile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
     }
   }
