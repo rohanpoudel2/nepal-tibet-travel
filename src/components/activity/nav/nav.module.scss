@@ -1,3 +1,5 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .nav {
   z-index: 30;
   position: sticky;
@@ -8,6 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include mobile {
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
 
   .navLinks {
     font-size: 18px;

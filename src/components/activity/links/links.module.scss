@@ -1,9 +1,15 @@
 @import "../../../styles/colors.scss";
+@import "../../../styles/mixins/responsive.scss";
 
 .links {
   display: flex;
   align-items: center;
   gap: 50px;
+
+  @include mobile {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 
   .useful_links {
     display: flex;

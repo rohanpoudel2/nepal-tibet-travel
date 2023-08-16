@@ -1,8 +1,14 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .content {
   position: relative;
   display: flex;
   gap: 50px;
   margin-top: 50px;
+
+  @include mobile {
+    flex-direction: column-reverse;
+  }
 
   .left {
     flex: 1;

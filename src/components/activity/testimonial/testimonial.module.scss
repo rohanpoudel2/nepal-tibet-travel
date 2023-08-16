@@ -1,8 +1,15 @@
+@import "../../../styles/mixins/responsive.scss";
+
 .testimonial {
 
   .title {
     margin-bottom: 50px;
     font-size: 2rem;
+
+    @include mobile {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
   }
 
   .mySwiper {

@@ -1,5 +1,5 @@
 @import "../../../../styles/colors.scss";
-
+@import "../../../../styles/mixins/responsive.scss";
 
 .detail {
   position: absolute;
@@ -13,6 +13,10 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 5;
+
+  @include mobile {
+    left: 0;
+  }
 
   .top {
     display: flex;
@@ -45,6 +49,10 @@
       font-size: 2rem;
       font-weight: bold;
       color: #333;
+
+      @include mobile {
+        font-size: 1.5rem;
+      }
     }
 
     .btn {
