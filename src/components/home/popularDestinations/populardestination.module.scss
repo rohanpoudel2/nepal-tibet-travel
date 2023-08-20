@@ -1,24 +1,6 @@
 @import "../../../styles/mixins/responsive.scss";
 
 .popular {
-  .titles {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    .subtitle {
-      font-size: 18px;
-      font-weight: light;
-    }
-
-    .title {
-      font-size: 2rem;
-
-      @include mobile {
-        font-size: 1.5rem;
-      }
-    }
-  }
 
   .destinations {
     display: flex;

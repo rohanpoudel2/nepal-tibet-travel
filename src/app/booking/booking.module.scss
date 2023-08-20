@@ -1,8 +1,15 @@
 @import "../../styles/colors.scss";
+@import "../../styles/mixins/responsive.scss";
 
 .booking {
+  position: relative;
   margin: 50px 0px;
   height: calc(100vh + fit-content);
+
+  @include mobile {
+    height: fit-content;
+  }
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -43,18 +50,5 @@
       color: #8b8b8b;
     }
 
-    .details {
-      display: flex;
-      gap: 10px;
-
-      .left {
-        flex: 3;
-      }
-
-      .right {
-        flex: 1;
-        position: relative;
-      }
-    }
   }
 }

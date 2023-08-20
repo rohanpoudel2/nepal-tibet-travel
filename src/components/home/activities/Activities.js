@@ -1,7 +1,7 @@
-import Divider from "@/components/ui/divider/Divider";
 import Activity from "../activity/Activity";
 import styles from "./activities.module.scss";
 import { ColourPallet } from "@/utils/colourPallet";
+import Title from "@/components/ui/title/Title";
 
 const Activities = ({ type, areas }) => {
 
@@ -29,21 +29,10 @@ const Activities = ({ type, areas }) => {
   return (
     <div className="container">
       <section className={styles.activities}>
-        <div className={styles.titles}>
-          {
-            !areas &&
-            (
-              <h3 className={styles.subtitle}>
-                What to do
-              </h3>
-            )
-          }
-
-          <h2 className={styles.title}>
-            Nepal activities
-          </h2>
-          <Divider />
-        </div>
+        <Title
+          title="Nepal activities"
+          subtitle={!areas && `What to do`}
+        />
         <div className={styles.items} style={{ columnGap: type === "icon" ? "20px" : "50px" }}>
           {
             type === "icon"

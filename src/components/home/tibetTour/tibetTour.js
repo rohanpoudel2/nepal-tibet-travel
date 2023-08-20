@@ -1,24 +1,20 @@
 import Divider from "@/components/ui/divider/Divider";
 import styles from "./tibettour.module.scss";
+import Title from "@/components/ui/title/Title";
 
 const TibetTour = () => {
   return (
     <div className="container">
       <section className={styles.tibettour}>
-        <div className={styles.titles}>
-          <h3 className={styles.subtitle}>
-            Travel with group
-          </h3>
-          <h2 className={styles.title}>
-            Tibet group tour 2023
-          </h2>
-          <Divider />
-        </div>
+        <Title
+          title="Tibet group tour 2023"
+          subtitle="Travel with group"
+        />
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
               <div className="overflow-auto">
-                <table className="min-w-full text-left text-sm text-center">
+                <table className="min-w-full text-sm text-center">
                   <thead className="border-b text-xl font-medium dark:border-neutral-500">
                     <tr>
                       <th scope="col" className="px-6 py-4">Tour Name</th>
