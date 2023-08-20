@@ -56,9 +56,11 @@ const Footer = () => {
                 Company
               </h5>
               <div className={styles.links}>
-                <span className={styles.link}>
-                  About us
-                </span>
+                <Link href="/about-us">
+                  <span className={styles.link}>
+                    About us
+                  </span>
+                </Link>
                 <span className={styles.link}>
                   Work with us
                 </span>

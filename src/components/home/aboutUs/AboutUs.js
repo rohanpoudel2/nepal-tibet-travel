@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./aboutus.module.scss";
+import Link from "next/link";
 
 const AboutUs = () => {
   return (
@@ -13,9 +14,11 @@ const AboutUs = () => {
               Our consultants have all travelled extensively throughout Nepal, Tibet, Bhutan, Sikkim and Darjeeling and our recommendations are based on personal experience. Our professional tour and trek guides accompany you in all our tours to assist and answer your questions.
             </p>
           </div>
-          <button className={styles.btn}>
-            Learn More
-          </button>
+          <Link href="/about-us">
+            <button className={styles.btn}>
+              Learn More
+            </button>
+          </Link>
         </div>
         <div className={styles.right}>
           <Image
