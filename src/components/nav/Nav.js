@@ -1,19 +1,30 @@
 "use client"
 import Image from "next/image";
 import styles from "./nav.module.scss";
+import React from "react";
 import { useContext, useEffect, useState } from "react";
-import MenuItem from "./MenuItem/MenuItem";
 import Link from "next/link";
 import SearchModal from "./searchModal/SearchModal";
 import { usePathname } from "next/navigation";
 import { ModalContext } from "@/context/ModalContext";
 import Modal from "../ui/modal/Modal";
 
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
+import { cn } from "@/lib/utils"
+
 const Nav = () => {
 
   const [colourChange, setColourChange] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false);
-  const [showMobileNav, setShowMobileNav] = useState(false);
   const { openModal } = useContext(ModalContext);
   const pathname = usePathname();
 
@@ -26,18 +37,10 @@ const Nav = () => {
       }
     };
 
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setShowMobileNav(false);
-      }
-    }
-
     window.addEventListener("scroll", changeNavColour);
-    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", changeNavColour);
-      window.removeEventListener("resize", handleResize);
     }
   }, []);
 
@@ -45,15 +48,72 @@ const Nav = () => {
     setShowSearchModal(false);
   }, [pathname])
 
-  const showMobileItems = () => {
-    setShowMobileNav(p => !p);
-    if (!showMobileNav) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "scroll";
-    }
-  }
+  const components = [
+    {
+      title: "Nepal Information",
+      href: "/country/nepal",
+      description:
+        "Information About Nepal",
+    },
+    {
+      title: "Trekking",
+      href: "/country/nepal/trekking",
+      description:
+        "Information About Trekking in Nepal",
+    },
+    {
+      title: "Tour",
+      href: "/country/nepal/tour",
+      description:
+        "Information About Tour in Nepal",
+    },
+    {
+      title: "Peak Climbing",
+      href: "/country/nepal/peak-climbing",
+      description: "Information About Peak Climbing in Nepal",
+    },
+    {
+      title: "Jungle Safari",
+      href: "/country/nepal/jungle-safari",
+      description:
+        "Information About Jungle Safari in Nepal",
+    },
+    {
+      title: "Expedition",
+      href: "/country/nepal/expedition",
+      description:
+        "Information About Expedition in Nepal",
+    },
+    {
+      title: "Adventure Activities",
+      href: "/country/nepal/adventure-activities",
+      description:
+        "Information About Adventure Activities in Nepal",
+    },
+  ]
 
+  const ListItem = React.forwardRef(({ className, title, children, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <Link
+            ref={ref}
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className
+            )}
+            {...props}
+          >
+            <div className="text-sm font-medium leading-none">{title}</div>
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+              {children}
+            </p>
+          </Link>
+        </NavigationMenuLink>
+      </li>
+    )
+  })
+  ListItem.displayName = "ListItem"
 
 
   return (
@@ -76,165 +136,126 @@ const Nav = () => {
               />
             </div>
           </Link>
-          <div className={styles.navItems}>
-            <div className={styles.navItem}>
-              <Link href="/">
-                home
-              </Link>
-            </div>
-            <MenuItem
-              data={
-                {
-                  title: "nepal",
-                  link: "/country/nepal",
-                  subMenu: [
-                    {
-                      name: "Nepal Information",
-                      link: "/country/nepal",
-                    },
-                    {
-                      name: "Trekking",
-                      link: "/country/nepal/trekking",
-                    },
-                    {
-                      name: "Tour",
-                      link: "/country/nepal/tour",
-                    },
-                    {
-                      name: "Peak Climbing",
-                      link: "/country/nepal/peak-climbing",
-                    },
-                    {
-                      name: "Jungle Safari",
-                      link: "/country/nepal/jungle-safari",
-                    },
-                    {
-                      name: "Expedition",
-                      link: "/country/nepal/expedition",
-                    },
-                    {
-                      name: "Adventure Activities",
-                      link: "/country/nepal/adventure-activities",
-                    },
-                  ]
-                }
-              }
-            />
-            <div className={styles.navItem}>
-              <MenuItem
-                data={
-                  {
-                    title: "tibet",
-                    link: "/country/tibet",
-                    subMenu: [
-                      {
-                        name: "Tibet Information",
-                        link: "/country/tibet",
-                      },
-                      {
-                        name: "Expedition",
-                        link: "/country/tibet/expedition",
-                      },
-                      {
-                        name: "Tour",
-                        link: "/country/tibet/tour",
-                      },
-                      {
-                        name: "Kailash Manosarovar Tour",
-                        link: "#",
-                      },
-                      {
-                        name: "Festival Tour",
-                        link: "/country/tibet/festival-tour",
-                      },
-                      {
-                        name: "Adventure Activities",
-                        link: "/country/tibet/adventure-activities",
-                      },
-                    ]
-                  }
-                }
-              />
-            </div>
-            <div className={styles.navItem}>
-              <MenuItem
-                data={
-                  {
-                    title: "bhutan",
-                    link: "/country/bhutan",
-                    subMenu: [
-                      {
-                        name: "Bhutan Information",
-                        link: "/country/bhutan",
-                      },
-                      {
-                        name: "Tour",
-                        link: "/country/bhutan/tour",
-                      },
-                      {
-                        name: "Trekking",
-                        link: "/country/bhutan/trekking",
-                      }
-                    ]
-                  }
-                }
-              />
-            </div>
-            <div className={styles.navItem}>
-              <div className={styles.search} onClick={() => setShowSearchModal(!showSearchModal)}>
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </div>
-            </div>
-          </div>
-          <div id="mobile_nav_items" className={styles.mobile_nav_items} style={{ display: showMobileNav ? "flex" : "none" }}>
-            <Image
-              src="/images/mobile_nav_background.jpeg"
-              alt="nav_background"
-              fill
-              className={styles.mobile_nav_background}
-            />
-            <div className={styles.close_nav} onClick={showMobileItems}>
-              <i className="fa-solid fa-xmark"></i>
-            </div>
-            <div className={styles.mobile_nav_item}>
-              <MenuItem
-                data={
-                  {
-                    title: "nepal",
-                    link: "/country/nepal",
-                  }
-                }
-              />
-            </div>
-            <div className={styles.mobile_nav_item}>
-              <MenuItem
-                data={
-                  {
-                    title: "tibet",
-                    link: "/country/nepal",
-                  }
-                }
-              />
-            </div>
-            <div className={styles.mobile_nav_item}>
-              <MenuItem
-                data={
-                  {
-                    title: "bhutal",
-                    link: "/country/nepal",
-                  }
-                }
-              />
-            </div>
-            <div className={styles.navItem}>
-              <div className={styles.search} onClick={() => setShowSearchModal(!showSearchModal)}>
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </div>
-            </div>
-          </div>
-          <div className={styles.open_nav} onClick={showMobileItems}>
-            <i className="fa-solid fa-bars"></i>
-          </div>
+          <NavigationMenu className={`${styles.navItems}`}>
+            <NavigationMenuList className="flex gap-0 md:gap-5">
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Nepal</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid h-[500px] overflow-scroll w-[250px] sm:w-[300px] sm:h-[550px] gap-3 p-4 md:h-[600px] md:w-[500px] md:grid-cols-2 lg:w-[600px] lg:h-[600px] ">
+                    <li className="row-span-2">
+                      <NavigationMenuLink asChild>
+                        <Link
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative"
+                          href="/"
+                        >
+                          <Image
+                            src="/images/nepal.png"
+                            width={50}
+                            height={50}
+                            alt="Nepal Flag"
+                          />
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            Nepal
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            Nepal, a land of diverse cultures and stunning landscapes.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    {components.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Tibet</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid h-[500px] overflow-scroll w-[250px] sm:w-[300px] sm:h-[550px] gap-3 p-4 md:h-[600px] md:w-[500px] md:grid-cols-2 lg:w-[600px] lg:h-[600px] ">
+                    <li className="row-span-2">
+                      <NavigationMenuLink asChild>
+                        <Link
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative"
+                          href="/"
+                        >
+                          <Image
+                            src="/images/tibet.webp"
+                            width={50}
+                            height={50}
+                            alt="China Tibet Flag"
+                          />
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            Tibet
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            Tibet, a plateau region rich in spirituality and breathtaking vistas.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    {components.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Bhutan</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid h-[500px] overflow-scroll w-[250px] sm:w-[300px] sm:h-[550px] gap-3 p-4 md:h-[600px] md:w-[500px] md:grid-cols-2 lg:w-[600px] lg:h-[600px] ">
+                    <li className="row-span-2">
+                      <NavigationMenuLink asChild>
+                        <Link
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative"
+                          href="/"
+                        >
+                          <Image
+                            src="/images/bhutan.png"
+                            width={50}
+                            height={50}
+                            alt="Bhutan Flag"
+                          />
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            Bhutan
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            Bhutan, a tranquil Himalayan kingdom with a focus on happiness.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    {components.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem className={styles.search}>
+                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} cursor-pointer`}>
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </div>
       {
