@@ -1,29 +1,31 @@
 import Link from "next/link";
-import styles from "./options.module.scss";
+import { badgeVariants } from "@/components/ui/badge"
+
 
 const Options = () => {
+
   return (
-    <div className={styles.options}>
-      <Link href="#access" className={styles.option}>
-        Access to Nepal
+    <div className="flex gap-5 m-5 w-full md:justify-center overflow-scroll">
+      <Link href="#access" className={badgeVariants({ variant: "custom" })}>
+        <div className="mt-px">Access to Nepal</div>
       </Link>
-      <Link href="#entry" className={styles.option}>
-        Visa for Nepal
+      <Link href="#visa" className={badgeVariants({ variant: "custom" })}>
+        <div className="mt-px">Visa for Nepal</div>
       </Link>
-      <Link href="#entry" className={styles.option}>
-        Transportation
+      <Link href="#transportation" className={badgeVariants({ variant: "custom" })}>
+        <div className="mt-px">Transportation</div>
       </Link>
-      <Link href="#entry" className={styles.option}>
-        Accommodation
+      <Link href="#transportation" className={badgeVariants({ variant: "custom" })}>
+        <div className="mt-px">Accommodation</div>
       </Link>
-      <Link href="#entry" className={styles.option}>
-        Food
+      <Link href="#transportation" className={badgeVariants({ variant: "custom" })}>
+        <div className="mt-px">Food</div>
       </Link>
-      <Link href="#entry" className={styles.option}>
-        Clothing
+      <Link href="#transportation" className={badgeVariants({ variant: "custom" })}>
+        <div className="mt-px">Clothing</div>
       </Link>
-      <Link href="#entry" className={styles.option}>
-        Trekking Permits
+      <Link href="#transportation" className={badgeVariants({ variant: "custom" })}>
+        <div className="mt-px">Trekking Permits</div>
       </Link>
     </div>
   )

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
 const AboutUs = () => {
   return (
@@ -117,6 +118,7 @@ const AboutUs = () => {
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet quam assumenda, aperiam nulla cum nostrum! Enim perspiciatis, officiis labore cum quo illo voluptatem saepe magni provident vitae voluptatibus, animi eligendi!
           </p>
         </div>
+        <Separator orientation="horizontal" />
         <div className="grid grid-rows-2 grid-cols-2 md:grid-cols-3 gap-10">
           <div className="flex flex-col gap-3">
             <h3 className="text-xl">

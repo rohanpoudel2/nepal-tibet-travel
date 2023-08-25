@@ -15,7 +15,7 @@ const TibetTour = () => {
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
               <div className="overflow-auto">
                 <table className="min-w-full text-sm text-center">
-                  <thead className="border-b text-xl font-medium dark:border-neutral-500">
+                  <thead className="border-b text-lg font-medium dark:border-neutral-500">
                     <tr>
                       <th scope="col" className="px-6 py-4">Tour Name</th>
                       <th scope="col" className="px-6 py-4">Duration</th>

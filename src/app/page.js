@@ -6,6 +6,7 @@ import AboutUs from '@/components/home/aboutUs/AboutUs'
 import Activities from '@/components/home/activities/Activities'
 import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
+import HomeActivities from '@/components/home/homeActivities/HomeActivities'
 
 export default function Home() {
   return (
@@ -14,11 +15,12 @@ export default function Home() {
       <HomeFilter />
       <PopularDestinations />
       <AboutUs />
-      <Activities type="image" />
+      <HomeActivities />
+      {/* <Activities type="image" /> */}
       <TibetTour />
-      <Activities type="image" />
+      <HomeActivities />
       <TibetTour />
-      <Activities type="image" />
+      <HomeActivities />
       <TibetTour />
       <LatestUpdates />
     </div>

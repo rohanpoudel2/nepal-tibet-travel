@@ -249,11 +249,6 @@ const Nav = () => {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuItem className={styles.search}>
-                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} cursor-pointer`}>
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
