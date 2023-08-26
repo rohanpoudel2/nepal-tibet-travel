@@ -1,13 +1,12 @@
-import styles from "./title.module.scss";
 import Divider from "../divider/Divider";
 
 const Title = ({ title, subtitle }) => {
   return (
-    <div className={styles.titles}>
-      <h3 className={styles.subtitle}>
+    <div className="flex flex-col gap-1">
+      <h3 className={`text-neutral-500 dark:text-neutral-400`}>
         {subtitle}
       </h3>
-      <h2 className={styles.title}>
+      <h2 className={`text-3xl font-bold leading-tight`}>
         {title}
       </h2>
       <Divider />

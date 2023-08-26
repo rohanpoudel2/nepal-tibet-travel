@@ -1,23 +1,17 @@
+import Title from "@/components/ui/title/Title";
 import LatestUpdateCard from "../latestUpdateCard/LatestUpdateCard";
-import styles from "./latestupdate.module.scss";
 
 const LatestUpdates = () => {
   return (
     <div className="container">
-      <section className={styles.latestUpdate}>
-        <h4 className={styles.title}>
-          Latest updates
-        </h4>
-        <div className={styles.updates}>
-          <div className={styles.update}>
-            <LatestUpdateCard />
-          </div>
-          <div className={styles.update}>
-            <LatestUpdateCard />
-          </div>
-          <div className={styles.update}>
-            <LatestUpdateCard />
-          </div>
+      <section className="flex flex-col">
+        <Title
+          title="Latest updates"
+        />
+        <div className={`mt-[38px] grid grid-cols-2 grid-rows-2 gap-[50px]`}>
+          <LatestUpdateCard />
+          <LatestUpdateCard />
+          <LatestUpdateCard />
         </div>
       </section>
     </div>

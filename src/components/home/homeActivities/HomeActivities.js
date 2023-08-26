@@ -14,8 +14,6 @@ const HomeActivities = () => {
           <HomeActivity />
           <HomeActivity />
           <HomeActivity />
-          <HomeActivity />
-          <HomeActivity />
         </div>
       </section >
 
