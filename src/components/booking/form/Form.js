@@ -26,6 +26,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator";
 
 const formSchema = z.object({
   firstname: z.string().min(2).max(20),
@@ -163,6 +164,7 @@ const BookingForm = () => {
             )}
           />
         </div>
+        <Separator />
         {formFieldTitle(
           "02",
           "Trip Details"
@@ -208,6 +210,7 @@ const BookingForm = () => {
             )}
           />
         </div>
+        <Separator />
         {formFieldTitle(
           "03",
           "Payment Method"
@@ -289,6 +292,7 @@ const BookingForm = () => {
             />
           </div>
         </div>
+        <Separator />
         <div className="grid grid-cols-1 grid-rows-2 gap-5">
           <FormField
             control={form.control}

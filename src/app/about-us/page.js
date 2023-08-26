@@ -6,7 +6,7 @@ const AboutUs = () => {
     <div className="container">
       <section id="about" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 items-center mb-20">
         <div className="flex flex-col gap-5">
-          <h1 className="text-3xl">
+          <h1 className="text-4xl">
             We're changing the way people experiece Nepal, Tibet and Bhutan.
           </h1>
           <p className="font-light">
