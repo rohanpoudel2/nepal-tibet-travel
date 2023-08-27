@@ -2,12 +2,12 @@ import Image from "next/image"
 
 const TourCard = ({ image, tourName, desc, rating }) => {
   return (
-    <div className="relative flex w-full max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
+    <div className="relative flex w-full max-w-[26rem] sm:max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
       <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
         <Image
           src={image}
           alt="ui/ux review check"
-          width={400}
+          width={416}
           height={400}
         />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>

@@ -9,7 +9,7 @@ const HomeActivities = () => {
           title="Nepal activities"
           subtitle={`What to do`}
         />
-        <div className='mt-[38px] flex flex-wrap gap-[50px]'>
+        <div className='mt-[38px] grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[50px]'>
           <HomeActivity />
           <HomeActivity />
           <HomeActivity />

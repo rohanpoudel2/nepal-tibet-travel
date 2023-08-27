@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 const AboutUs = () => {
   return (
     <div className="container">
-      <section id="about" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 items-center mb-20">
+      <section id="about" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 items-center mb-20 md:h-[80vh]">
         <div className="flex flex-col gap-5">
           <h1 className="text-4xl">
             We're changing the way people experiece Nepal, Tibet and Bhutan.
@@ -13,7 +13,7 @@ const AboutUs = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus consequuntur amet ipsum blanditiis saepe fugit enim facilis nemo. Quo praesentium itaque vel quos nemo odio debitis omnis voluptate id perferendis.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 place-items-center md:grid-cols-4 gap-4">
           <div className="grid gap-4">
             <div>
               <Image className="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1662444500922-b2f09cf80f38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=404&q=80" alt="Nepal, Tibet, Bhutan Trek" width={200} height={500} />
@@ -61,7 +61,7 @@ const AboutUs = () => {
         </div>
       </section>
       <section id="our_mission" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 mb-20">
-        <div className="flex flex-col gap-5 order-2 md:order-1">
+        <div className="flex flex-col gap-5">
           <h2 className="text-3xl">
             Our Mission
           </h2>
@@ -72,7 +72,10 @@ const AboutUs = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus consequuntur amet ipsum blanditiis saepe fugit enim facilis nemo. Quo praesentium itaque vel quos nemo odio debitis omnis voluptate id perferendis.
           </p>
         </div>
-        <div className="flex items-center justify-center flex-col text-left order-1 md:order-2">
+        <div className="block md:hidden">
+          <Separator />
+        </div>
+        <div className="flex items-center justify-center flex-col text-left">
           <div className="flex  md:flex-col gap-5">
             <div className="w-50 flex flex-col gap-3">
               <h2 className="text-3xl font-bold">
@@ -99,6 +102,9 @@ const AboutUs = () => {
               </span>
             </div>
           </div>
+        </div>
+        <div className="block md:hidden">
+          <Separator />
         </div>
       </section>
       <section id="banner" className="w-full relative h-[400px] mb-20">

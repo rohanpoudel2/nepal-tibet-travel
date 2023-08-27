@@ -1,3 +1,5 @@
+@import "../../../../styles/mixins/responsive.scss";
+
 .shareBtn {
   right: 0px;
   background-color: white;
@@ -12,5 +14,11 @@
 
   &:hover {
     cursor: pointer;
+  }
+
+  span {
+    @include mobile {
+      display: none;
+    }
   }
 }

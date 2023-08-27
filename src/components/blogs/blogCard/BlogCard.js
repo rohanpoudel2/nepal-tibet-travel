@@ -3,14 +3,14 @@ import Image from "next/image";
 const BlogCard = () => {
   return (
     <div className="flex flex-wrap gap-5">
-      <div className="relative flex max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+      <div className="relative flex sm:max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
           <Image
             src="https://images.pexels.com/photos/2856273/pexels-photo-2856273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Blog Card Image"
             width={400}
             height={300}
-            className="w-full"
+            className="w-full h-[300px] sm:h-auto object-cover"
           />
         </div>
         <div className="p-4">

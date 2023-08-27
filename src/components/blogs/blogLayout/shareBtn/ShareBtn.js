@@ -1,11 +1,11 @@
 "use client"
-import { useContext } from "react"
+import Modal from "@/components/ui/modal/Modal";
 import styles from "./share.module.scss"
-import { ModalContext } from "@/context/ModalContext"
+import { useState } from "react";
 
 const ShareBtn = () => {
 
-  const { setOpenModal } = useContext(ModalContext);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
@@ -13,6 +13,7 @@ const ShareBtn = () => {
         <span>Share this Blog</span>
         <i className="fa-solid fa-arrow-up-from-bracket"></i>
       </button>
+      <Modal openModal={openModal} setOpenModal={setOpenModal} />
     </>
   )
 }

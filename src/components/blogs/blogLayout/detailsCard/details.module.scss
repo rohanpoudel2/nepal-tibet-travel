@@ -23,37 +23,37 @@
     gap: 10px;
     justify-content: space-between;
 
-    @include mobile {
-      flex-direction: column-reverse;
-      align-items: flex-start;
-    }
-
     .authorProfile {
       display: flex;
       align-items: center;
       gap: 10px;
 
       .image {
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         object-fit: cover;
-      }
 
+        @include mobile {
+          width: 25px;
+          height: 25px;
+        }
+      }
 
       .authorDetails {
         display: flex;
+        align-items: center;
 
         .authorName {
           font-weight: bold;
         }
+
+        .publishedDate {
+          font-size: 0.8rem;
+        }
       }
     }
 
-  }
-
-  .title {
-    font-size: 2rem;
   }
 
   .category {

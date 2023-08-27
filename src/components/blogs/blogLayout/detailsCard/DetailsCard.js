@@ -18,20 +18,19 @@ const DetailsCard = () => {
             <span className={styles.authorName}>
               Narayan Poudel
             </span>
-            -
-            <span className={styles.publishedDate}>
-              20 Jan, 2024
-            </span>
           </div>
         </div>
         <ShareBtn />
       </div>
-      <h1 className={styles.title}>
+      <h1 className={`text-xl md:text-3xl`}>
         An Epic Journey Through the Annapurna Circuit
       </h1>
       <h3 className={styles.category}>
         Trekking
       </h3>
+      <span className={`text-xs text-gray-600 tracking-wider`}>
+        Published on: 20 Jan, 2023
+      </span>
     </div>
   )
 }

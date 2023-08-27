@@ -20,7 +20,7 @@ const Trekking = ({ params }) => {
           </p>
         </div>
         <div className={styles.trekkingAreas}>
-          <section className="flex flex-wrap gap-[50px]">
+          <section className="grid sm:grid-cols-3 md:grid-cols-4 gap-[50px]">
             <RegionCard
               image="https://images.unsplash.com/photo-1509883488717-779cd2d85976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2397&q=80"
               name="Everest Region"

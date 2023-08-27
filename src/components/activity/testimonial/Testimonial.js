@@ -23,6 +23,10 @@ const Testimonial = () => {
           navigation={true}
           modules={[Navigation, Pagination]}
           className={styles.mySwiper}
+          style={{
+            "--swiper-navigation-color": "#47A5CF",
+            "--swiper-pagination-color": "#47A5CF",
+          }}
         >
           <SwiperSlide className={styles.swiperCard}>
             <TestimonialCard />

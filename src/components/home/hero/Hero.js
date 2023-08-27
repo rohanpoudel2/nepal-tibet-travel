@@ -18,6 +18,9 @@ const Hero = () => {
       }}
       modules={[Navigation, Autoplay]}
       className={styles.swiper}
+      style={{
+        "--swiper-navigation-color": "#fff",
+      }}
     >
       <SwiperSlide>
         <div className={styles.hero}>
@@ -46,7 +49,7 @@ const Hero = () => {
       <SwiperSlide>
         <div className={styles.hero}>
           <Image
-            src="/images/hero.jpeg"
+            src="/images/tibet.jpeg"
             width={1920}
             height={1080}
             alt="Hero Image"
@@ -68,7 +71,7 @@ const Hero = () => {
       <SwiperSlide>
         <div className={styles.hero}>
           <Image
-            src="/images/hero.jpeg"
+            src="/images/bhutan.jpeg"
             width={1920}
             height={1080}
             alt="Hero Image"
@@ -77,28 +80,6 @@ const Hero = () => {
           <div className={styles.details}>
             <h1 className={styles.countryName}>
               Bhutan
-            </h1>
-            <h3 className={styles.tagline}>
-              8th wonder of the world
-            </h3>
-            <button className={styles.exploreBtn}>
-              Explore
-            </button>
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className={styles.hero}>
-          <Image
-            src="/images/hero.jpeg"
-            width={1920}
-            height={1080}
-            alt="Hero Image"
-            className={styles.image}
-          />
-          <div className={styles.details}>
-            <h1 className={styles.countryName}>
-              Nepal
             </h1>
             <h3 className={styles.tagline}>
               8th wonder of the world

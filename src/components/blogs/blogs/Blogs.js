@@ -1,10 +1,9 @@
 import Link from "next/link";
 import BlogCard from "../blogCard/BlogCard";
-import styles from "./blogs.module.scss";
 
 const Blogs = () => {
   return (
-    <div className={styles.blogs}>
+    <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-[50px]">
       <Link href="/blogs/journey-through-annapurna-circuit">
         <BlogCard />
       </Link>

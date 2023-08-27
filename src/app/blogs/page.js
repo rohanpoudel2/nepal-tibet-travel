@@ -10,7 +10,7 @@ const Blogs = () => {
           <h1 className="text-2xl md:text-3xl font-bold">
             Tales from the Trails
           </h1>
-          <h2 className="text-sm md:text-lg font-normal">
+          <h2 className="text-sm md:text-lg font-normal text-gray-700">
             Discover Firsthand Accounts, Expert Tips, and Insider Stories
           </h2>
           <Separator />

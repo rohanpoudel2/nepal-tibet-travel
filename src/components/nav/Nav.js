@@ -2,11 +2,10 @@
 import Image from "next/image";
 import styles from "./nav.module.scss";
 import React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import SearchModal from "./searchModal/SearchModal";
 import { usePathname } from "next/navigation";
-import { ModalContext } from "@/context/ModalContext";
 import Modal from "../ui/modal/Modal";
 
 import {
@@ -25,7 +24,6 @@ const Nav = () => {
 
   const [colourChange, setColourChange] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false);
-  const { openModal } = useContext(ModalContext);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -253,12 +251,6 @@ const Nav = () => {
           </NavigationMenu>
         </div>
       </div>
-      {
-        showSearchModal && <SearchModal setShowModal={setShowSearchModal} showModal={showSearchModal} />
-      }
-      {
-        openModal && <Modal />
-      }
     </div >
   )
 }

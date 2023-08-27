@@ -30,6 +30,7 @@
 
       .countryName {
         font-size: 8rem;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 
         @include mobile {
           font-size: 4rem;
@@ -38,7 +39,8 @@
 
       .tagline {
         font-size: 1.7rem;
-        font-weight: lighter;
+        font-weight: 300;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 
         @include mobile {
           font-size: 1.2rem;
@@ -47,12 +49,14 @@
 
       .exploreBtn {
         padding: 10px 20px;
-        background-color: transparent;
+        background-color: rgba(white, 0.5);
         border-radius: 20px;
         border: 2px solid white;
         font-size: 1rem;
-        color: white;
+        font-weight: 600;
+        color: rgba(black, 0.9);
         transition: 0.2s ease-in-out;
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.3);
 
         @include mobile {
           font-size: 0.8rem;
