@@ -33,7 +33,7 @@ const TibetTour = () => {
               <TableCell>5 Days</TableCell>
               <TableCell>$1560</TableCell>
               <TableCell className="text-right">
-                <button className="bg-blue-400 p-2 text-white font-bold rounded-lg hover:bg-blue-500">
+                <button className="bg-[#47A5CF] p-2 text-white font-bold rounded-lg hover:bg-sky-600">
                   Book Now
                 </button>
               </TableCell>
@@ -43,7 +43,7 @@ const TibetTour = () => {
               <TableCell>5 Days</TableCell>
               <TableCell>$1560</TableCell>
               <TableCell className="text-right">
-                <button className="bg-blue-400 p-2 text-white font-bold rounded-lg hover:bg-blue-500">
+                <button className="bg-[#47A5CF] p-2 text-white font-bold rounded-lg hover:bg-sky-600">
                   Book Now
                 </button>
               </TableCell>
@@ -53,7 +53,7 @@ const TibetTour = () => {
               <TableCell>5 Days</TableCell>
               <TableCell>$1560</TableCell>
               <TableCell className="text-right">
-                <button className="bg-blue-400 p-2 text-white font-bold rounded-lg hover:bg-blue-500">
+                <button className="bg-[#47A5CF] p-2 text-white font-bold rounded-lg hover:bg-sky-600">
                   Book Now
                 </button>
               </TableCell>
@@ -63,7 +63,7 @@ const TibetTour = () => {
               <TableCell>5 Days</TableCell>
               <TableCell>$1560</TableCell>
               <TableCell className="text-right">
-                <button className="bg-blue-400 p-2 text-white font-bold rounded-lg hover:bg-blue-500">
+                <button className="bg-[#47A5CF] p-2 text-white font-bold rounded-lg hover:bg-sky-600">
                   Book Now
                 </button>
               </TableCell>
@@ -73,7 +73,7 @@ const TibetTour = () => {
               <TableCell>5 Days</TableCell>
               <TableCell>$1560</TableCell>
               <TableCell className="text-right">
-                <button className="bg-blue-400 p-2 text-white font-bold rounded-lg hover:bg-blue-500">
+                <button className="bg-[#47A5CF] p-2 text-white font-bold rounded-lg hover:bg-sky-600">
                   Book Now
                 </button>
               </TableCell>

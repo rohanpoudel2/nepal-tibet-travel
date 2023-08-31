@@ -184,7 +184,7 @@ const Footer = () => {
                   height={50}
                   className={styles.image}
                 />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap ">MacTrek ©</span>
+                <span className="self-center text-2xl font-semibold whitespace-nowrap "> Mac Treks & Tours Nepal</span>
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

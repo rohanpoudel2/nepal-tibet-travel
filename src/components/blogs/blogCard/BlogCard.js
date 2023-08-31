@@ -1,12 +1,12 @@
-import Image from "next/image";
+import ImageComponent from "@/components/Image/Image";
 
 const BlogCard = () => {
   return (
     <div className="flex flex-wrap gap-5">
       <div className="relative flex sm:max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
-          <Image
-            src="https://images.pexels.com/photos/2856273/pexels-photo-2856273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          <ImageComponent
+            image_link="https://images.pexels.com/photos/2856273/pexels-photo-2856273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Blog Card Image"
             width={400}
             height={300}
@@ -23,12 +23,13 @@ const BlogCard = () => {
         </div>
         <div className="flex items-center justify-between p-4 pt-2">
           <div className="flex items-center -space-x-3">
-            <Image
-              src="https://images.unsplash.com/photo-1585422548899-86a408bf6242?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80"
+            <ImageComponent
+              image_link="https://images.unsplash.com/photo-1585422548899-86a408bf6242?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80"
               alt="Blog Card Image"
               width={50}
               height={50}
-              className="relative inline-block h-9 w-9 rounded-full border-2 border-white object-cover object-center"
+              className="relative inline-block h-9 w-9 !rounded-full border-2 border-white object-cover object-center"
+              skeletonRadius="!rounded-full"
             />
           </div>
           <p className="block text-sm font-normal leading-relaxed text-inherit antialiased">

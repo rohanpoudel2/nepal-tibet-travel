@@ -29,23 +29,22 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator";
 
 const formSchema = z.object({
-  firstname: z.string().min(2).max(20),
-  lastname: z.string().min(2).max(20),
+  firstname: z.string().min(2, "First name should be at least 2 characters.").max(20, "First name should not exceed 20 characters."),
+  lastname: z.string().min(2, "Last name should be at least 2 characters.").max(20, "Last name should not exceed 20 characters."),
   email: z.string().email().min(5),
   country: z.string(),
   tripName: z.string(),
   groupSize: z.string().min(2).max(2),
   paymentOptions: z.enum(["full", "deposit"]),
-  creditcardnumber: z.string().regex(/^\d{16}$/),
-  expDate: z.string().regex(/^(0[1-9]|1[0-2])\/\d{2}$/),
-  cvv: z.string().regex(/^\d{3,4}$/),
+  creditcardnumber: z.string().regex(/^\d{16}$/, "Invalid Credit/Debit Card Number"),
+  expDate: z.string().regex(/^(0[1-9]|1[0-2])\/\d{2}$/, "Invalid Expiration Date"),
+  cvv: z.string().regex(/^\d{3,4}$/, "Invalid CVV"),
   tandc: z.boolean()
 })
 
 const BookingForm = () => {
 
   function onSubmit(values) {
-    console.log("hello")
     console.log(values)
   }
 

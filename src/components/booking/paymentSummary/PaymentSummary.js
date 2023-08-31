@@ -34,13 +34,13 @@ const PaymentSummary = () => {
         {Charges("Bank Charge", 1825 * (3 / 100))}
       </div>
       <Separator />
-      <div className="flex flex-col gap-3">
+      {/* <div className="flex flex-col gap-3">
         <Input type="text" name="referral" placeholder="Enter Referral Code" onChange={(e) => setReferral(e.target.value)} value={referral} />
         <Button className="bg-green-500 hover:bg-green-600 ring-2 ring-transparent focus:ring-green-800">
           Check Referral Code
         </Button>
       </div>
-      <Separator />
+      <Separator /> */}
       <div className="flex items-center gap-5 justify-center h-12 text-xl font-bold bg-[#47A5CF] text-white rounded-sm">
         <div>
           Amount Due

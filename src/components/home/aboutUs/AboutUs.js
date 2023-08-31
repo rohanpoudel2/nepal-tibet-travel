@@ -1,8 +1,16 @@
-import Image from "next/image";
+import ImageComponent from "@/components/Image/Image";
 import styles from "./aboutus.module.scss";
 import Link from "next/link";
 
 const AboutUs = () => {
+
+  const Image_Link = [
+    "https://images.unsplash.com/photo-1670346044371-509da7ba16e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+    "https://images.unsplash.com/photo-1585458859260-2981c2a7b665?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2880&q=80",
+    "https://images.unsplash.com/photo-1661345366637-b06cc07531d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2972&q=80",
+    "https://images.unsplash.com/photo-1553140764-d647de0c1556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+  ];
+
   return (
     <div className="container">
       <section className={`${styles.aboutus}`}>
@@ -21,20 +29,17 @@ const AboutUs = () => {
           </Link>
         </div>
         <div className={styles.right}>
-          <Image
-            src="/images/narayan.jpg"
-            alt="Narayan MacTrek"
-            width={800}
-            height={800}
-            className={styles.image}
-          />
-          <div className={styles.details}>
-            <span className={styles.name}>
-              Narayan Poudel
-            </span>
-            <div className={styles.position}>
-              Founder/Team Mentor - Mac Treks
-            </div>
+          <div className="grid grid-cols-2 grid-rows-2 gap-5 items-center place-content-center">
+            {
+              Image_Link?.map((link) => (
+                <ImageComponent
+                  image_link={link}
+                  width={400}
+                  height={400}
+                  alt="Nepal Tibet Travel"
+                />
+              ))
+            }
           </div>
         </div>
       </section >

@@ -30,6 +30,7 @@ const Hero = () => {
             height={1080}
             alt="Hero Image"
             className={styles.image}
+            loading="eager"
           />
           <div className={styles.details}>
             <h1 className={styles.countryName}>
@@ -54,6 +55,7 @@ const Hero = () => {
             height={1080}
             alt="Hero Image"
             className={styles.image}
+            loading="eager"
           />
           <div className={styles.details}>
             <h1 className={styles.countryName}>
@@ -76,6 +78,7 @@ const Hero = () => {
             height={1080}
             alt="Hero Image"
             className={styles.image}
+            loading="eager"
           />
           <div className={styles.details}>
             <h1 className={styles.countryName}>

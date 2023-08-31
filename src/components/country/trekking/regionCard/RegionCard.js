@@ -1,14 +1,14 @@
 import Link from "next/link"
-import Image from "next/image"
+import ImageComponent from "@/components/Image/Image"
 
 const RegionCard = ({ image, name, desc }) => {
   return (
     <div className="max-w-full sm:max-w-[256px] bg-white border border-gray-200 rounded-lg shadow">
       <Link href="#" className="relative">
-        <Image
+        <ImageComponent
           width={700}
           height={400}
-          src={image}
+          image_link={image}
           alt="Region Image"
           className="rounded-t-lg h-[250px] sm:h-[150px] object-cover object-bottom"
         />
