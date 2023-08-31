@@ -4,9 +4,7 @@ import styles from "./nav.module.scss";
 import React from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import SearchModal from "./searchModal/SearchModal";
 import { usePathname } from "next/navigation";
-import Modal from "../ui/modal/Modal";
 
 import {
   NavigationMenu,
@@ -15,7 +13,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
 import { cn } from "@/lib/utils"
@@ -28,7 +25,7 @@ const Nav = () => {
 
   useEffect(() => {
     const changeNavColour = () => {
-      if (window.scrollY >= 80) {
+      if (window.scrollY >= 0.1) {
         setColourChange(true);
       } else {
         setColourChange(false);
