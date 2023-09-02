@@ -60,7 +60,7 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-      <section id="our_mission" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 mb-20">
+      <section id="our_mission" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 place-items-center gap-5 mb-20">
         <div className="flex flex-col gap-5">
           <h2 className="text-3xl">
             Our Mission
@@ -75,8 +75,39 @@ const AboutUs = () => {
         <div className="block md:hidden">
           <Separator />
         </div>
+        <div className="relative flex items-center w-full h-full md:w-[50%] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
+          <Image
+            src="/images/narayanPP.jpg"
+            width={300}
+            height={200}
+            alt="Narayan Poudel"
+            className="rounded-full w-32 h-32 md:w-52 md:h-52 object-cover mb-5"
+          />
+          <h3 className="font-bold mt-3 text-xl">
+            Narayan Poudel
+          </h3>
+          <span className="text-sm">
+            Founder, Team Leader
+          </span>
+          <div className="flex gap-5 my-5">
+            <Image
+              src="/images/linkedin.png"
+              width={20}
+              height={20}
+              alt="Narayan Poudel Linkedin"
+            />
+            <Image
+              src="/images/twitter.png"
+              width={20}
+              height={20}
+              alt="Narayan Poudel Linkedin"
+            />
+          </div>
+        </div>
+      </section>
+      <section>
         <div className="flex items-center justify-center flex-col text-left">
-          <div className="flex  md:flex-col gap-5">
+          <div className="flex gap-20">
             <div className="w-50 flex flex-col gap-3">
               <h2 className="text-3xl font-bold">
                 1200+
@@ -102,9 +133,6 @@ const AboutUs = () => {
               </span>
             </div>
           </div>
-        </div>
-        <div className="block md:hidden">
-          <Separator />
         </div>
       </section>
       <section id="banner" className="w-full relative h-[400px] mb-20">

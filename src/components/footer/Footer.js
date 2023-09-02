@@ -195,7 +195,7 @@ const Footer = () => {
                     <Link href="/about-us" className="hover:underline">About us</Link>
                   </li>
                   <li className="mb-4">
-                    <Link href="/career" className="hover:underline">Work with us</Link>
+                    <Link href="/work-with-us" className="hover:underline">Work with us</Link>
                   </li>
                   <li>
                     <Link href="/blogs" className="hover:underline ">Blogs</Link>
@@ -227,8 +227,22 @@ const Footer = () => {
             </div>
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
-          <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center ">© 2023 <Link href="https://nepaltibettravel.com/" className="hover:underline">Mactrek™</Link>. All Rights Reserved.
+          <div className="flex flex-col gap-2 md:flex-row md:gap-0 justify-between py-2 px-2 bg-gray-100 text-sm font-semibold">
+            <span className="">
+              Hotline: +977-9851038450
+            </span>
+            <span className="flex gap-2 items-center text-gray-600 tracking-wide">
+              <Link href="#" className="text-gray-500 hover:text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 384 512">
+                  <path d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z" />
+                </svg>
+              </Link>
+              Chhetrapati, Thamel, Kathmandu, Nepal
+            </span>
+          </div>
+          <div className="sm:flex sm:items-center sm:justify-between mt-4 lg:mt-6">
+            <span className="text-sm text-gray-500 sm:text-center flex gap-2 ">
+              © 2023 <Link href="https://nepaltibettravel.com/" className="hover:underline">Mactrek™</Link>. All Rights Reserved.
             </span>
             <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
               <Link href="#" className="text-gray-500 hover:text-gray-900 ">

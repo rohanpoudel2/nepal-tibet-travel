@@ -7,6 +7,7 @@ import Activities from '@/components/home/activities/Activities'
 import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
 import HomeActivities from '@/components/home/homeActivities/HomeActivities'
+import WorkingWith from '@/components/home/workingWith/WorkingWith'
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <HomeActivities />
       <TibetTour />
       <LatestUpdates />
+      <WorkingWith />
     </div>
   )
 }
