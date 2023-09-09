@@ -8,7 +8,7 @@ import "swiper/css"
 import "swiper/css/navigation";
 import Link from "next/link";
 
-const Hero = () => {
+const Hero = ({ data }) => {
   return (
     <Swiper
       navigation={true}
@@ -22,77 +22,35 @@ const Hero = () => {
         "--swiper-navigation-color": "#fff",
       }}
     >
-      <SwiperSlide>
-        <div className={styles.hero}>
-          <Image
-            src="/images/hero.jpeg"
-            width={1920}
-            height={1080}
-            alt="Hero Image"
-            className={styles.image}
-            loading="eager"
-          />
-          <div className={styles.details}>
-            <h1 className={styles.countryName}>
-              Nepal
-            </h1>
-            <h3 className={styles.tagline}>
-              8th wonder of the world
-            </h3>
-            <Link href="/country/nepal">
-              <button className={styles.exploreBtn}>
-                Explore
-              </button>
-            </Link>
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className={styles.hero}>
-          <Image
-            src="/images/tibet.jpeg"
-            width={1920}
-            height={1080}
-            alt="Hero Image"
-            className={styles.image}
-            loading="eager"
-          />
-          <div className={styles.details}>
-            <h1 className={styles.countryName}>
-              Tibet
-            </h1>
-            <h3 className={styles.tagline}>
-              8th wonder of the world
-            </h3>
-            <button className={styles.exploreBtn}>
-              Explore
-            </button>
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className={styles.hero}>
-          <Image
-            src="/images/bhutan.jpeg"
-            width={1920}
-            height={1080}
-            alt="Hero Image"
-            className={styles.image}
-            loading="eager"
-          />
-          <div className={styles.details}>
-            <h1 className={styles.countryName}>
-              Bhutan
-            </h1>
-            <h3 className={styles.tagline}>
-              8th wonder of the world
-            </h3>
-            <button className={styles.exploreBtn}>
-              Explore
-            </button>
-          </div>
-        </div>
-      </SwiperSlide>
+      {
+        data?.map((hero) => (
+          <SwiperSlide key={hero?.hero_image.id}>
+            <div className={styles.hero}>
+              <Image
+                src={hero?.hero_image.url}
+                width={1920}
+                height={1080}
+                alt={hero?.hero_image.alt}
+                className={styles.image}
+                loading="eager"
+              />
+              <div className={styles.details}>
+                <h1 className={styles.countryName}>
+                  {hero?.hero_title}
+                </h1>
+                <h3 className={styles.tagline}>
+                  {hero?.hero_subtitle}
+                </h3>
+                <Link href={hero?.hero_button?.button_link?.url}>
+                  <button className={styles.exploreBtn}>
+                    {hero?.hero_button?.button_text}
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))
+      }
     </Swiper>
   )
 }

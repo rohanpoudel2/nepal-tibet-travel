@@ -2,24 +2,23 @@ import styles from "./populardestination.module.scss";
 import PopularDestination from "../popularDestination/PopularDestination";
 import Title from "@/components/ui/title/Title";
 
-const PopularDestinations = () => {
+const PopularDestinations = ({ data }) => {
+
   return (
     <div className="container">
       <section className={`${styles.popular}`}>
         <Title
-          title="Popular destinations"
-          subtitle="Where to Go"
+          title={data?.title}
+          subtitle={data?.sub_title}
         />
         <div className={styles.destinations}>
-          <div className={styles.destination}>
-            <PopularDestination />
-          </div>
-          <div className={styles.destination}>
-            <PopularDestination />
-          </div>
-          <div className={styles.destination}>
-            <PopularDestination />
-          </div>
+          {
+            data?.card.map((popularDestination, i) => (
+              <div className={styles.destination} key={i}>
+                <PopularDestination data={popularDestination} />
+              </div>
+            ))
+          }
         </div>
       </section >
     </div >

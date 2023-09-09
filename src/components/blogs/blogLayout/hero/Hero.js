@@ -2,16 +2,16 @@ import Image from "next/image";
 import styles from "./hero.module.scss";
 import DetailsCard from "../detailsCard/DetailsCard";
 
-const Hero = () => {
+const Hero = ({ image, detailCard }) => {
   return (
     <div className={styles.hero}>
       <Image
-        src="https://images.pexels.com/photos/9206628/pexels-photo-9206628.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="HeroImage"
+        src={image?.sizes.large}
+        alt={image?.alt}
         fill
         className={styles.image}
       />
-      <DetailsCard />
+      <DetailsCard data={detailCard} />
     </div>
   )
 }

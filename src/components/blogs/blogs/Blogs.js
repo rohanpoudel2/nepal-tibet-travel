@@ -1,20 +1,16 @@
 import Link from "next/link";
 import BlogCard from "../blogCard/BlogCard";
 
-const Blogs = () => {
+const Blogs = ({ data }) => {
   return (
     <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-[50px]">
-      <Link href="/blogs/journey-through-annapurna-circuit">
-        <BlogCard />
-      </Link>
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
+      {
+        data?.map((blog) => (
+          <Link href={`/blogs/${blog?.slug}`} key={blog?.id}>
+            <BlogCard data={blog} />
+          </Link>
+        ))
+      }
     </div>
   )
 }

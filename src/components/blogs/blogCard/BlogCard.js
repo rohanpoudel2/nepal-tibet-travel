@@ -1,12 +1,13 @@
-import ImageComponent from "@/components/Image/Image";
+import { blogCardDate } from "@/utils/dates";
+import Image from "next/image";
 
-const BlogCard = () => {
+const BlogCard = ({ data }) => {
   return (
     <div className="flex flex-wrap gap-5">
       <div className="relative flex sm:max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
-          <ImageComponent
-            image_link="https://images.pexels.com/photos/2856273/pexels-photo-2856273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          <Image
+            src={data?._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}
             alt="Blog Card Image"
             width={400}
             height={300}
@@ -14,17 +15,13 @@ const BlogCard = () => {
           />
         </div>
         <div className="p-4">
-          <h4 className="block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-            Trekking Through the Himalayas
-          </h4>
-          <p className="mt-3 text-sm font-normal leading-relaxed text-gray-700 line-clamp-2 antialiased">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, corporis fugiat placeat veritatis sequi id nihil? Iusto explicabo eligendi, ex in dicta sapiente placeat qui, non itaque, soluta laborum velit.
-          </p>
+          <h4 className="block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 max-h-[3.5rem] line-clamp-2 antialiased" dangerouslySetInnerHTML={{ __html: data?.title.rendered }} />
+          <div className="mt-3 text-sm font-normal leading-relaxed text-gray-700 line-clamp-2 antialiased" dangerouslySetInnerHTML={{ __html: data?.excerpt.rendered }} />
         </div>
         <div className="flex items-center justify-between p-4 pt-2">
-          <div className="flex items-center -space-x-3">
-            <ImageComponent
-              image_link="https://images.unsplash.com/photo-1585422548899-86a408bf6242?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80"
+          <div className="flex items-center -space-x-3 h-9">
+            <Image
+              src={data?._embedded.author[0].avatar_urls[96]}
               alt="Blog Card Image"
               width={50}
               height={50}
@@ -33,7 +30,7 @@ const BlogCard = () => {
             />
           </div>
           <p className="block text-sm font-normal leading-relaxed text-inherit antialiased">
-            January 10
+            {blogCardDate(data?.modified_gmt)}
           </p>
         </div>
       </div>

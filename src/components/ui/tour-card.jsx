@@ -1,17 +1,17 @@
 import Image from "next/image"
-import ImageComponent from "../Image/Image"
+import Link from "next/link"
 
-const TourCard = ({ image, tourName, desc, rating }) => {
+const TourCard = ({ image, tourName, desc, rating, button }) => {
   return (
     <div className="relative flex w-full max-w-[26rem] sm:max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-      <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-        <ImageComponent
-          image_link={image}
+      <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 h-40">
+        <Image
+          src={image}
           alt="Everest Base Camp Trek"
           width={416}
           height={400}
+          className="w-full h-full object-cover"
         />
-        {/* <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60"></div> */}
       </div>
       <div className="p-6">
         <div className="mb-3 flex items-center justify-between">
@@ -32,7 +32,7 @@ const TourCard = ({ image, tourName, desc, rating }) => {
                 clipRule="evenodd"
               ></path>
             </svg>
-            5.0
+            {rating}
           </p>
         </div>
         <p className="text-sm font-light leading-relaxed text-gray-700 line-clamp-3 antialiased">
@@ -40,13 +40,17 @@ const TourCard = ({ image, tourName, desc, rating }) => {
         </p>
       </div>
       <div className="p-6 pt-1">
-        <button
-          className="block w-full select-none rounded-lg bg-[#47A5CF] py-3.5 px-7 text-center align-middle   text-sm font-bold uppercase text-white shadow-md shadow-sky-500/20 transition-all hover:shadow-lg hover:shadow-sky-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button"
-          data-ripple-light="true"
-        >
-          Reserve
-        </button>
+        <Link href={button?.button_link.url}>
+          <button
+            className="block w-full select-none rounded-lg bg-[#47A5CF] py-3.5 px-7 text-center align-middle   text-sm font-bold uppercase text-white shadow-md shadow-sky-500/20 transition-all hover:shadow-lg hover:shadow-sky-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            data-ripple-light="true"
+          >
+            {
+              button?.button_text
+            }
+          </button>
+        </Link>
       </div>
     </div>
   )

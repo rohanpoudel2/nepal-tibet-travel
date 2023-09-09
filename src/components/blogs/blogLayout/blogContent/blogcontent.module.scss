@@ -1,3 +1,103 @@
+@import "../../../../styles/colors.scss";
+
 .blogContent {
   margin: 100px 0px 50px 0px;
+
+  text-align: justify;
+
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  ol,
+  ul {
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+  }
+
+  li {
+    color: black;
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $link-visited;
+    }
+
+    &:visited {
+      color: $link-visited;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0px auto;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 10px;
+    color: black;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  h5 {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  h6 {
+    font-size: 0.6rem;
+    font-weight: bold;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+
+  th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+
+
 }

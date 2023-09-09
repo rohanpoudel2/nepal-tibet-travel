@@ -8,14 +8,14 @@ const ImageComponent = ({ image_link, width, height, alt, className = "", skelet
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden w-full">
       <Image
         src={image_link}
         alt={alt}
         width={width}
         height={height}
         onLoad={() => setIsLoading(false)}
-        className={`${className} rounded-lg`}
+        className={`${className} rounded-lg h-full object-cover`}
       />
       {isLoading && <Skeleton className={`w-full h-full absolute top-0 rounded-inherit ${skeletonRadius}`} />}
     </div>

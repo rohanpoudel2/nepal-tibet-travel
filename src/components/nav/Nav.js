@@ -32,6 +32,8 @@ const Nav = () => {
       }
     };
 
+    changeNavColour();
+
     window.addEventListener("scroll", changeNavColour);
 
     return () => {

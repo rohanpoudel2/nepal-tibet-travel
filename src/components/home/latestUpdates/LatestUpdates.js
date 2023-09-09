@@ -1,17 +1,19 @@
 import Title from "@/components/ui/title/Title";
 import LatestUpdateCard from "../latestUpdateCard/LatestUpdateCard";
 
-const LatestUpdates = () => {
+const LatestUpdates = ({ data }) => {
   return (
     <div className="container">
       <section className="flex flex-col">
         <Title
-          title="Latest updates"
+          title={data?.title}
         />
         <div className={`mt-[38px] grid grid-cols-2 grid-rows-2 gap-[50px]`}>
-          <LatestUpdateCard />
-          <LatestUpdateCard />
-          <LatestUpdateCard />
+          {
+            data?.latest_updates.map((data, i) => (
+              <LatestUpdateCard data={data} key={i} />
+            ))
+          }
         </div>
       </section>
     </div>

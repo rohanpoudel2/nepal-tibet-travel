@@ -3,28 +3,41 @@ import Hero from '@/components/home/hero/Hero'
 import HomeFilter from '@/components/home/homefilter/HomeFilter'
 import PopularDestinations from '@/components/home/popularDestinations/PopularDestinations'
 import AboutUs from '@/components/home/aboutUs/AboutUs'
-import Activities from '@/components/home/activities/Activities'
 import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
 import HomeActivities from '@/components/home/homeActivities/HomeActivities'
 import WorkingWith from '@/components/home/workingWith/WorkingWith'
+import { getPageData } from '@/utils/wordpress'
 
-export default function Home() {
+const getData = async () => {
+  const res = await getPageData('home');
+  if (!res) {
+    return;
+  }
+  return JSON.parse(res);
+}
+
+export default async function Home() {
+
+  const homeRes = await getData();
+  const homeContent = homeRes[0]?.acf;
+
   return (
     <div className={styles.home}>
-      <Hero />
+      <Hero data={homeContent?.home_hero} />
       <HomeFilter />
-      <PopularDestinations />
-      <AboutUs />
-      <HomeActivities />
-      {/* <Activities type="image" /> */}
-      <TibetTour />
-      <HomeActivities />
-      <TibetTour />
-      <HomeActivities />
-      <TibetTour />
-      <LatestUpdates />
-      <WorkingWith />
+      <PopularDestinations data={homeContent?.popular_destination} />
+      <AboutUs data={homeContent?.about_us} />
+      {
+        homeContent?.countries.map((data, i) => (
+          <div key={i}>
+            <HomeActivities data={data?.country_items.activity} />
+            <TibetTour data={data?.country_items.group_tour} />
+          </div>
+        ))
+      }
+      <LatestUpdates data={homeContent?.latest_updates} />
+      <WorkingWith data={homeContent?.working_with} />
     </div>
   )
 }
