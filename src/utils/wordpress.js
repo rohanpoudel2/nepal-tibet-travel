@@ -10,9 +10,9 @@ export const getPageData = async (slug) => {
   }
 }
 
-export async function getBlogs() {
+export async function getBlogs(type = 'posts') {
   try {
-    const blogRes = await fetch(`${BASE_URL}/posts?_embed`, { next: { revalidate: 10 } });
+    const blogRes = await fetch(`${BASE_URL}/${type}?_embed`, { next: { revalidate: 10 } });
     const blogs = await blogRes.json();
     return (JSON.stringify(blogs));
   } catch (error) {
@@ -20,9 +20,14 @@ export async function getBlogs() {
   }
 }
 
-export async function getBlog(slug) {
+export async function getBlog(slug, type = 'posts') {
+  let blogRes
   try {
-    const blogRes = await fetch(`${BASE_URL}/posts?filter[slug]=${slug}&_embed`, { next: { revalidate: 10 } });
+    if (type == 'posts') {
+      blogRes = await fetch(`${BASE_URL}/${type}?filter[slug]=${slug}&_embed`, { next: { revalidate: 10 } });
+    } else {
+      blogRes = await fetch(`${BASE_URL}/${type}?slug=${slug}&_embed`, { next: { revalidate: 10 } });
+    }
     const blog = await blogRes.json();
     return (JSON.stringify(blog));
   } catch (error) {

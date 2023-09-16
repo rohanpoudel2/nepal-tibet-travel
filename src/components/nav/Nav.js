@@ -45,7 +45,7 @@ const Nav = () => {
     setShowSearchModal(false);
   }, [pathname])
 
-  const components = [
+  const nepalComponents = [
     {
       title: "Nepal Information",
       href: "/country/nepal",
@@ -86,6 +86,94 @@ const Nav = () => {
       href: "/country/nepal/adventure-activities",
       description:
         "Information About Adventure Activities in Nepal",
+    },
+  ]
+
+  const bhutanComponents = [
+    {
+      title: "Bhutan Information",
+      href: "/country/bhutan",
+      description:
+        "Information About Bhutan",
+    },
+    {
+      title: "Trekking",
+      href: "/country/bhutan/trekking",
+      description:
+        "Information About Trekking in Bhutan",
+    },
+    {
+      title: "Tour",
+      href: "/country/bhutan/tour",
+      description:
+        "Information About Tour in Bhutan",
+    },
+    {
+      title: "Peak Climbing",
+      href: "/country/bhutan/peak-climbing",
+      description: "Information About Peak Climbing in Bhutan",
+    },
+    {
+      title: "Jungle Safari",
+      href: "/country/bhutan/jungle-safari",
+      description:
+        "Information About Jungle Safari in Bhutan",
+    },
+    {
+      title: "Expedition",
+      href: "/country/bhutan/expedition",
+      description:
+        "Information About Expedition in Bhutan",
+    },
+    {
+      title: "Adventure Activities",
+      href: "/country/bhutan/adventure-activities",
+      description:
+        "Information About Adventure Activities in Bhutan",
+    },
+  ]
+
+  const tibetComponents = [
+    {
+      title: "Tibet Information",
+      href: "/country/tibet",
+      description:
+        "Information About Tibet",
+    },
+    {
+      title: "Trekking",
+      href: "/country/tibet/trekking",
+      description:
+        "Information About Trekking in Tibet",
+    },
+    {
+      title: "Tour",
+      href: "/country/tibet/tour",
+      description:
+        "Information About Tour in Tibet",
+    },
+    {
+      title: "Peak Climbing",
+      href: "/country/tibet/peak-climbing",
+      description: "Information About Peak Climbing in Tibet",
+    },
+    {
+      title: "Jungle Safari",
+      href: "/country/tibet/jungle-safari",
+      description:
+        "Information About Jungle Safari in Tibet",
+    },
+    {
+      title: "Expedition",
+      href: "/country/tibet/expedition",
+      description:
+        "Information About Expedition in Tibet",
+    },
+    {
+      title: "Adventure Activities",
+      href: "/country/tibet/adventure-activities",
+      description:
+        "Information About Adventure Activities in Tibet",
     },
   ]
 
@@ -160,7 +248,7 @@ const Nav = () => {
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    {components.map((component) => (
+                    {nepalComponents.map((component) => (
                       <ListItem
                         key={component.title}
                         title={component.title}
@@ -197,7 +285,7 @@ const Nav = () => {
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    {components.map((component) => (
+                    {tibetComponents.map((component) => (
                       <ListItem
                         key={component.title}
                         title={component.title}
@@ -234,7 +322,7 @@ const Nav = () => {
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    {components.map((component) => (
+                    {bhutanComponents.map((component) => (
                       <ListItem
                         key={component.title}
                         title={component.title}
