@@ -24,6 +24,7 @@ import Link from "next/link"
 export function DataTable({
   columns,
   data,
+  regionName
 }) {
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -43,16 +44,14 @@ export function DataTable({
     table.setPageSize(5);
   }, [])
 
-
-
   return (
     <>
       <div className="flex justify-between items-center py-4">
         <h2 className="text-2xl">
-          Kanchenjunga Trekking Packages
+          {regionName}
         </h2>
         <Input
-          placeholder="Search Kanchenjunga Treks..."
+          placeholder={`Search ${regionName} Treks...`}
           value={(table.getColumn("name")?.getFilterValue()) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)

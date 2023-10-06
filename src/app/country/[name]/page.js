@@ -8,12 +8,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const getData = async (slug) => {
-  const res = await getBlog(slug, 'country');
+  const res = await getBlog(slug, 'country-information');
   if (!res) {
     return;
   }
   let response = JSON.parse(res);
-  if (response.length === 0 || response[0].acf.hero === null) {
+  if (response.length === 0 || response[0]?.acf?.hero === null) {
     return notFound();
   }
   return JSON.parse(res);

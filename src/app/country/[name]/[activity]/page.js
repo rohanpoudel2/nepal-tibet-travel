@@ -2,11 +2,20 @@ import Hero from "@/components/country/trekking/hero/Hero"
 import styles from "./trekking.module.scss"
 import Activities from "@/components/home/activities/Activities";
 import RegionCard from "@/components/country/trekking/regionCard/RegionCard";
+import { getRegions } from "@/utils/wordpress";
 
-const Trekking = ({ params }) => {
+const getRegionsData = async () => {
+  const res = await getRegions(17);
+  if (!res) {
+    return;
+  }
+  return JSON.parse(res);
+}
+
+const Trekking = async ({ params }) => {
 
   const { activity, name } = params;
-
+  const destinationsRes = await getRegionsData();
   return (
     <div className={styles.trekking}>
       <Hero
@@ -21,36 +30,17 @@ const Trekking = ({ params }) => {
         </div>
         <div className={styles.trekkingAreas}>
           <section className="grid sm:grid-cols-3 md:grid-cols-4 gap-[50px]">
-            <RegionCard
-              image="https://images.unsplash.com/photo-1509883488717-779cd2d85976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2397&q=80"
-              name="Everest Region"
-              desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, amet soluta."
-            />
-            <RegionCard
-              image="https://images.unsplash.com/photo-1509883488717-779cd2d85976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2397&q=80"
-              name="Everest Region"
-              desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, amet soluta."
-            />
-            <RegionCard
-              image="https://images.unsplash.com/photo-1509883488717-779cd2d85976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2397&q=80"
-              name="Everest Region"
-              desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, amet soluta."
-            />
-            <RegionCard
-              image="https://images.unsplash.com/photo-1509883488717-779cd2d85976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2397&q=80"
-              name="Everest Region"
-              desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, amet soluta."
-            />
-            <RegionCard
-              image="https://images.unsplash.com/photo-1509883488717-779cd2d85976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2397&q=80"
-              name="Everest Region"
-              desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, amet soluta."
-            />
-            <RegionCard
-              image="https://images.unsplash.com/photo-1509883488717-779cd2d85976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2397&q=80"
-              name="Everest Region"
-              desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, amet soluta."
-            />
+            {
+              destinationsRes.map((data) => (
+                <RegionCard
+                  key={data?.id}
+                  image={data?.thumbnail?.sizes.medium.source_url}
+                  name={data?.name}
+                  desc={data?.description}
+                  page_link={data?.slug}
+                />
+              ))
+            }
           </section>
         </div>
       </div>

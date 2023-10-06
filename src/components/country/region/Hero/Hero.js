@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from "./hero.module.scss"
 
-const Hero = () => {
+const Hero = ({ title, image }) => {
   return (
     <div className={styles.hero}>
       <Image
@@ -11,7 +11,7 @@ const Hero = () => {
         className={styles.image}
       />
       <h1 className={styles.title}>
-        Everest Region
+        {title}
       </h1>
     </div>
   )

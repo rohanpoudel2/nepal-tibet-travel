@@ -34,3 +34,33 @@ export async function getBlog(slug, type = 'posts') {
     console.error(error);
   }
 }
+
+export async function getRegions(id = 17) {
+  try {
+    const destinationRes = await fetch(`${BASE_URL}/destination?parent=${id}&_embed`, { next: { revalidate: 10 } });
+    const destinations = await destinationRes.json();
+    return (JSON.stringify(destinations));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getRegionTours(slug, embed = false) {
+  try {
+    const regionTourRes = await fetch(`${BASE_URL}/trip?destination_slug=${slug}${embed ? '&_embed' : ''}`, { next: { revalidate: 10 } });
+    const regionTours = await regionTourRes.json();
+    return (JSON.stringify(regionTours))
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getTaxonomyName(id, name) {
+  try {
+    const countryRes = await fetch(`${BASE_URL}/${name}/${id}`, { next: { revalidate: 10 } });
+    const countryDataRes = await countryRes.json();
+    return (JSON.stringify(countryDataRes))
+  } catch (error) {
+    console.error(error);
+  }
+}
