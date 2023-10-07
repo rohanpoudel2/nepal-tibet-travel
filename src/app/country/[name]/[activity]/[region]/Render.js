@@ -51,7 +51,6 @@ const columns = [
 
 const Region = ({ d, regionName }) => {
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const updatedData = await Promise.all(d.map(async (dItem) => ({
@@ -73,7 +72,11 @@ const Region = ({ d, regionName }) => {
 
   const REGION_NAME = regionName.split('-');
 
-  const getRegionName = useMemo(() => REGION_NAME[0][0].toUpperCase() + REGION_NAME[0].slice(1) + ' ' + REGION_NAME[1][0].toUpperCase() + REGION_NAME[1].slice(1), [REGION_NAME])
+  const getRegionName = useMemo(() => {
+    return REGION_NAME[0][0].toUpperCase() + REGION_NAME[0].slice(1) + ' ' + REGION_NAME[1][0].toUpperCase() + REGION_NAME[1].slice(1).split('_')[0]
+  },
+    [REGION_NAME]
+  )
 
   return (
     <div className={styles.region}>

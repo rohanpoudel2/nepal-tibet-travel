@@ -1,19 +1,21 @@
 import React from 'react'
 import { getRegionTours } from '@/utils/wordpress';
 import Region from './Render';
+import { notFound } from 'next/navigation';
 
-const getToursData = async (slug) => {
-  const res = await getRegionTours(slug, false);
+const getToursData = async (id) => {
+  const res = await getRegionTours(id, false);
   if (!res) {
     return;
   }
-  return JSON.parse(res);
+  let response = JSON.parse(res);
+  if (response.length === 0) return notFound();
+  return response;
 }
 
 const Fetcher = async ({ params }) => {
 
-  const tourRes = await getToursData(params.region);
-
+  const tourRes = await getToursData(params.region.split('_')[1]);
   return (
     <Region d={tourRes} regionName={params.region} />
   )

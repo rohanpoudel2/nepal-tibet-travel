@@ -16,7 +16,7 @@ const getData = async (slug) => {
   if (response.length === 0 || response[0]?.acf?.hero === null) {
     return notFound();
   }
-  return JSON.parse(res);
+  return response;
 }
 
 const Country = async ({ params }) => {

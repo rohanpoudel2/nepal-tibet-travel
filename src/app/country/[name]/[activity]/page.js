@@ -1,43 +1,48 @@
 import Hero from "@/components/country/trekking/hero/Hero"
 import styles from "./trekking.module.scss"
-import Activities from "@/components/home/activities/Activities";
+import { getActivityId } from "@/utils/apiUtils";
+import { getCountryRegions } from "@/utils/wordpress";
 import RegionCard from "@/components/country/trekking/regionCard/RegionCard";
-import { getRegions } from "@/utils/wordpress";
+import { notFound } from "next/navigation";
 
-const getRegionsData = async () => {
-  const res = await getRegions(17);
+const getCountryRegion = async (country, activityId) => {
+  const res = await getCountryRegions(country, activityId);
   if (!res) {
     return;
   }
-  return JSON.parse(res);
+  let response = JSON.parse(res);
+  if (response.length === 0) return notFound();
+  return response;
 }
 
 const Trekking = async ({ params }) => {
 
   const { activity, name } = params;
-  const destinationsRes = await getRegionsData();
+
+  const ACTIVITY_NAME = activity.replace(/-/g, " ");
+
+  const countryDestinationRes = await getCountryRegion(name, getActivityId(name, ACTIVITY_NAME));
+
   return (
     <div className={styles.trekking}>
       <Hero
         country={name}
-        activity={activity.replace(/-/g, " ")}
+        activity={ACTIVITY_NAME}
       />
       <div className="container">
-        <div className={styles.shortDesc}>
-          <p>
-            Nowhere else in the Himalaya you will find the Physical cultural and religion diversity which exists in Nepal. From the ancient animistic Bon religion of the western mountains and the Tibetan Buddhist culture of the Sherpa of Everest to the rich Hindu tradition of the heartland of the Kingdom. Nepal offers a unique kaleidoscope of South Asian culture. Combined with the world's most spectacular mountains and a truly warm and hospitable people, you have the ingredients of the experience of a lifetime.
-          </p>
-        </div>
+        <div className={styles.shortDesc} dangerouslySetInnerHTML={{ __html: countryDestinationRes.activity.description }} />
         <div className={styles.trekkingAreas}>
           <section className="grid sm:grid-cols-3 md:grid-cols-4 gap-[50px]">
             {
-              destinationsRes.map((data) => (
+              countryDestinationRes.countryRegions.map((data) => (
                 <RegionCard
                   key={data?.id}
                   image={data?.thumbnail?.sizes.medium.source_url}
                   name={data?.name}
                   desc={data?.description}
                   page_link={data?.slug}
+                  country={name}
+                  id={data?.id}
                 />
               ))
             }

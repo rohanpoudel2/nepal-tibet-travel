@@ -35,19 +35,33 @@ export async function getBlog(slug, type = 'posts') {
   }
 }
 
-export async function getRegions(id = 17) {
+export async function getCountryRegions(country, activityId) {
   try {
-    const destinationRes = await fetch(`${BASE_URL}/destination?parent=${id}&_embed`, { next: { revalidate: 10 } });
-    const destinations = await destinationRes.json();
-    return (JSON.stringify(destinations));
+    const parentDestinationResponse = await fetch(`${BASE_URL}/destination?slug=${country}`, { next: { revalidate: 10 } });
+    const parentDestination = await parentDestinationResponse.json();
+    const parentDestinationId = parentDestination[0].id;
+    const tripResponse = await fetch(`${BASE_URL}/trip?activities=${activityId}`, { next: { revalidate: 10 } });
+    const trips = await tripResponse.json();
+    const activityResponse = await fetch(`${BASE_URL}/activities/${activityId}`, { next: { revalidate: 10 } });
+    const activity = await activityResponse.json();
+    const destinationIds = [...new Set(trips.map(trip => trip.destination[0]))];
+    const destinationPromises = destinationIds.map(destinationId => {
+      return fetch(`${BASE_URL}/destination/${destinationId}`).then(response => response.json(), { next: { revalidate: 10 } });
+    });
+    const destinations = await Promise.all(destinationPromises);
+    const responseObj = {
+      activity: activity,
+      countryRegions: destinations.filter(destination => destination.parent === parentDestinationId)
+    };
+    return JSON.stringify(responseObj);
   } catch (error) {
     console.error(error);
   }
 }
 
-export async function getRegionTours(slug, embed = false) {
+export async function getRegionTours(id, embed = false) {
   try {
-    const regionTourRes = await fetch(`${BASE_URL}/trip?destination_slug=${slug}${embed ? '&_embed' : ''}`, { next: { revalidate: 10 } });
+    const regionTourRes = await fetch(`${BASE_URL}/trip?destination=${id}${embed ? '&_embed' : ''}`, { next: { revalidate: 10 } });
     const regionTours = await regionTourRes.json();
     return (JSON.stringify(regionTours))
   } catch (error) {
