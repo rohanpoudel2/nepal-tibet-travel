@@ -8,7 +8,7 @@ const Terms = ({ title, updatedOn, content }) => {
         <div className='container py-[50px]'>
           <div className='text-white'>
             <h1 className='text-3xl'>{title}</h1>
-            <h3 className='text-base font-normal'>Last Updated: {blogCardDate(updatedOn)}</h3>
+            <h3 className='text-base font-normal'>Last Updated: {blogCardDate(updatedOn, true)}</h3>
           </div>
         </div>
       </div>
