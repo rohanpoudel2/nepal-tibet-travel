@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import TestimonialCard from "../testimonialCard/TestimonialCard";
 
-const Testimonial = () => {
+const Testimonial = ({ data }) => {
   return (
     <div className="container">
       <div className={styles.testimonial}>
@@ -28,21 +28,13 @@ const Testimonial = () => {
             "--swiper-pagination-color": "#47A5CF",
           }}
         >
-          <SwiperSlide className={styles.swiperCard}>
-            <TestimonialCard />
-          </SwiperSlide>
-          <SwiperSlide className={styles.swiperCard}>
-            <TestimonialCard />
-          </SwiperSlide>
-          <SwiperSlide className={styles.swiperCard}>
-            <TestimonialCard />
-          </SwiperSlide>
-          <SwiperSlide className={styles.swiperCard}>
-            <TestimonialCard />
-          </SwiperSlide>
-          <SwiperSlide className={styles.swiperCard}>
-            <TestimonialCard />
-          </SwiperSlide>
+          {
+            data.map((t, i) => (
+              <SwiperSlide className={styles.swiperCard} key={i}>
+                <TestimonialCard data={t} />
+              </SwiperSlide>
+            ))
+          }
         </Swiper>
       </div>
     </div>

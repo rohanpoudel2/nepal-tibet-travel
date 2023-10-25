@@ -24,7 +24,8 @@ import Link from "next/link"
 export function DataTable({
   columns,
   data,
-  regionName
+  regionName,
+  slug
 }) {
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -88,7 +89,7 @@ export function DataTable({
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      <Link href={`${window.location}/everest-base-camp`} >
+                      <Link href={`${(window.location).toString().split('_')[0]}/${slug}`} >
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </Link>
                     </TableCell>

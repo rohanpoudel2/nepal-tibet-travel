@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./map.module.scss";
 
-const Map = ({ activityName }) => {
+const Map = ({ activityName, map }) => {
   return (
     <div className="container">
       <div className={styles.map}>
@@ -9,8 +9,8 @@ const Map = ({ activityName }) => {
           {activityName} Route Map
         </h2>
         <Image
-          src="/images/ebc_map.svg"
-          alt="Route Map"
+          src={map}
+          alt={`${activityName} Route Map`}
           width={600}
           height={600}
           className={styles.image}

@@ -2,13 +2,13 @@ import styles from "./details.module.scss"
 import ShareButton from "./shareButton/ShareButton"
 import Link from "next/link"
 
-const Details = () => {
+const Details = ({ name, activity }) => {
   return (
     <div className={`${styles.detail} backdrop-blur-sm`}>
       <div className={styles.top}>
         <div className={styles.name_review}>
           <span className={styles.activityName}>
-            Trekking
+            {activity}
           </span>
           <div className={styles.review}>
             <i className="fa-solid fa-star"></i>
@@ -24,7 +24,7 @@ const Details = () => {
       </div>
       <div className={styles.bottom}>
         <div className={styles.title}>
-          Everest Base Camp Trek
+          {name}
         </div>
         <Link href="#booking">
           <button className={styles.btn}>

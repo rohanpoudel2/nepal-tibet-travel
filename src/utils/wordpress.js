@@ -78,3 +78,13 @@ export async function getTaxonomyName(id, name) {
     console.error(error);
   }
 }
+
+export async function getTripInfo(slug) {
+  try {
+    const tripRes = await fetch(`${BASE_URL}/trip?slug=${slug}&_embed`, { next: { revalidate: 10 } });
+    const tripResData = await tripRes.json();
+    return (JSON.stringify(tripResData));
+  } catch (error) {
+    console.error(error);
+  }
+}

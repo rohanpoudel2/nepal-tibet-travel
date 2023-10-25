@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 export const getActivityId = (name, activity) => {
   switch (name) {
     case 'nepal': {

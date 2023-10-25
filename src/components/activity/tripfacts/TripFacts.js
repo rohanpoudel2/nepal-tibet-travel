@@ -1,6 +1,6 @@
 import styles from "./tripfacts.module.scss";
 
-const TripFacts = () => {
+const TripFacts = ({ data }) => {
   return (
     <div className={styles.tripfacts}>
       <h2 className={styles.title}>
@@ -12,7 +12,7 @@ const TripFacts = () => {
             Country:
           </span>
           <span className={styles.ans}>
-            Nepal
+            {data.country.name}
           </span>
         </div>
         <div className={styles.tFact}>
@@ -20,7 +20,7 @@ const TripFacts = () => {
             Duration:
           </span>
           <span className={styles.ans}>
-            16 days
+            {data.duration} days
           </span>
         </div>
         <div className={styles.tFact}>
@@ -28,7 +28,7 @@ const TripFacts = () => {
             Area:
           </span>
           <span className={styles.ans}>
-            Everest Region
+            {data.area.name}
           </span>
         </div>
         <div className={styles.tFact}>
@@ -36,7 +36,7 @@ const TripFacts = () => {
             Activities:
           </span>
           <span className={styles.ans}>
-            Trekking
+            {data.activity.name}
           </span>
         </div>
         <div className={styles.tFact}>
@@ -44,7 +44,7 @@ const TripFacts = () => {
             Max. Group Size:
           </span>
           <span className={styles.ans}>
-            30 Person
+            {data.maxGroup} Person
           </span>
         </div>
         <div className={styles.tFact}>
@@ -52,7 +52,7 @@ const TripFacts = () => {
             Min. Group Size:
           </span>
           <span className={styles.ans}>
-            2 Person
+            {data.minGroup} Person
           </span>
         </div>
         <div className={styles.tFact}>
@@ -60,25 +60,21 @@ const TripFacts = () => {
             Difficulty:
           </span>
           <span className={styles.ans}>
-            Strenuous
+            {data.difficulty.name}
           </span>
         </div>
-        <div className={styles.tFact}>
-          <span className={styles.head}>
-            Max. Altitude:
-          </span>
-          <span className={styles.ans}>
-            5,545m
-          </span>
-        </div>
-        <div className={styles.tFact}>
-          <span className={styles.head}>
-            Seasons:
-          </span>
-          <span className={styles.ans}>
-            Sep-Dec, March-June
-          </span>
-        </div>
+        {
+          data.additional?.map((fact, i) => (
+            <div className={styles.tFact} key={i}>
+              <span className={styles.head}>
+                {fact.fact_title}
+              </span>
+              <span className={styles.ans}>
+                {fact.fact_data}
+              </span>
+            </div>
+          ))
+        }
       </div>
     </div>
   )

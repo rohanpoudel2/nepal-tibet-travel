@@ -11,7 +11,7 @@ const getCountryRegion = async (country, activityId) => {
     return;
   }
   let response = JSON.parse(res);
-  if (response.length === 0) return notFound();
+  if (response.countryRegions.length === 0) return notFound();
   return response;
 }
 
