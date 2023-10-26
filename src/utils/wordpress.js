@@ -88,3 +88,66 @@ export async function getTripInfo(slug) {
     console.error(error);
   }
 }
+
+export async function getFilterCountries() {
+  try {
+    const countryRes = await fetch(`${BASE_URL}/country`, { next: { revalidate: 10 } });
+    const countryResData = await countryRes.json();
+
+    const formattedCountries = countryResData.map(country => ({
+      countryId: getCountryId(country.name),
+      countryName: country.name,
+      countrySlug: country.slug,
+    }));
+
+    formattedCountries.sort((a, b) => a.countryId - b.countryId);
+
+    return JSON.stringify(formattedCountries);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function getCountryId(countryName) {
+  const countryIdMap = {
+    Nepal: 17,
+    Tibet: 18,
+    Bhutan: 19,
+  };
+  return countryIdMap[countryName] || 0;
+}
+
+
+export async function getFilterActivities() {
+  try {
+    const activityRes = await fetch(`${BASE_URL}/activities`, { next: { revalidate: 10 } });
+    const activityResData = await activityRes.json();
+
+    const formattedActivities = activityResData.map(activity => ({
+      activityId: activity.id,
+      activityName: activity.name,
+      activitySlug: activity.slug,
+    })).filter(d => d.activityName !== "Nepal Activity");
+
+    return JSON.stringify(formattedActivities);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getFilterRegions() {
+  try {
+    const regionRes = await fetch(`${BASE_URL}/destination`, { next: { revalidate: 10 } });
+    const regionResData = await regionRes.json();
+
+    const formattedRegions = regionResData.map(region => ({
+      regionParentId: region.parent,
+      regionName: region.name,
+      regionSlug: region.slug,
+    }));
+
+    return JSON.stringify(formattedRegions);
+  } catch (error) {
+    console.error(error);
+  }
+}

@@ -9,14 +9,16 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 750px;
+  min-width: 750px;
+  max-width: fit-content;
   height: 150px;
   margin: 0px auto;
   margin-top: -80px;
   padding: 1.8rem;
 
   @include mobile {
-    width: auto;
+    min-width: auto;
+    max-width: auto;
     height: auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -32,7 +34,8 @@
     @include mobile {
       gap: 40px;
       flex-wrap: wrap;
-      justify-content: center;
+      // justify-content: center;
+      align-items: flex-start;
     }
 
     .item {
@@ -43,6 +46,9 @@
       font-size: 1.4rem;
 
       .input {
+        display: flex;
+        flex-direction: column;
+
         .label {
           font-weight: bold;
         }
@@ -51,11 +57,6 @@
           background: transparent;
           border: none;
           font-size: 1rem;
-        }
-
-        @include mobile {
-          display: flex;
-          flex-direction: column;
         }
       }
     }
@@ -84,6 +85,11 @@
         align-items: center;
         gap: 10px;
       }
+    }
+
+    @include mobile {
+      display: flex;
+      // flex-direction: column;
     }
   }
 }

@@ -1,6 +1,20 @@
+"use client"
+import { useEffect, useState } from "react";
 import styles from "./homefilter.module.scss";
 
-const HomeFilter = () => {
+const HomeFilter = ({ country, region, activity }) => {
+  const [selectedCountry, setSelectedCountry] = useState({
+    "countryId": 17,
+    "countryName": "Nepal",
+    "countrySlug": "nepal"
+});
+  const [selectedActivity, setSelectedActivity] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState(region);
+
+  useEffect(()=>{
+    setSelectedRegion(region.filter(d=>d.regionParentId === selectedCountry.countryId))
+  },[selectedCountry])
+
   return (
     <div className={styles.homefilter}>
       <form className={styles.items}>
@@ -8,10 +22,24 @@ const HomeFilter = () => {
           <i className="fa-solid fa-location-arrow"></i>
           <div className={styles.input}>
             <label className={styles.label}>Location</label>
-            <select className={styles.select} name="location" id="location" required>
-              <option value="Nepal">Nepal</option>
-              <option value="Tibet">Tibet</option>
-              <option value="Bhutan">Bhutan</option>
+            <select
+              value={selectedCountry.countrySlug}
+              onChange={(e) => {
+                const selectedCountryObject = country.find(
+                  (data) => data.countrySlug === e.target.value
+                );
+                setSelectedCountry(selectedCountryObject || {});
+              }}
+              className={styles.select}
+              name="location"
+              id="location"
+              required
+            >
+              {
+                country.map(data =>
+                  <option key={data.countrySlug} value={data.countrySlug}>{data.countryName}</option>
+                )
+              }
             </select>
           </div>
         </div>
@@ -20,9 +48,11 @@ const HomeFilter = () => {
           <div className={styles.input}>
             <label className={styles.label}>Activities</label>
             <select className={styles.select} name="location" id="location" required>
-              <option value="Nepal">Nepal</option>
-              <option value="Tibet">Tibet</option>
-              <option value="Bhutan">Bhutan</option>
+              {
+                activity.map(data =>
+                  <option key={data.activitySlug} value={{ data: data.activitySlug, id: data.activityId }}>{data.activityName}</option>
+                )
+              }
             </select>
           </div>
         </div>
@@ -31,9 +61,11 @@ const HomeFilter = () => {
           <div className={styles.input}>
             <label className={styles.label}>Trip Area</label>
             <select className={styles.select} name="location" id="location" required>
-              <option value="Nepal">Nepal</option>
-              <option value="Tibet">Tibet</option>
-              <option value="Bhutan">Bhutan</option>
+              {
+                selectedRegion.map(data =>
+                  <option key={data.regionSlug} value={data.regionSlug}>{data.regionName}</option>
+                )
+              }
             </select>
           </div>
         </div>
