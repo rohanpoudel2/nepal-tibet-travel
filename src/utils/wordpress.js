@@ -91,7 +91,7 @@ export async function getTripInfo(slug) {
 
 export async function getFilterCountries() {
   try {
-    const countryRes = await fetch(`${BASE_URL}/country`, { next: { revalidate: 10 } });
+    const countryRes = await fetch(`${BASE_URL}/country?per_page=100`, { next: { revalidate: 10 } });
     const countryResData = await countryRes.json();
 
     const formattedCountries = countryResData.map(country => ({
@@ -111,8 +111,8 @@ export async function getFilterCountries() {
 function getCountryId(countryName) {
   const countryIdMap = {
     Nepal: 17,
-    Tibet: 18,
-    Bhutan: 19,
+    Tibet: 37,
+    Bhutan: 46,
   };
   return countryIdMap[countryName] || 0;
 }
@@ -120,7 +120,7 @@ function getCountryId(countryName) {
 
 export async function getFilterActivities() {
   try {
-    const activityRes = await fetch(`${BASE_URL}/activities`, { next: { revalidate: 10 } });
+    const activityRes = await fetch(`${BASE_URL}/activities?per_page=100`, { next: { revalidate: 10 } });
     const activityResData = await activityRes.json();
 
     const formattedActivities = activityResData.map(activity => ({
@@ -137,14 +137,14 @@ export async function getFilterActivities() {
 
 export async function getFilterRegions() {
   try {
-    const regionRes = await fetch(`${BASE_URL}/destination`, { next: { revalidate: 10 } });
+    const regionRes = await fetch(`${BASE_URL}/destination?per_page=100`, { next: { revalidate: 10 } });
     const regionResData = await regionRes.json();
 
     const formattedRegions = regionResData.map(region => ({
       regionParentId: region.parent,
       regionName: region.name,
       regionSlug: region.slug,
-    }));
+    })).filter(d => d.regionParentId !== 0);
 
     return JSON.stringify(formattedRegions);
   } catch (error) {

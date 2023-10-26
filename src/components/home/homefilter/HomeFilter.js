@@ -7,13 +7,16 @@ const HomeFilter = ({ country, region, activity }) => {
     "countryId": 17,
     "countryName": "Nepal",
     "countrySlug": "nepal"
-});
-  const [selectedActivity, setSelectedActivity] = useState('');
+  });
   const [selectedRegion, setSelectedRegion] = useState(region);
 
-  useEffect(()=>{
-    setSelectedRegion(region.filter(d=>d.regionParentId === selectedCountry.countryId))
-  },[selectedCountry])
+  useEffect(() => {
+    console.log(region)
+    setSelectedRegion(region.filter(d => {
+      console.log(d.regionParentId, selectedCountry.countryId);
+      if (d.regionParentId === selectedCountry.countryId) return d;
+    }))
+  }, [selectedCountry])
 
   return (
     <div className={styles.homefilter}>
@@ -69,10 +72,12 @@ const HomeFilter = ({ country, region, activity }) => {
             </select>
           </div>
         </div>
-        <button className={styles.button}>
-          <i className="fa-solid fa-magnifying-glass"></i>
-          Search
-        </button>
+        <div className={styles.item}>
+          <button className={styles.button}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+            Search
+          </button>
+        </div>
       </form>
     </div>
   )
