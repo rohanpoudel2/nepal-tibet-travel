@@ -107,29 +107,6 @@ const Nav = () => {
       description:
         "Information About Tour in Bhutan",
     },
-    {
-      title: "Peak Climbing",
-      href: "/country/bhutan/peak-climbing",
-      description: "Information About Peak Climbing in Bhutan",
-    },
-    {
-      title: "Jungle Safari",
-      href: "/country/bhutan/jungle-safari",
-      description:
-        "Information About Jungle Safari in Bhutan",
-    },
-    {
-      title: "Expedition",
-      href: "/country/bhutan/expedition",
-      description:
-        "Information About Expedition in Bhutan",
-    },
-    {
-      title: "Adventure Activities",
-      href: "/country/bhutan/adventure-activities",
-      description:
-        "Information About Adventure Activities in Bhutan",
-    },
   ]
 
   const tibetComponents = [
@@ -140,27 +117,21 @@ const Nav = () => {
         "Information About Tibet",
     },
     {
-      title: "Trekking",
-      href: "/country/tibet/trekking",
+      title: "Festival Tour",
+      href: "/country/tibet/festival-tour",
       description:
-        "Information About Trekking in Tibet",
+        "Information About Festival Tour in Tibet",
+    },
+    {
+      title: "Kailash Manosarover Tour",
+      href: "/country/tibet/kailash-manosarover-tour",
+      description: "Information About Kailash Manosarover Tour in Tibet",
     },
     {
       title: "Tour",
       href: "/country/tibet/tour",
       description:
         "Information About Tour in Tibet",
-    },
-    {
-      title: "Peak Climbing",
-      href: "/country/tibet/peak-climbing",
-      description: "Information About Peak Climbing in Tibet",
-    },
-    {
-      title: "Jungle Safari",
-      href: "/country/tibet/jungle-safari",
-      description:
-        "Information About Jungle Safari in Tibet",
     },
     {
       title: "Expedition",
