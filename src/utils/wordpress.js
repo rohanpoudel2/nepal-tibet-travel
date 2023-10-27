@@ -21,13 +21,8 @@ export async function getBlogs(type = 'posts') {
 }
 
 export async function getBlog(slug, type = 'posts') {
-  let blogRes
   try {
-    if (type == 'posts') {
-      blogRes = await fetch(`${BASE_URL}/${type}?filter[slug]=${slug}&_embed`, { next: { revalidate: 10 } });
-    } else {
-      blogRes = await fetch(`${BASE_URL}/${type}?slug=${slug}&_embed`, { next: { revalidate: 10 } });
-    }
+    let blogRes = await fetch(`${BASE_URL}/${type}?slug=${slug}&_embed`, { next: { revalidate: 10 } });
     const blog = await blogRes.json();
     return (JSON.stringify(blog));
   } catch (error) {

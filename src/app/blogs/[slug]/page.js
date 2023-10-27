@@ -3,13 +3,16 @@ import styles from "./blog.module.scss";
 import BlogContent from "@/components/blogs/blogLayout/blogContent/BlogContent";
 import BlogRecommendation from "@/components/blogs/blogLayout/blogRecommendation/BlogRecommendation";
 import { getBlog } from "@/utils/wordpress";
+import { notFound } from "next/navigation";
 
 const getData = async (slug) => {
   const res = await getBlog(slug);
   if (!res) {
     return;
   }
-  return JSON.parse(res);
+  let response = JSON.parse(res);
+  if (response.length === 0) return notFound();
+  return response;
 }
 
 const Blog = async ({ params }) => {
