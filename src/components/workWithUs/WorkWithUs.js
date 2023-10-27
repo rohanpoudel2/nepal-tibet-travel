@@ -14,6 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { useState } from "react"
 
 const formSchema = z.object({
   fullname: z.string().min(2, "First name should be at least 2 characters.").max(30, "Full Name should not exceed 30 characters."),
@@ -22,6 +23,35 @@ const formSchema = z.object({
 })
 
 const WorkWithUs = () => {
+
+  const [remainingCharacters, setRemainingCharacters] = useState(255);
+
+  const updateRemainingCharacters = (message) => {
+    const charactersUsed = message.length;
+    const remaining = 255 - charactersUsed;
+    setRemainingCharacters(remaining);
+  }
+
+  const handleMessageInput = (e) => {
+    const message = e.target.value;
+    updateRemainingCharacters(message);
+    if (remainingCharacters <= 0) {
+      e.preventDefault();
+      e.target.value = message.substring(0, 255);
+    }
+    updateRemainingCharacters(e.target.value);
+  }
+
+  const handleMessagePaste = (e) => {
+    const pastedText = e.clipboardData.getData('text');
+    const currentText = e.target.value;
+    const newText = currentText + pastedText;
+    if (newText.length > 255) {
+      e.preventDefault();
+      const truncatedText = newText.substring(0, 255);
+      e.target.value = truncatedText;
+    }
+  }
 
   const onSubmit = (values) => {
     console.log(values)
@@ -76,10 +106,12 @@ const WorkWithUs = () => {
                   placeholder="Tell us a little bit about yourself"
                   // className="resize-none"
                   {...field}
+                  onInput={handleMessageInput}
+                  onPaste={handleMessagePaste}
                 />
               </FormControl>
               <FormDescription>
-                0/255 Characters Remaining
+                {Math.abs(remainingCharacters)}/255 Characters Remaining
               </FormDescription>
               <FormMessage />
             </FormItem>
