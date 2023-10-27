@@ -110,9 +110,9 @@ export async function getFilterCountries() {
 
 function getCountryId(countryName) {
   const countryIdMap = {
-    Nepal: 17,
-    Tibet: 37,
-    Bhutan: 46,
+    Nepal: [17, 30],
+    Tibet: [37, 48],
+    Bhutan: [46, 54],
   };
   return countryIdMap[countryName] || 0;
 }
@@ -122,12 +122,12 @@ export async function getFilterActivities() {
   try {
     const activityRes = await fetch(`${BASE_URL}/activities?per_page=100`, { next: { revalidate: 10 } });
     const activityResData = await activityRes.json();
-
     const formattedActivities = activityResData.map(activity => ({
+      activityParentId: activity.parent,
       activityId: activity.id,
       activityName: activity.name,
       activitySlug: activity.slug,
-    })).filter(d => d.activityName !== "Nepal Activity");
+    })).filter(d => d.activityParentId !== 0);
 
     return JSON.stringify(formattedActivities);
   } catch (error) {

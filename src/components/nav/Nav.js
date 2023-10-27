@@ -1,8 +1,7 @@
 "use client"
 import Image from "next/image";
 import styles from "./nav.module.scss";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
