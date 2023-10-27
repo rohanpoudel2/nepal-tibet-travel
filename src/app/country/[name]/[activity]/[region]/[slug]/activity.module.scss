@@ -17,6 +17,13 @@
       padding-top: 160px;
     }
 
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      @import '../../../../../../styles/content.scss';
+    }
+
     .itinerary {
       .bottomItems {
         display: flex;

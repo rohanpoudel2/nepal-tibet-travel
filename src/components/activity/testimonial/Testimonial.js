@@ -29,6 +29,7 @@ const Testimonial = ({ data }) => {
           }}
         >
           {
+            data &&
             data.map((t, i) => (
               <SwiperSlide className={styles.swiperCard} key={i}>
                 <TestimonialCard data={t} />

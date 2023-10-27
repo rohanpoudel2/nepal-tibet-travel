@@ -23,7 +23,6 @@ const getTripData = async (slug) => {
 }
 
 const Activity = async ({ params }) => {
-
   let { slug } = params;
 
   const activityName = slug.replace(/-/g, " ");
@@ -39,13 +38,16 @@ const Activity = async ({ params }) => {
       />
       <div className={styles.detail}>
         <Nav />
-        <section className={styles.content} id="overview">
+        <section className={`${styles.content} ${styles.main_content}`} id="overview">
           <Content
             data={{
-              content: data.content.rendered,
+              content: data.acf.introduction_paragraph,
               gallery: data.gallery
             }}
           />
+          <div className="container">
+            <div dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
+          </div>
         </section>
         <section className={styles.itinerary} id="itinerary">
           <div className="container">

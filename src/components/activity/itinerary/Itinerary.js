@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./itinerary.module.scss";
 
 const Itinerary = ({ data }) => {
+  console.log(data);
   return (
     <div className={styles.itinerary}>
       <h2 className={styles.title}>

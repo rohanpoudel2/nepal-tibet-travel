@@ -87,22 +87,28 @@ const Region = ({ d, regionName }) => {
     };
   }, [d]);
 
-  const REGION_NAME = regionName.split('-');
+  const REGION_NAME = regionName.split('_')[0];
 
-  const getRegionName = useMemo(() => {
-    return REGION_NAME[0][0].toUpperCase() + REGION_NAME[0].slice(1) + ' ' + REGION_NAME[1][0].toUpperCase() + REGION_NAME[1].slice(1).split('_')[0]
-  },
-    [REGION_NAME]
-  )
+  const getRegionName = () => {
+    const tempName = REGION_NAME[0].toUpperCase() + REGION_NAME.slice(1);
+
+    if (tempName.includes('-')) {
+      const parts = tempName.split('-');
+      return `${parts[0]} ${parts[1][0].toUpperCase()}${parts[1].slice(1)}`;
+    }
+
+    return tempName;
+  }
+
 
   return (
     <div className={styles.region}>
-      <Hero title={getRegionName} />
+      <Hero title={getRegionName()} />
       <div className="container">
         <section className={styles.areaSection}>
           <div className={`${styles.areaDescription} text-2xl mb-8`}>
             <h2 className={`${styles.areaTitle} mb-4`}>
-              {getRegionName}
+              {getRegionName()}
             </h2>
             <div className={styles.areaDescription}>
               <p>
@@ -110,7 +116,7 @@ const Region = ({ d, regionName }) => {
               </p>
             </div>
           </div>
-          <DataTable columns={columns} data={data} regionName={getRegionName} slug={slug} />
+          <DataTable columns={columns} data={data} regionName={getRegionName()} slug={slug} />
         </section>
       </div>
     </div>
