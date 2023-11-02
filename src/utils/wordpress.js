@@ -56,7 +56,7 @@ export async function getCountryRegions(country, activityId) {
 
 export async function getRegionTours(id, embed = false) {
   try {
-    const regionTourRes = await fetch(`${BASE_URL}/trip?destination=${id}${embed ? '&_embed' : ''}`, { next: { revalidate: 10 } });
+    const regionTourRes = await fetch(`${BASE_URL}/trip?destination=${id}${embed ? '&_embed' : ''}&per_page=100`, { next: { revalidate: 10 } });
     const regionTours = await regionTourRes.json();
     return (JSON.stringify(regionTours))
   } catch (error) {
@@ -142,6 +142,16 @@ export async function getFilterRegions() {
     })).filter(d => d.regionParentId !== 0);
 
     return JSON.stringify(formattedRegions);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getMedia(id) {
+  try {
+    const mediaRes = await fetch(`${BASE_URL}/media/${id}`, { next: { revalidate: 10 } });
+    const mediaResData = await mediaRes.json();
+    return mediaResData;
   } catch (error) {
     console.error(error);
   }

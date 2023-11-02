@@ -22,7 +22,7 @@ const Trekking = async ({ params }) => {
   const ACTIVITY_NAME = activity.replace(/-/g, " ");
 
   const countryDestinationRes = await getCountryRegion(name, getActivityId(name, ACTIVITY_NAME));
-
+  console.log(countryDestinationRes.countryRegions[0]);
   return (
     <div className={styles.trekking}>
       <Hero
@@ -37,7 +37,7 @@ const Trekking = async ({ params }) => {
               countryDestinationRes.countryRegions.map((data) => (
                 <RegionCard
                   key={data?.id}
-                  image={data?.thumbnail?.sizes.medium.source_url}
+                  image={data.acf.hero.image.sizes.medium_large}
                   name={data?.name}
                   desc={data?.description}
                   page_link={data?.slug}

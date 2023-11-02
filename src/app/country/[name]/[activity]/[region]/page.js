@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 
 const getToursData = async (id) => {
   const res = await getRegionTours(id, false);
+  console.log(JSON.parse(res));
   if (!res) {
     return;
   }

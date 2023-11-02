@@ -4,7 +4,7 @@ import styles from "./region.module.scss"
 import DataTable from "@/components/country/trekking/trekkingTours/data-table"
 import Image from "next/image"
 import { useState, useEffect, useMemo } from "react"
-import { getTaxonomyName } from "@/utils/wordpress"
+import { getMedia, getTaxonomyName } from "@/utils/wordpress"
 
 const columns = [
   {
@@ -57,6 +57,7 @@ const Region = ({ d, regionName }) => {
     const fetchData = async () => {
       try {
         const updatedData = await Promise.all(d.map(async (dItem) => {
+          const image = await getMedia(dItem.featured_media);
           const country = await getTaxonomyName(dItem.country[0], 'country');
           const area = await getTaxonomyName(Math.max(...dItem.destination), 'destination');
           const grade = await getTaxonomyName(dItem.difficulty, 'difficulty');
@@ -64,11 +65,12 @@ const Region = ({ d, regionName }) => {
           setSlug(dItem.slug)
           return {
             id: dItem.id,
-            preview: dItem.featured_image.sizes.medium.source_url,
+            // preview: dItem.featured_image.sizes.medium.source_url,
+            preview: image.media_details.sizes.medium_large.source_url,
             name: dItem.title.rendered,
             country: JSON.parse(country)?.name,
             area: JSON.parse(area)?.name,
-            duration: dItem.duration.days + ' days',
+            duration: dItem.acf.duration,
             grade: JSON.parse(grade)?.name,
             activities: JSON.parse(activities)?.name,
           }

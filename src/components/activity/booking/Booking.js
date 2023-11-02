@@ -1,10 +1,19 @@
-"use client"
+"use client";
 import styles from "./booking.module.scss";
 import ConfirmationModal from "./confirmationModal/ConfirmationModal";
 import { useState } from "react";
 
-const Booking = () => {
-  const [open, setOpen] = useState(false);
+const parseDate = (dateStr) => {
+  const [day, month, year] = dateStr?.split('/').map(Number);
+  return new Date(year, month - 1, day);
+};
+
+const Booking = ({ data, duration, name }) => {
+  const [open, setOpen] = useState({
+    bookingDate: '',
+    state: false
+  });
+  console.log(data);
   return (
     <div className="container">
       <div className={styles.booking}>
@@ -15,47 +24,21 @@ const Booking = () => {
           Select a departure Month
         </h4>
         <div className={styles.dates}>
-          <div className={`${styles.date} ${styles.selected}`} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
-          <div className={styles.date} onClick={() => setOpen(true)}>
-            Jul 2023
-          </div>
+          {
+            data.map((booking, i) => (
+              <div key={i} className={`${styles.date} ${i === 0 && styles.selected}`} onClick={() => setOpen({
+                bookingDate: booking.booking_date,
+                state: true
+              })}>
+                {parseDate(booking.booking_date || '1/1/1991').toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+              </div>
+            ))
+          }
         </div>
       </div>
-      <ConfirmationModal open={open} setOpen={setOpen} />
+      <ConfirmationModal open={open} setOpen={setOpen} duration={duration} name={name} />
     </div>
   )
 }
 
-export default Booking
+export default Booking;

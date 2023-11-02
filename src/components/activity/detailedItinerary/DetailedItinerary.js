@@ -9,14 +9,14 @@ const DetailedItinerary = ({ data }) => {
         </h2>
         <div className={styles.days}>
           {
-            data.map((itinerary, i) => (
+            data.itinerary.map((d, i) => (
               <div className={styles.day} key={i}>
                 <h4 className={styles.head}>
-                  Day 0{i + 1} - {itinerary.day}
+                  Day 0{i + 1} - {d.itinerary.itinerary_title}
                 </h4>
                 <div className={styles.desc}>
                   <p>
-                    {itinerary.description}
+                    {d.itinerary.itinerary_description}
                   </p>
                 </div>
               </div>

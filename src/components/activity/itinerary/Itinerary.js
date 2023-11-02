@@ -2,7 +2,6 @@ import Link from "next/link";
 import styles from "./itinerary.module.scss";
 
 const Itinerary = ({ data }) => {
-  console.log(data);
   return (
     <div className={styles.itinerary}>
       <h2 className={styles.title}>
@@ -13,11 +12,11 @@ const Itinerary = ({ data }) => {
       </h2>
       <div className={styles.days}>
         {
-          data.itinerary.map((itinerary, i) => (
+          data.itinerary.map((d, i) => (
             <div className={styles.day}>
               <span>
                 <span className={styles.dayno}>Day 0{i + 1} - </span>
-                {itinerary.day}
+                {d.itinerary.itinerary_title}
               </span>
             </div>
           ))

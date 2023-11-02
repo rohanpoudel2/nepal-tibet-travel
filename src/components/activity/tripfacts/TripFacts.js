@@ -20,7 +20,7 @@ const TripFacts = ({ data }) => {
             Duration:
           </span>
           <span className={styles.ans}>
-            {data.duration} days
+            {data.duration}
           </span>
         </div>
         <div className={styles.tFact}>

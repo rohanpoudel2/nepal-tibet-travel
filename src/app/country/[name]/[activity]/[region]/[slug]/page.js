@@ -33,7 +33,7 @@ const Activity = async ({ params }) => {
       <Hero data={{
         name: data.title.rendered,
         activity: JSON.parse(await getTaxonomyName(Math.max(...data.activities), 'activities')).name,
-        image: data.featured_image.sizes['1536x1536'],
+        image: data.featured_media,
       }}
       />
       <div className={styles.detail}>
@@ -42,7 +42,7 @@ const Activity = async ({ params }) => {
           <Content
             data={{
               content: data.acf.introduction_paragraph,
-              gallery: data.gallery
+              gallery: data.acf.gallery
             }}
           />
           <div className="container">
@@ -55,7 +55,7 @@ const Activity = async ({ params }) => {
               <div className={styles.left}>
                 <Itinerary
                   data={{
-                    itinerary: data.itinerary,
+                    itinerary: data.acf.itinerary_data,
                   }}
                 />
               </div>
@@ -63,11 +63,11 @@ const Activity = async ({ params }) => {
                 <TripFacts
                   data={{
                     country: JSON.parse(await getTaxonomyName(data.country[0], 'country')),
-                    duration: data.duration.days,
+                    duration: data.acf.duration,
                     area: JSON.parse(await getTaxonomyName(Math.max(...data.destination), 'destination')),
                     activity: JSON.parse(await getTaxonomyName(Math.max(...data.activities), 'activities')),
-                    maxGroup: data.max_pax,
-                    minGroup: data.min_pax,
+                    maxGroup: data.acf.group_size.max_group,
+                    minGroup: data.acf.group_size.min_group,
                     difficulty: JSON.parse(await getTaxonomyName(data.difficulty[0], 'difficulty')),
                     additional: data.facts
                   }}
@@ -80,12 +80,14 @@ const Activity = async ({ params }) => {
         <section className={styles.routeMap} id="routemap">
           <Map
             activityName={activityName}
-            map={data.map}
+            map={data.acf.route_map}
           />
         </section>
         <section className={styles.detailedItinerary} id="detailed_itinerary">
           <DetailedItinerary
-            data={data.itinerary}
+            data={{
+              itinerary: data.acf.itinerary_data,
+            }}
           />
         </section>
         <section className={styles.links} id="faq">
@@ -94,7 +96,11 @@ const Activity = async ({ params }) => {
           />
         </section>
         <section className={styles.booking} id="booking">
-          <Booking />
+          <Booking
+            name={data.title.rendered}
+            duration={data.acf.duration.split(' ')[0]}
+            data={data.acf.booking_dates}
+          />
         </section>
         <section className={styles.testimonial} id="reviews">
           <Testimonial
@@ -102,9 +108,9 @@ const Activity = async ({ params }) => {
           />
         </section>
         <div className={styles.recommendation}>
-          <Recommendation
+          {/* <Recommendation
             data={data.acf.recommendation}
-          />
+          /> */}
         </div>
       </div>
     </div>

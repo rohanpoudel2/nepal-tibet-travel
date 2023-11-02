@@ -12,7 +12,7 @@ const LatestUpdateCard = ({ data }) => {
             className="mb-2 text-lg md:text-xl font-medium text-neutral-800">
             {latest_update?.post_title}
           </h5>
-          <div class="mb-4 text-sm md:text-base text-neutral-600 max-h-[3.5rem] line-clamp-2" dangerouslySetInnerHTML={{ __html: latest_update?.post_content }}></div>
+          <div className="mb-4 text-sm md:text-base text-neutral-600 max-h-[3.5rem] line-clamp-2" dangerouslySetInnerHTML={{ __html: latest_update?.post_content }}></div>
           <p className="text-xs text-neutral-500">
             {latestUpdateDate(latest_update?.post_date_gmt)}
           </p>
