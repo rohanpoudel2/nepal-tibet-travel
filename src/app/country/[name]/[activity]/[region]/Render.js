@@ -50,46 +50,26 @@ const columns = [
 ]
 
 const Region = ({ d, regionName }) => {
+
   const [data, setData] = useState([]);
-  const [slug, setSlug] = useState('');
+
   useEffect(() => {
-    let isSubscribed = true;
-    const fetchData = async () => {
-      try {
-        const updatedData = await Promise.all(d.map(async (dItem) => {
-          const image = await getMedia(dItem.featured_media);
-          const country = await getTaxonomyName(dItem.country[0], 'country');
-          const area = await getTaxonomyName(Math.max(...dItem.destination), 'destination');
-          const grade = await getTaxonomyName(dItem.difficulty, 'difficulty');
-          const activities = await getTaxonomyName(Math.max(...dItem.activities), 'activities');
-          setSlug(dItem.slug)
-          return {
-            id: dItem.id,
-            // preview: dItem.featured_image.sizes.medium.source_url,
-            preview: image.media_details.sizes.medium_large.source_url,
-            name: dItem.title.rendered,
-            country: JSON.parse(country)?.name,
-            area: JSON.parse(area)?.name,
-            duration: dItem.acf.duration,
-            grade: JSON.parse(grade)?.name,
-            activities: JSON.parse(activities)?.name,
-          }
-        }));
+    setData(
+      d.map(data => ({
+        id: data.id,
+        preview: data.image['medium_large'],
+        name: data.name,
+        country: data.country[0],
+        area: data.area[0],
+        duration: data.duration,
+        grade: data.difficulty[0],
+        activities: data.activities[0],
+        slug: data.slug
+      }))
+    );
+  }, [d])
 
-        if (isSubscribed) {
-          setData(updatedData);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-    return () => {
-      isSubscribed = false;
-    };
-  }, [d]);
-
-  const REGION_NAME = regionName.split('_')[0];
+  const REGION_NAME = regionName;
 
   const getRegionName = () => {
     const tempName = REGION_NAME[0].toUpperCase() + REGION_NAME.slice(1);
@@ -118,7 +98,7 @@ const Region = ({ d, regionName }) => {
               </p>
             </div>
           </div>
-          <DataTable columns={columns} data={data} regionName={getRegionName()} slug={slug} />
+          <DataTable columns={columns} data={data} regionName={getRegionName()} />
         </section>
       </div>
     </div>

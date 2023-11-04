@@ -22,7 +22,6 @@ const Trekking = async ({ params }) => {
   const ACTIVITY_NAME = activity.replace(/-/g, " ");
 
   const countryDestinationRes = await getCountryRegion(name, getActivityId(name, ACTIVITY_NAME));
-  console.log(countryDestinationRes.countryRegions[0]);
   return (
     <div className={styles.trekking}>
       <Hero
@@ -41,8 +40,8 @@ const Trekking = async ({ params }) => {
                   name={data?.name}
                   desc={data?.description}
                   page_link={data?.slug}
+                  activity={ACTIVITY_NAME}
                   country={name}
-                  id={data?.id}
                 />
               ))
             }

@@ -1,4 +1,5 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const CUSTOM_BASE_URL = process.env.NEXT_PUBLIC_API_NTT_URL;
 
 export const getPageData = async (slug) => {
   try {
@@ -6,7 +7,7 @@ export const getPageData = async (slug) => {
     const parsedRes = await res.json();
     return (JSON.stringify(parsedRes));
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -16,7 +17,7 @@ export async function getBlogs(type = 'posts') {
     const blogs = await blogRes.json();
     return (JSON.stringify(blogs));
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -26,7 +27,7 @@ export async function getBlog(slug, type = 'posts') {
     const blog = await blogRes.json();
     return (JSON.stringify(blog));
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -50,17 +51,25 @@ export async function getCountryRegions(country, activityId) {
     };
     return JSON.stringify(responseObj);
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
-export async function getRegionTours(id, embed = false) {
+export async function getRegionTours(slug, data) {
   try {
-    const regionTourRes = await fetch(`${BASE_URL}/trip?destination=${id}${embed ? '&_embed' : ''}&per_page=100`, { next: { revalidate: 10 } });
+    const options = {
+      method: 'GET',
+      next: { revalidate: 10 },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Custom-Data': JSON.stringify(data),
+      },
+    };
+    const regionTourRes = await fetch(`${CUSTOM_BASE_URL}/trips?destination=${slug}`, options);
     const regionTours = await regionTourRes.json();
     return (JSON.stringify(regionTours))
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -70,7 +79,7 @@ export async function getTaxonomyName(id, name) {
     const countryDataRes = await countryRes.json();
     return (JSON.stringify(countryDataRes))
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -80,7 +89,7 @@ export async function getTripInfo(slug) {
     const tripResData = await tripRes.json();
     return (JSON.stringify(tripResData));
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -99,7 +108,7 @@ export async function getFilterCountries() {
 
     return JSON.stringify(formattedCountries);
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -126,7 +135,7 @@ export async function getFilterActivities() {
 
     return JSON.stringify(formattedActivities);
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -143,7 +152,7 @@ export async function getFilterRegions() {
 
     return JSON.stringify(formattedRegions);
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
@@ -153,6 +162,6 @@ export async function getMedia(id) {
     const mediaResData = await mediaRes.json();
     return mediaResData;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }

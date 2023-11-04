@@ -13,7 +13,6 @@ const Booking = ({ data, duration, name }) => {
     bookingDate: '',
     state: false
   });
-  console.log(data);
   return (
     <div className="container">
       <div className={styles.booking}>
