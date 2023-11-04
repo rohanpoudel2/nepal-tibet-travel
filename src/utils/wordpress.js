@@ -83,7 +83,25 @@ export async function getTaxonomyName(id, name) {
   }
 }
 
-export async function getTripInfo(slug) {
+export async function getTripInfo(data) {
+  try {
+    const options = {
+      method: 'GET',
+      next: { revalidate: 10 },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Trip-Data': JSON.stringify(data),
+      },
+    };
+    const tripRes = await fetch(`${CUSTOM_BASE_URL}/trip`, options);
+    const tripResData = await tripRes.json();
+    return (JSON.stringify(tripResData));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getRecommendedTrip(slug) {
   try {
     const tripRes = await fetch(`${BASE_URL}/trip?slug=${slug}&_embed`, { next: { revalidate: 10 } });
     const tripResData = await tripRes.json();

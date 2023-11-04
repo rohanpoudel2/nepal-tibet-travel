@@ -12,10 +12,17 @@ import Recommendation from "@/components/activity/recommendation/Recommendation"
 import Nav from "@/components/activity/nav/Nav";
 import Booking from "@/components/activity/booking/Booking";
 import { notFound } from "next/navigation";
-import { getTaxonomyName, getTripInfo } from "@/utils/wordpress";
+import { getTripInfo } from "@/utils/wordpress";
+import { getRegionName } from "@/utils/functions";
 
-const getTripData = async (slug) => {
-  const res = await getTripInfo(slug);
+const getTripData = async (slug, activity, country, region) => {
+  const data = {
+    trip: slug,
+    activity,
+    country,
+    region
+  }
+  const res = await getTripInfo(data);
   if (!res) return;
   const response = JSON.parse(res);
   if (response.length === 0) return notFound();
@@ -24,16 +31,15 @@ const getTripData = async (slug) => {
 
 const Activity = async ({ params }) => {
   let { slug } = params;
-
   const activityName = slug.replace(/-/g, " ");
-  const activityResponse = await getTripData(slug);
-  const data = activityResponse[0];
+  const activityResponse = await getTripData(slug, params.activity, params.name, getRegionName(params.region));
+  const data = activityResponse;
   return (
     <div className={styles.activity}>
       <Hero data={{
-        name: data.title.rendered,
-        activity: JSON.parse(await getTaxonomyName(Math.max(...data.activities), 'activities')).name,
-        image: data.featured_media,
+        name: data.post.post_title,
+        activity: data.activities[0],
+        image: data.featured_media.sizes.full.url,
       }}
       />
       <div className={styles.detail}>
@@ -46,7 +52,7 @@ const Activity = async ({ params }) => {
             }}
           />
           <div className="container">
-            <div dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
+            <p>{data.post.post_content}</p>
           </div>
         </section>
         <section className={styles.itinerary} id="itinerary">
@@ -62,14 +68,13 @@ const Activity = async ({ params }) => {
               <div className={styles.right}>
                 <TripFacts
                   data={{
-                    country: JSON.parse(await getTaxonomyName(data.country[0], 'country')),
+                    country: data.country[0],
                     duration: data.acf.duration,
-                    area: JSON.parse(await getTaxonomyName(Math.max(...data.destination), 'destination')),
-                    activity: JSON.parse(await getTaxonomyName(Math.max(...data.activities), 'activities')),
+                    area: data.destination[0],
+                    activity: data.activities[0],
                     maxGroup: data.acf.group_size.max_group,
                     minGroup: data.acf.group_size.min_group,
-                    difficulty: JSON.parse(await getTaxonomyName(data.difficulty[0], 'difficulty')),
-                    additional: data.facts
+                    difficulty: data.difficulty[0],
                   }}
                 />
                 <PriceList />
@@ -97,7 +102,7 @@ const Activity = async ({ params }) => {
         </section>
         <section className={styles.booking} id="booking">
           <Booking
-            name={data.title.rendered}
+            name={data.post.post_title}
             duration={data.acf.duration.split(' ')[0]}
             data={data.acf.booking_dates}
           />
@@ -108,9 +113,9 @@ const Activity = async ({ params }) => {
           />
         </section>
         <div className={styles.recommendation}>
-          {/* <Recommendation
+          <Recommendation
             data={data.acf.recommendation}
-          /> */}
+          />
         </div>
       </div>
     </div>

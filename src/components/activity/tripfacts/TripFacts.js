@@ -12,7 +12,7 @@ const TripFacts = ({ data }) => {
             Country:
           </span>
           <span className={styles.ans}>
-            {data.country.name}
+            {data.country}
           </span>
         </div>
         <div className={styles.tFact}>
@@ -28,7 +28,7 @@ const TripFacts = ({ data }) => {
             Area:
           </span>
           <span className={styles.ans}>
-            {data.area.name}
+            {data.area}
           </span>
         </div>
         <div className={styles.tFact}>
@@ -36,7 +36,7 @@ const TripFacts = ({ data }) => {
             Activities:
           </span>
           <span className={styles.ans}>
-            {data.activity.name}
+            {data.activity}
           </span>
         </div>
         <div className={styles.tFact}>
@@ -60,7 +60,7 @@ const TripFacts = ({ data }) => {
             Difficulty:
           </span>
           <span className={styles.ans}>
-            {data.difficulty.name}
+            {data.difficulty}
           </span>
         </div>
         {

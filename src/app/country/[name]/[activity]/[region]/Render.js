@@ -3,8 +3,8 @@ import Hero from "@/components/country/region/Hero/Hero"
 import styles from "./region.module.scss"
 import DataTable from "@/components/country/trekking/trekkingTours/data-table"
 import Image from "next/image"
-import { useState, useEffect, useMemo } from "react"
-import { getMedia, getTaxonomyName } from "@/utils/wordpress"
+import { useState, useEffect } from "react"
+import { getRegionName } from "@/utils/functions"
 
 const columns = [
   {
@@ -71,26 +71,14 @@ const Region = ({ d, regionName }) => {
 
   const REGION_NAME = regionName;
 
-  const getRegionName = () => {
-    const tempName = REGION_NAME[0].toUpperCase() + REGION_NAME.slice(1);
-
-    if (tempName.includes('-')) {
-      const parts = tempName.split('-');
-      return `${parts[0]} ${parts[1][0].toUpperCase()}${parts[1].slice(1)}`;
-    }
-
-    return tempName;
-  }
-
-
   return (
     <div className={styles.region}>
-      <Hero title={getRegionName()} />
+      <Hero title={getRegionName(REGION_NAME)} />
       <div className="container">
         <section className={styles.areaSection}>
           <div className={`${styles.areaDescription} text-2xl mb-8`}>
             <h2 className={`${styles.areaTitle} mb-4`}>
-              {getRegionName()}
+              {getRegionName(REGION_NAME)}
             </h2>
             <div className={styles.areaDescription}>
               <p>
@@ -98,7 +86,7 @@ const Region = ({ d, regionName }) => {
               </p>
             </div>
           </div>
-          <DataTable columns={columns} data={data} regionName={getRegionName()} />
+          <DataTable columns={columns} data={data} regionName={getRegionName(REGION_NAME)} />
         </section>
       </div>
     </div>

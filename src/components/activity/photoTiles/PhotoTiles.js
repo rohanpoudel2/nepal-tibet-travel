@@ -8,8 +8,8 @@ const PhotoTiles = ({ data }) => {
         data?.map((image) => (
           <div className={styles.phototile}>
             <Image
-              src={image.url}
-              alt="EBC"
+              src={image.sizes.medium.url}
+              alt={image.alt}
               width={500}
               height={500}
               className={styles.image}

@@ -14,7 +14,6 @@ const getToursData = async (slug, country, activity) => {
     return;
   }
   let response = JSON.parse(res);
-  console.log(data);
   if (response.length === 0) return notFound();
   return response;
 }
