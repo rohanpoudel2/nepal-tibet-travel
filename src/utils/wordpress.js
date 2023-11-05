@@ -31,25 +31,19 @@ export async function getBlog(slug, type = 'posts') {
   }
 }
 
-export async function getCountryRegions(country, activityId) {
+export async function getCountryRegions(data) {
   try {
-    const parentDestinationResponse = await fetch(`${BASE_URL}/destination?slug=${country}`, { next: { revalidate: 10 } });
-    const parentDestination = await parentDestinationResponse.json();
-    const parentDestinationId = parentDestination[0].id;
-    const tripResponse = await fetch(`${BASE_URL}/trip?activities=${activityId}`, { next: { revalidate: 10 } });
-    const trips = await tripResponse.json();
-    const activityResponse = await fetch(`${BASE_URL}/activities/${activityId}`, { next: { revalidate: 10 } });
-    const activity = await activityResponse.json();
-    const destinationIds = [...new Set(trips.map(trip => trip.destination[0]))];
-    const destinationPromises = destinationIds.map(destinationId => {
-      return fetch(`${BASE_URL}/destination/${destinationId}`).then(response => response.json(), { next: { revalidate: 10 } });
-    });
-    const destinations = await Promise.all(destinationPromises);
-    const responseObj = {
-      activity: activity,
-      countryRegions: destinations.filter(destination => destination.parent === parentDestinationId)
+    const options = {
+      method: "GET",
+      next: { revalidate: 10 },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-region-data': JSON.stringify(data),
+      },
     };
-    return JSON.stringify(responseObj);
+    const regionRes = await fetch(`${CUSTOM_BASE_URL}/activity_region`, options);
+    const regions = await regionRes.json();
+    return (JSON.stringify(regions));
   } catch (error) {
     console.log(error);
   }
