@@ -26,7 +26,7 @@ export const latestUpdateDate = (postDate) => {
 export const blogCardDate = (date, year = false) => {
   let formattedDate = "";
   if (year) {
-    formattedDate = moment(date).format('MMM DD, YYYY');
+    formattedDate = moment(date).format('DD MMMM, YYYY');
     return formattedDate;
   }
   formattedDate = moment(date).format('MMM D');

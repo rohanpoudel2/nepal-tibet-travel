@@ -28,20 +28,18 @@ const Blogs = async () => {
 
   return (
     <div className="container">
-      <div className={styles.blogs}>
-        <div className={styles.topbar}>
-          <h1 className="text-2xl md:text-3xl font-bold">
-            {blogContent?.title}
-          </h1>
-          <h2 className="text-sm md:text-lg font-normal text-gray-700">
-            {blogContent?.sub_title}
-          </h2>
-          <Separator />
-        </div>
-        <div className={styles.blogscollection}>
+      <section className="bg-white">
+        <div className="container px-6 mb-20 mx-auto">
+          <div className="text-center">
+            <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl">{blogContent?.title}</h1>
+
+            <p className="max-w-lg mx-auto mt-4 text-gray-500">
+              {blogContent?.sub_title}
+            </p>
+          </div>
           <BlogsCollection data={blogsRes} />
         </div>
-      </div>
+      </section>
     </div>
   )
 }

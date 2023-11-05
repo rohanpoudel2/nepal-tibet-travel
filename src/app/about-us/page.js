@@ -17,10 +17,10 @@ const AboutUs = async () => {
 
   return (
     <div className="container">
-      <section id="about" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 items-center mb-20 md:h-[80vh]">
+      <section id="about" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 items-center mb-40 md:h-[80vh]">
         <div className="flex flex-col gap-5">
           <h1 className="text-4xl">
-            {aboutContent?.title}
+            We're changing the way people experiece <span className="underline decoration-sky-500">Nepal, Tibet and Bhutan</span>.
           </h1>
           <p className="font-light">
             {aboutContent?.short_desc}
@@ -53,62 +53,69 @@ const AboutUs = async () => {
           ))}
         </div>
       </section>
-      <section id="our_mission" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 place-items-center gap-5 mb-20">
-        <div className="flex flex-col gap-5">
-          <h2 className="text-3xl">
-            {aboutContent?.our_mission.title}
-          </h2>
-          <p className="font-light">
-            {aboutContent?.our_mission.short_desc}
-          </p>
-        </div>
-        <div className="block md:hidden">
-          <Separator />
-        </div>
-        <div className="relative flex items-center w-full h-full md:w-[50%] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-          <Image
-            src={aboutContent?.our_mission.narayan_card.narayan_image.sizes.medium}
-            width={300}
-            height={200}
-            alt={aboutContent?.our_mission.narayan_card.narayan_image.alt}
-            className="rounded-full w-32 h-32 md:w-52 md:h-52 object-cover mb-5"
-          />
-          <h3 className="font-bold mt-3 text-xl">
-            {aboutContent?.our_mission.narayan_card.name}
-          </h3>
-          <span className="text-sm">
-            {aboutContent?.our_mission.narayan_card.designation}
-          </span>
-          <div className="flex gap-5 my-5">
-            {
-              aboutContent?.our_mission.narayan_card.socials.map((social) => (
-                <Image
-                  src={social.icon.url}
-                  width={20}
-                  height={20}
-                  alt={social.icon.alt}
-                  key={social.icon.id}
-                />
-              ))
-            }
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="flex items-center justify-center flex-col text-left">
-          <div className="flex gap-20">
+      <section className="bg-white mb-20">
+        <div className="mt-8 sm:mt-12">
+          <dl
+            className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:divide-x sm:divide-gray-100"
+          >
             {
               aboutContent?.our_mission.infos.info.map((content, i) => (
-                <div className="w-50 flex flex-col gap-3">
-                  <h2 className="text-3xl font-bold">
-                    {content?.value}
-                  </h2>
-                  <span className="font-light">
+                <div
+                  className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center"
+                  key={i}
+                >
+                  <dt className="order-last text-lg font-medium text-gray-500">
                     {content?.title}
-                  </span>
+                  </dt>
+
+                  <dd className="text-4xl font-extrabold text-sky-600 md:text-5xl">
+                    {content?.value}
+                  </dd>
                 </div>
               ))
             }
+          </dl>
+        </div>
+      </section>
+      <section className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 bg-gray-50 rounded-xl p-5 mb-20">
+        <div className="rounded-lg">
+          <div className="flex flex-col gap-5">
+            <h2 className="text-3xl">
+              Our <span className="underline decoration-sky-500">Mission</span>
+            </h2>
+            <p className="font-light">
+              {aboutContent?.our_mission.short_desc}
+            </p>
+          </div>
+        </div>
+        <div className="rounded-lg flex items-center justify-center">
+          <div className="relative flex items-center w-full h-full md:w-[50%] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
+            <Image
+              src={aboutContent?.our_mission.narayan_card.narayan_image.sizes.medium}
+              width={300}
+              height={200}
+              alt={aboutContent?.our_mission.narayan_card.narayan_image.alt}
+              className="rounded-full w-32 h-32 md:w-52 md:h-52 object-cover mb-5"
+            />
+            <h3 className="font-bold mt-3 text-xl">
+              {aboutContent?.our_mission.narayan_card.name}
+            </h3>
+            <span className="text-sm">
+              {aboutContent?.our_mission.narayan_card.designation}
+            </span>
+            <div className="flex gap-5 my-5">
+              {
+                aboutContent?.our_mission.narayan_card.socials.map((social) => (
+                  <Image
+                    src={social.icon.url}
+                    width={20}
+                    height={20}
+                    alt={social.icon.alt}
+                    key={social.icon.id}
+                  />
+                ))
+              }
+            </div>
           </div>
         </div>
       </section>
@@ -120,74 +127,78 @@ const AboutUs = async () => {
           className="object-cover object-center rounded-xl"
         />
       </section>
-      <section id="our_values" className="flex flex-col gap-10 mb-20">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-3xl">
-            {aboutContent?.our_mission.our_values.title}
-          </h2>
-          <p className="font-light">
-            {aboutContent?.our_mission.our_values.short_desc}
+      <section className="bg-white mb-20">
+        <div className="container px-6 mx-auto">
+          <h1 className="text-2xl font-bold text-gray-800 capitalize lg:text-3xl">Our <span className="underline decoration-sky-500">Values</span></h1>
+          <p className="mt-4 text-gray-500 xl:mt-6 ">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet quam assumenda, aperiam nulla cum nostrum! Enim perspiciatis, officiis labore cum quo illo voluptatem saepe magni provident vitae voluptatibus, animi eligendi!
           </p>
-        </div>
-        <Separator orientation="horizontal" />
-        <div className="grid grid-rows-2 grid-cols-2 md:grid-cols-3 gap-10">
-          {
-            aboutContent?.our_mission.our_values.value.map((value, i) => (
-              <div className="flex flex-col gap-3" key={i}>
-                <h3 className="text-xl">
-                  {value.title}
-                </h3>
-                <p className="font-light">
-                  {value.short_desc}
-                </p>
-              </div>
-            ))
-          }
+          <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+            {
+              aboutContent?.our_mission.our_values.value.map((value, i) => (
+                <div className="p-8 space-y-3 border-2 border-sky-400  rounded-xl" key={i}>
+                  <span className="inline-block text-sky-500 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                    </svg>
+                  </span>
+                  <h1 className="text-xl font-semibold text-gray-700 capitalize ">{value.title}</h1>
+                  <p className="text-gray-500">
+                    {value.short_desc}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </section>
-      <section id="contact-and-map" className="mb-20">
-        <div
-          className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
-          <div className="flex flex-wrap items-center">
-            <div className="block w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
-              <div className="h-[500px] w-full">
-                <iframe src={aboutContent?.our_mission.contact_card.location.url}
-                  className="left-0 top-0 h-full w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" frameBorder="0"
-                  allowFullScreen />
+      <section className="bg-white mb-20 px-6 mx-auto">
+        <div className="container">
+          <div>
+            <h1 className="mt-2 text-2xl font-bold text-gray-800 md:text-3xl ">
+              <span className="underline decoration-sky-500">Get in touch</span>
+            </h1>
+            <p className="mt-3 text-gray-500 ">Our friendly team would love to hear from you.</p>
+          </div>
+          <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-1">
+              <div>
+                <span className="inline-block p-3 text-sky-500 rounded-full bg-sky-100/80 ">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                </span>
+                <h2 className="mt-4 text-base font-medium text-gray-800 ">Email</h2>
+                <p className="mt-2 text-sm text-gray-500 ">Our friendly team is here to help.</p>
+                <p className="mt-2 text-sm text-sky-500 font-medium ">{aboutContent?.our_mission.contact_card.email}</p>
+              </div>
+              <div>
+                <span className="inline-block p-3 text-sky-500 rounded-full bg-sky-100/80 ">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                </span>
+                <h2 className="mt-4 text-base font-medium text-gray-800">Office</h2>
+                <p className="mt-2 text-sm text-gray-500 ">Come say hello at our office.</p>
+                <p className="mt-2 text-sm text-sky-500  font-medium">{aboutContent?.our_mission.contact_card.location}</p>
+              </div>
+              <div>
+                <span className="inline-block p-3 text-sky-500 rounded-full bg-sky-100/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                </span>
+                <h2 className="mt-4 text-base font-medium text-gray-800">Phone</h2>
+                <p className="mt-2 text-sm text-gray-500 ">Mon-Fri from 10am to 5pm.</p>
+                <p className="mt-2 text-sm text-sky-500  font-medium">{aboutContent?.our_mission.contact_card.phone_number}</p>
               </div>
             </div>
-            <div className="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
-              <div className="flex flex-wrap px-3 pt-12 pb-12 md:pb-0 lg:pt-0">
-                {
-                  aboutContent?.our_mission.contact_card.numbers.map((number, i) => (
-                    <div className="mb-12 w-full shrink-0 grow-0 basis-auto px-3 md:w-6/12 md:px-6 lg:w-full xl:w-6/12 xl:px-12" key={i}>
-                      <div className="flex items-start">
-                        <div className="shrink-0">
-                          <div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
-                            <Image
-                              src={number.icon.url}
-                              width={24}
-                              height={24}
-                              alt="Phone Icon"
-                            />
-                          </div>
-                        </div>
-                        <div className="ml-6 grow">
-                          <p className="mb-2 font-bold ">
-                            {number.title}
-                          </p>
-                          <p className="text-neutral-500 ">
-                            {number.contact_info.email}
-                          </p>
-                          <p className="text-neutral-500 ">
-                            {number.contact_info.phone_number}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))
-                }
-              </div>
+            <div className="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto">
+              <iframe src={aboutContent?.our_mission.contact_card.map_url}
+                className="left-0 top-0 h-full w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" frameBorder="0"
+                allowFullScreen />
             </div>
           </div>
         </div>

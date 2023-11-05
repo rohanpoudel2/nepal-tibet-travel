@@ -6,6 +6,7 @@ import Title from "@/components/ui/title/Title";
 import { getBlog } from "@/utils/wordpress";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Breadcrumb from "@/components/ui/breadcrumb";
 
 const getData = async (slug) => {
   const res = await getBlog(slug, 'country-information');
