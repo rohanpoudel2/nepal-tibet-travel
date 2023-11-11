@@ -47,7 +47,7 @@ export function DataTable({
     <>
       <div className="flex justify-between items-center py-4">
         <h2 className="text-2xl">
-          {regionName}
+          All {regionName} Activities
         </h2>
         <Input
           placeholder={`Search ${regionName} Treks...`}

@@ -161,7 +161,7 @@ const Footer = () => {
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <p className="font-medium text-gray-900">Community</p>
+              <p className="font-bold text-gray-900">Community</p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a href="#" className="text-gray-700 transition hover:opacity-75">
@@ -177,7 +177,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="font-medium text-gray-900">Company</p>
+              <p className="font-bold text-gray-900">Company</p>
 
               <ul className="mt-6 space-y-4 text-sm">
                 <li>

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { badgeVariants } from "@/components/ui/badge"
-
+import styles from "./options.module.scss";
 
 const Options = ({ data }) => {
 
   return (
-    <div className="flex gap-5 p-5 w-full md:justify-center overflow-scroll sticky top-[100px] bg-white">
+    <div className={`flex gap-5 p-5 w-full md:justify-center overflow-scroll sticky top-[100px] bg-white ${styles.options}`}>
       {
         data.map((information, i) => (
           <Link href={information.link} className={`${badgeVariants({ variant: "custom" })} md:py-3`} key={i}>

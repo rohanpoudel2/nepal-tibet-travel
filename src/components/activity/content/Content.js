@@ -6,7 +6,7 @@ const Content = ({ data }) => {
     <div className="container">
       <div className={styles.content}>
         <div className={styles.left}>
-          <div className={styles.desc} dangerouslySetInnerHTML={{ __html: data.content }} />
+          <div className="mt-8 prose prose-slate max-w-none text-justify lg:prose-lg" dangerouslySetInnerHTML={{ __html: data.content }} />
         </div>
         <div className={styles.right}>
           <div className={styles.gallery}>

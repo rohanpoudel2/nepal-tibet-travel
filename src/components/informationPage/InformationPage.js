@@ -1,5 +1,4 @@
 import { blogCardDate } from "@/utils/dates";
-import styles from "./informationpage.module.scss";
 
 const Terms = ({ title, updatedOn, content }) => {
   return (
@@ -12,9 +11,9 @@ const Terms = ({ title, updatedOn, content }) => {
           </div>
         </div>
       </div>
-      <section className={styles.terms}>
+      <section>
         <div className="container">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="prose lg:prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
         </div>
       </section>
     </div>

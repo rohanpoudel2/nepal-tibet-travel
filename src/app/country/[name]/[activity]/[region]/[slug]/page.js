@@ -14,6 +14,7 @@ import Booking from "@/components/activity/booking/Booking";
 import { notFound } from "next/navigation";
 import { getTripInfo } from "@/utils/wordpress";
 import { getRegionName } from "@/utils/functions";
+import Faq from "@/components/activity/faq/Faq";
 
 const getTripData = async (slug, activity, country, region) => {
   const data = {
@@ -52,7 +53,9 @@ const Activity = async ({ params }) => {
             }}
           />
           <div className="container">
-            <p>{data.post.post_content}</p>
+            <div className="max-w-none prose prose-slate text-justify lg:prose-lg">
+              <p>{data.post.post_content}</p>
+            </div>
           </div>
         </section>
         <section className={styles.itinerary} id="itinerary">
@@ -96,9 +99,7 @@ const Activity = async ({ params }) => {
           />
         </section>
         <section className={styles.links} id="faq">
-          <Links
-            data={data.acf.useful_links}
-          />
+          <Faq data={data.acf.faq} />
         </section>
         <section className={styles.booking} id="booking">
           <Booking
@@ -112,6 +113,11 @@ const Activity = async ({ params }) => {
             data={data.acf.testimonials}
           />
         </section>
+        <div>
+          <Links
+            data={data.acf.useful_links}
+          />
+        </div>
         <div className={styles.recommendation}>
           <Recommendation
             data={data.acf.recommendation}

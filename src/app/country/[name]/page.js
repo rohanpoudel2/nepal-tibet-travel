@@ -1,5 +1,4 @@
 import Hero from "@/components/country/hero/Hero";
-import styles from "./country.module.scss";
 import CountryFacts from "@/components/country/facts/Facts";
 import CountryActivityCard from "@/components/ui/country-activity-card";
 import Title from "@/components/ui/title/Title";
@@ -26,24 +25,30 @@ const Country = async ({ params }) => {
 
   const countryRes = await getData(name);
   const countryResContent = countryRes[0];
-
   return (
-    <div className={styles.country}>
-      <Hero
-        data={{
-          title: countryResContent?.acf?.hero?.title,
-          image: countryResContent?.acf?.hero?.image
-        }}
-      />
-      <CountryFacts
-        data={{
-          map: countryResContent?.acf?.country_map,
-          title: countryResContent?.slug,
-          facts: countryResContent?.acf?.facts,
-          information: countryResContent?.acf?.information,
-          information_content: countryResContent?.acf?.information_content,
-        }}
-      />
+    <div className="flex flex-col">
+      <section>
+        <Hero
+          data={{
+            country: name[0].toUpperCase() + name.slice(1),
+            title: countryResContent?.acf?.hero?.title,
+            image: countryResContent?.acf?.hero?.image,
+            facts: countryResContent?.acf?.facts,
+            description: countryResContent?.content.rendered,
+          }}
+        />
+      </section>
+      <section>
+        <CountryFacts
+          data={{
+            map: countryResContent?.acf?.country_map,
+            title: countryResContent?.slug,
+            facts: countryResContent?.acf?.facts,
+            information: countryResContent?.acf?.information,
+            information_content: countryResContent?.acf?.information_content,
+          }}
+        />
+      </section>
       <section>
         <div className="container">
           <Title

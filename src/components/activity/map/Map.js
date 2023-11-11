@@ -1,11 +1,10 @@
 import Image from "next/image";
-import styles from "./map.module.scss";
 
-const Map = ({ activityName, map }) => {
-  return (
+const Map = ({ activityName, map }) => (
+  <section className="bg-gray-50 py-8">
     <div className="container">
-      <div className={styles.map}>
-        <h2 className={styles.routeMap}>
+      <div className="w-100 flex flex-col items-center justify-center gap-10">
+        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl first-letter:uppercase">
           {activityName} Route Map
         </h2>
         <Image
@@ -13,11 +12,11 @@ const Map = ({ activityName, map }) => {
           alt={`${activityName} Route Map`}
           width={600}
           height={600}
-          className={styles.image}
+          className=""
         />
       </div>
     </div>
-  )
-}
+  </section>
+)
 
 export default Map

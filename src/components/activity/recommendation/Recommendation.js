@@ -25,32 +25,35 @@ const Recommendation = async ({ data }) => {
   }
   const image = await getMedia(recommendationData.featured_media);
   return (
-    <div className="container">
-      <div className={styles.recommendation}>
-        <h3 className={styles.title}>
-          Also Explore
-        </h3>
-        <div className={styles.trip}>
-          <Image
-            src={image.media_details.sizes.large.source_url}
-            alt={recommendationData.title.rendered}
-            width={800}
-            height={300}
-            className={styles.image}
-          />
-          <div className={styles.desc}>
-            <div className={styles.title}>
+    <section className="relative bg-gray-50">
+      <div
+        className="relative mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:flex lg:items-center lg:px-8 gap-52"
+      >
+        <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+          <h1 className="text-3xl font-extrabold sm:text-5xl">
+            Also explore
+            <strong className="block font-extrabold text-sky-700">
               {data.post_title}
-            </div>
-            <Link href={`/country/${cat.country}/${cat.activity}/${cat.region}/${data.post_name}`}>
-              <button className={styles.btn}>
-                Explore Now
-              </button>
+            </strong>
+          </h1>
+          <div className="mt-10 text-center">
+            <Link
+              href={`/country/${cat.country}/${cat.activity}/${cat.region}/${data.post_name}`}
+              className="block w-full rounded bg-sky-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-sky-700 focus:outline-none focus:ring active:bg-sky-500 sm:w-auto"
+            >
+              Explore
             </Link>
           </div>
         </div>
+        <Image
+          src={image.media_details.sizes.large.source_url}
+          alt={recommendationData.title.rendered}
+          width={800}
+          height={300}
+          className="w-1/2 h-1/2 object-cover rounded-xl"
+        />
       </div>
-    </div>
+    </section >
   )
 }
 

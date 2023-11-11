@@ -1,6 +1,5 @@
 import Hero from "@/components/country/trekking/hero/Hero"
 import styles from "./trekking.module.scss"
-import { getActivityId } from "@/utils/apiUtils";
 import { getCountryRegions } from "@/utils/wordpress";
 import RegionCard from "@/components/country/trekking/regionCard/RegionCard";
 import { notFound } from "next/navigation";
@@ -42,15 +41,17 @@ const Trekking = async ({ params }) => {
                 if (i === countryDestinationRes.length - 1) {
                   return ''
                 }
-                return <RegionCard
-                  key={data.term_id}
-                  image={data.acf.hero.image.sizes.medium_large}
-                  name={data.name}
-                  desc={data.description}
-                  page_link={data.slug}
-                  activity={ACTIVITY_NAME}
-                  country={name}
-                />
+                return (
+                  <RegionCard
+                    key={data.term_id}
+                    image={data.acf.hero.image.sizes.medium_large}
+                    name={data.name}
+                    desc={data.description}
+                    page_link={data.slug}
+                    activity={ACTIVITY_NAME}
+                    country={name}
+                  />
+                )
               })
             }
           </section>

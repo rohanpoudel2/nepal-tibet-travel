@@ -1,6 +1,4 @@
 "use client"
-import Hero from "@/components/country/region/Hero/Hero"
-import styles from "./region.module.scss"
 import DataTable from "@/components/country/trekking/trekkingTours/data-table"
 import Image from "next/image"
 import { useState, useEffect } from "react"
@@ -72,23 +70,8 @@ const Region = ({ d, regionName }) => {
   const REGION_NAME = regionName;
 
   return (
-    <div className={styles.region}>
-      <Hero title={getRegionName(REGION_NAME)} />
-      <div className="container">
-        <section className={styles.areaSection}>
-          <div className={`${styles.areaDescription} text-2xl mb-8`}>
-            <h2 className={`${styles.areaTitle} mb-4`}>
-              {getRegionName(REGION_NAME)}
-            </h2>
-            <div className={styles.areaDescription}>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, dolorum impedit ad fugit nesciunt eligendi voluptatem, doloremque nostrum cum, a suscipit nobis eum vitae eos perspiciatis exercitationem? Sunt, corporis accusamus.
-              </p>
-            </div>
-          </div>
-          <DataTable columns={columns} data={data} regionName={getRegionName(REGION_NAME)} />
-        </section>
-      </div>
+    <div className="container">
+      <DataTable columns={columns} data={data} regionName={getRegionName(REGION_NAME)} />
     </div>
   )
 }

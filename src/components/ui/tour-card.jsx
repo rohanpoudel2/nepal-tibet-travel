@@ -24,7 +24,7 @@ const TourCard = ({ image, tourName, desc, rating, button }) => {
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
-              className="-mt-0.5 h-5 w-5 text-yellow-700"
+              className="-mt-0.5 h-5 w-5 text-yellow-600"
             >
               <path
                 fillRule="evenodd"

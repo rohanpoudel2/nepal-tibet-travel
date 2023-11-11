@@ -5,19 +5,27 @@ const LatestUpdateCard = ({ data }) => {
   const latest_update = data?.latest_update
   return (
     <Link href={`/blogs/` + latest_update?.post_name}>
-      <div
-        className="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] md:max-w-xl md:flex-row cursor-pointer">
-        <div className="flex flex-col justify-start p-6">
-          <h5
-            className="mb-2 text-lg md:text-xl font-medium text-neutral-800">
-            {latest_update?.post_title}
-          </h5>
-          <div className="mb-4 text-sm md:text-base text-neutral-600 max-h-[3.5rem] line-clamp-2" dangerouslySetInnerHTML={{ __html: latest_update?.post_content }}></div>
-          <p className="text-xs text-neutral-500">
-            {latestUpdateDate(latest_update?.post_date_gmt)}
-          </p>
+      <article className="flex bg-white transition hover:shadow-xl border-2 border-gray-800 rounded-xl">
+        <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
+          {latestUpdateDate(latest_update?.post_date_gmt)}
         </div>
-      </div>
+        <div className="flex flex-1 flex-col justify-between">
+          <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+            <h3 className="font-bold uppercase text-gray-900">
+              {latest_update?.post_title}
+            </h3>
+            <div className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700" dangerouslySetInnerHTML={{ __html: latest_update?.post_content }} />
+          </div>
+
+          <div className="sm:flex sm:items-end sm:justify-end">
+            <span
+              className="block bg-sky-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-sky-400 rounded-ee-xl"
+            >
+              Read Blog
+            </span>
+          </div>
+        </div>
+      </article>
     </Link>
   )
 }

@@ -7,7 +7,7 @@ import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
 import HomeActivities from '@/components/home/homeActivities/HomeActivities'
 import WorkingWith from '@/components/home/workingWith/WorkingWith'
-import {getFilterActivities, getFilterCountries, getFilterRegions, getPageData } from "@/utils/wordpress";
+import { getFilterActivities, getFilterCountries, getFilterRegions, getPageData } from "@/utils/wordpress";
 
 const getData = async () => {
   const res = await getPageData('home');
@@ -39,8 +39,8 @@ export default async function Home() {
           </div>
         ))
       }
-      <LatestUpdates data={homeContent?.latest_updates} />
       <WorkingWith data={homeContent?.working_with} />
+      <LatestUpdates data={homeContent?.latest_updates} />
     </div>
   )
 }

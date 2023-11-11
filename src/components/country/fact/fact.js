@@ -1,16 +1,12 @@
-import styles from "./fact.module.scss";
-
-const Fact = ({ title, answer }) => {
-  return (
-    <div className={styles.data}>
-      <span className={styles.label}>
-        {title}
-      </span>
-      <span className={styles.answer}>
-        {answer}
-      </span>
-    </div>
-  )
-}
+const Fact = ({ title, answer, color }) => (
+  <div className={`flex flex-col items-center gap-2 ${color} p-5 rounded`}>
+    <span className="font-semibold text-lg">
+      {title}
+    </span>
+    <span>
+      {answer}
+    </span>
+  </div>
+)
 
 export default Fact

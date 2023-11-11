@@ -2,31 +2,22 @@ import moment from "moment";
 
 export const latestUpdateDate = (postDate) => {
 
-  const postDateTime = moment(postDate, "YYYY-MM-DD HH:mm:ss");
-
-  const currentDateTime = moment();
-  const timeDifference = currentDateTime.diff(postDateTime, 'seconds');
-
-  let result = "";
-
-  if (timeDifference < 60) {
-    result = `Last Updated ${timeDifference} sec ago`;
-  } else if (timeDifference < 3600) {
-    result = `Last Updated ${Math.floor(timeDifference / 60)} min ago`;
-  } else if (timeDifference < 86400) {
-    result = `Last Updated ${Math.floor(timeDifference / 3600)} hr ago`;
-  } else {
-    result = `Last Updated ${Math.floor(timeDifference / 86400)} day ago`;
-  }
-
-  return result
-
+  return (
+    <time
+      dateTime={moment(postDate).format("MM-DD-YYYY")}
+      className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-sky-600"
+    >
+      <span>{moment(postDate).format("YYYY")}</span>
+      <span className="w-px flex-1 bg-gray-900/10"></span>
+      <span>{moment(postDate).format("MMM DD")}</span>
+    </time>
+  )
 }
 
 export const blogCardDate = (date, year = false) => {
   let formattedDate = "";
   if (year) {
-    formattedDate = moment(date).format('DD MMMM, YYYY');
+    formattedDate = moment(date).format('DD MMM, YYYY');
     return formattedDate;
   }
   formattedDate = moment(date).format('MMM D');
