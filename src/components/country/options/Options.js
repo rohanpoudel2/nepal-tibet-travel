@@ -1,20 +1,20 @@
 import Link from "next/link";
-import { badgeVariants } from "@/components/ui/badge"
-import styles from "./options.module.scss";
+import Divider from "@/components/ui/divider/Divider";
 
-const Options = ({ data }) => {
-
-  return (
-    <div className={`flex gap-5 p-5 w-full md:justify-center overflow-scroll sticky top-[100px] bg-white ${styles.options}`}>
+const Options = ({ data }) => (
+  <div className="container">
+    <h2 className="text-3xl leading-tight mb-1">Nepal Information</h2>
+    <Divider />
+    <div className="flex flex-wrap gap-5 mt-10">
       {
         data.map((information, i) => (
-          <Link href={information.link} className={`${badgeVariants({ variant: "custom" })} md:py-3`} key={i}>
-            <div className="mt-px">{information.title}</div>
+          <Link key={i} href={information.link} className={`w-fit break-keep bg-sky-500 px-3 py-1 font-semibold text-white rounded-lg hover:bg-sky-700 focus:ring-4 focus:ring-sky-300`} >
+            <span className="mt-px" style={{ whiteSpace: 'nowrap' }}>{information.title}</span>
           </Link>
         ))
       }
     </div>
-  )
-}
+  </div>
+)
 
-export default Options
+export default Options;

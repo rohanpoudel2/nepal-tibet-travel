@@ -1,11 +1,11 @@
 import Hero from "@/components/country/hero/Hero";
 import CountryFacts from "@/components/country/facts/Facts";
-import CountryActivityCard from "@/components/ui/country-activity-card";
-import Title from "@/components/ui/title/Title";
+import Image from "next/image";
 import { getBlog } from "@/utils/wordpress";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import Best from "@/components/country/best/best";
 
 const getData = async (slug) => {
   const res = await getBlog(slug, 'country-information');
@@ -25,6 +25,7 @@ const Country = async ({ params }) => {
 
   const countryRes = await getData(name);
   const countryResContent = countryRes[0];
+
   return (
     <div className="flex flex-col">
       <section>
@@ -38,33 +39,30 @@ const Country = async ({ params }) => {
           }}
         />
       </section>
+      <CountryFacts
+        data={{
+          map: countryResContent?.acf?.country_map,
+          title: countryResContent?.slug,
+          facts: countryResContent?.acf?.facts,
+          information: countryResContent?.acf?.information,
+          information_content: countryResContent?.acf?.information_content,
+        }}
+      />
       <section>
-        <CountryFacts
+        <Best
           data={{
-            map: countryResContent?.acf?.country_map,
-            title: countryResContent?.slug,
-            facts: countryResContent?.acf?.facts,
-            information: countryResContent?.acf?.information,
-            information_content: countryResContent?.acf?.information_content,
+            title: "Best Activity Region",
+            subtitle: "Nepal"
           }}
         />
       </section>
-      <section>
-        <div className="container">
-          <Title
-            title={countryResContent?.acf?.activity_title.title}
-            subtitle={countryResContent?.acf.activity_title.sub_title}
-          />
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-[50px] mt-[38px]">
-            {
-              countryResContent?.acf?.activity.map((data, i) => (
-                <Link href={data.link.url} key={i}>
-                  <CountryActivityCard data={{ ...data, country_name: countryResContent?.slug }} />
-                </Link>
-              ))
-            }
-          </div>
-        </div>
+      <section className="mt-0">
+        <Best
+          data={{
+            title: "Top Rated Treks",
+            subtitle: "Nepal"
+          }}
+        />
       </section>
     </div>
   )
