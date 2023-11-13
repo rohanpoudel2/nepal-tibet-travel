@@ -22,7 +22,6 @@ const getToursData = async (slug, country, activity) => {
 
 const Fetcher = async ({ params }) => {
   const tourRes = await getToursData(params.region, params.name, params.activity);
-  console.log(tourRes);
   return (
     <>
       <section>

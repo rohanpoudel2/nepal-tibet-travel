@@ -31,6 +31,24 @@ export async function getBlog(slug, type = 'posts') {
   }
 }
 
+export async function getCountryPage(data) {
+  try {
+    const options = {
+      method: "GET",
+      next: { revalidate: 10 },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-country-data': JSON.stringify(data),
+      }
+    };
+    let countryPage = await fetch(`${CUSTOM_BASE_URL}/country`, options);
+    const country = await countryPage.json();
+    return (JSON.stringify(country));
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export async function getCountryRegions(data) {
   try {
     const options = {

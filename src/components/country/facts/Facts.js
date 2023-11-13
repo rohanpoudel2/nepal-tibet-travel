@@ -2,7 +2,7 @@ import Options from "../options/Options";
 
 const Facts = ({ data }) => {
   return (
-    <Options data={data?.information} />
+    <Options data={data.information} />
   )
 }
 

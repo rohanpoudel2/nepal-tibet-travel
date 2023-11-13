@@ -20,13 +20,12 @@ const getData = async (slug) => {
 const Blog = async ({ params }) => {
   const data = await getData(params?.slug);
   const blogData = data[0];
-
   return (
     <section className="bg-white">
       <div className="container px-6 mx-auto">
         <div className="lg:flex lg:-mx-6 mb-5">
           <Hero
-            image={blogData?.acf.hero_image}
+            image={blogData['_embedded']['wp:featuredmedia'][0].source_url}
             detailCard={{
               author: blogData["_embedded"]?.author[0],
               title: blogData?.title.rendered,

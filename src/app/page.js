@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <div className={styles.home}>
       <Hero data={homeContent?.home_hero} />
-      <HomeFilter country={countries} activity={activities} region={region} />
+      {/* <HomeFilter country={countries} activity={activities} region={region} /> */}
       <PopularDestinations data={homeContent?.popular_destination} />
       <AboutUs data={homeContent?.about_us} />
       {

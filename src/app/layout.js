@@ -1,9 +1,10 @@
-import Nav from '@/components/nav/Nav'
-import './globals.scss'
-import { Inter } from 'next/font/google'
-import Footer from '@/components/footer/Footer'
+import Nav from '@/components/nav/Nav';
+import './globals.scss';
+import { Inter } from 'next/font/google';
+import Footer from '@/components/footer/Footer';
+import DevelopmentAlert from '@/components/ui/alert/developmentAlert';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Nav />
         {children}
+        <DevelopmentAlert />
         <Footer />
       </body>
     </html>

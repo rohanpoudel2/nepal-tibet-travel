@@ -1,14 +1,14 @@
 import Hero from "@/components/country/hero/Hero";
 import CountryFacts from "@/components/country/facts/Facts";
 import Image from "next/image";
-import { getBlog } from "@/utils/wordpress";
+import { getBlog, getCountryPage } from "@/utils/wordpress";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import Best from "@/components/country/best/best";
 
-const getData = async (slug) => {
-  const res = await getBlog(slug, 'country-information');
+const getData = async (country) => {
+  const res = await getCountryPage({ country });
   if (!res) {
     return;
   }
@@ -24,7 +24,8 @@ const Country = async ({ params }) => {
   const { name } = params;
 
   const countryRes = await getData(name);
-  const countryResContent = countryRes[0];
+  const initialData = countryRes[0];
+  const acf = countryRes['acf'];
 
   return (
     <div className="flex flex-col">
@@ -32,27 +33,26 @@ const Country = async ({ params }) => {
         <Hero
           data={{
             country: name[0].toUpperCase() + name.slice(1),
-            title: countryResContent?.acf?.hero?.title,
-            image: countryResContent?.acf?.hero?.image,
-            facts: countryResContent?.acf?.facts,
-            description: countryResContent?.content.rendered,
+            title: acf?.hero?.title,
+            image: acf?.hero?.image,
+            facts: acf?.facts,
+            description: initialData?.post_content,
           }}
         />
       </section>
       <CountryFacts
         data={{
-          map: countryResContent?.acf?.country_map,
-          title: countryResContent?.slug,
-          facts: countryResContent?.acf?.facts,
-          information: countryResContent?.acf?.information,
-          information_content: countryResContent?.acf?.information_content,
+          information: acf.information
         }}
       />
       <section>
         <Best
           data={{
             title: "Best Activity Region",
-            subtitle: "Nepal"
+            subtitle: name,
+            list: acf.best_activity_region,
+            toMap: acf.map_activities,
+            country: name
           }}
         />
       </section>
@@ -60,7 +60,9 @@ const Country = async ({ params }) => {
         <Best
           data={{
             title: "Top Rated Treks",
-            subtitle: "Nepal"
+            subtitle: name,
+            list: acf.top_rated_treks,
+            country: name
           }}
         />
       </section>
