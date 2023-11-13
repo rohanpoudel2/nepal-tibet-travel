@@ -6,7 +6,7 @@ const WorkingWith = ({ data }) => {
   return (
     <section className="bg-gray-50">
       <div className="container">
-        <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+        <div className="max-w-screen-xl py-8 sm:py-12 lg:py-16">
           <div
             className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
           >
@@ -30,7 +30,7 @@ const WorkingWith = ({ data }) => {
                     className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
                     href={data.link}
                   >
-                    <span className="inline-block rounded-lg bg-gray-50 p-3">
+                    <span className="flex items-center justify-center rounded-lg bg-gray-50 p-3">
                       <Image
                         key={data?.logo.id}
                         width={80}
@@ -40,7 +40,7 @@ const WorkingWith = ({ data }) => {
                         className="object-contain w-10 h-10 sm:w-15 sm:h-15 md:w-20 md:h-20"
                       />
                     </span>
-                    <h2 className="mt-2 font-bold">{data.name}</h2>
+                    <h2 className="mt-2 font-bold text-center">{data.name}</h2>
                   </Link>
                 ))
               }

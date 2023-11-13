@@ -13,7 +13,7 @@ const getData = async (country) => {
     return;
   }
   let response = JSON.parse(res);
-  if (response.length === 0 || response[0]?.acf?.hero === null) {
+  if (response.length === 0 || response?.acf.top_rated_treks.length === 0) {
     return notFound();
   }
   return response;

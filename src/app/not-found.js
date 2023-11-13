@@ -1,8 +1,12 @@
 "use client"
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 const NotFound = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <section className="bg-white ">
       <div className="container min-h-screen px-6  mx-auto lg:flex lg:items-start lg:gap-12">

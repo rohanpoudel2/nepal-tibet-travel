@@ -270,8 +270,8 @@ const Nav = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Bhutan</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid h-[500px] overflow-scroll w-[250px] sm:w-[300px] sm:h-[550px] gap-3 p-4 md:h-[600px] md:w-[500px] md:grid-cols-2 lg:w-[600px] lg:h-[600px] ">
-                    <li className="row-span-2">
+                  <ul className="grid h-[500px] overflow-scroll w-[250px] sm:w-[300px] sm:h-[550px] gap-3 p-4 md:h-[600px] md:w-[500px] md:grid-cols-1 lg:w-[600px] lg:h-[600px] ">
+                    <li className="row-span-1">
                       <NavigationMenuLink asChild>
                         <Link
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative"
@@ -297,6 +297,7 @@ const Nav = () => {
                         key={component.title}
                         title={component.title}
                         href={component.href}
+                        className="py-5"
                       >
                         {component.description}
                       </ListItem>

@@ -3,37 +3,32 @@ import styles from "./aboutus.module.scss";
 import Link from "next/link";
 
 const AboutUs = ({ data }) => (
-  <section className={`${styles.aboutus} bg-gray-50 py-8 overflow-hidden`}>
-    <div className="container relative lg:flex lg:items-center lg:gap-12">
-      <div className="w-full py-12 lg:py-16">
-        <h2 className="text-3xl font-extrabold text-black  sm:text-4xl">
-          <span className="block">
-            {data?.title}
-          </span>
-        </h2>
-        <p className="text-md mt-4 text-gray-400">
-          {data?.description}
-        </p>
-        <div className="lg:mt-0 lg:flex-shrink-0">
-          <div className="mt-12 inline-flex rounded-md shadow">
-            <Link href="/about-us">
-              <button type="button" className="py-2 px-4  bg-sky-500 hover:bg-sky-700 focus:ring-sky-500 focus:ring-offset-sky-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
-                {data?.button.button_text}
-              </button>
-            </Link>
+  <section className="bg-gray-50 py-6 sm:py-8 lg:py-12">
+    <div className="container">
+      <div className="mx-auto max-w-screen-xl">
+        <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
+          <div className="md:pt-8 lg:flex lg:flex-col lg:justify-center">
+            <p className="text-center font-bold text-sky-500 md:text-left">Who we are</p>
+            <h1 className="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6 md:text-left">Operational since 1995</h1>
+            <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
+              {data?.description}
+            </p>
           </div>
-        </div>
-      </div>
-      <div className="hidden lg:flex justify-end items-center gap-4 py-8 pl-4 lg:py-24 lg:pl-12">
-        <Image width={800} height={800} src={data.image_grid.image[0].image.sizes.medium_large} className="w-1/2 rounded-lg" alt="Tree" />
-        <div>
-          <Image width={800} height={800} src={data.image_grid.image[1].image.sizes.medium_large} className="mb-4 rounded-lg" alt="Tree" />
-          <Image width={800} height={800} src={data.image_grid.image[2].image.sizes.medium_large} className="rounded-lg" alt="Tree" />
+          <div>
+            <div className="h-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
+              <Image
+                width={800}
+                height={800}
+                src={data.image.sizes.large}
+                alt="Explore Nepal, Tibet and Bhutan. MacTrek"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
 )
 
 
