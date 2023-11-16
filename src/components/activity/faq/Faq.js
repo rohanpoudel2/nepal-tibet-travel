@@ -24,7 +24,7 @@ const Faq = ({ data }) => {
                 className="flex items-center justify-between w-full"
                 onClick={() => toggleExpand(index)}
               >
-                <h1 className="font-semibold text-gray-700">{item.faq.question}</h1>
+                <h1 className="font-semibold text-left text-gray-700">{item.faq.question}</h1>
                 <span className="text-white bg-sky-500 rounded-full">
                   {expanded[index] ? (
                     <svg

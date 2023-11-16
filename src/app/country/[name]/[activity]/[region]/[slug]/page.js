@@ -11,6 +11,7 @@ import { getRegionName } from "@/utils/functions";
 import Faq from "@/components/activity/faq/Faq";
 import { Separator } from "@/components/ui/separator";
 import Sidebar from "@/components/activity/sidebar/Sidebar";
+import RouteMap from "@/components/activity/routemap/RouteMap";
 
 const getTripData = async (slug, activity, country, region) => {
   const data = {
@@ -28,38 +29,48 @@ const getTripData = async (slug, activity, country, region) => {
 
 const Activity = async ({ params }) => {
   let { slug } = params;
-  const activityName = slug.replace(/-/g, " ");
   const activityResponse = await getTripData(slug, params.activity, params.name, getRegionName(params.region));
   const data = activityResponse;
+  const acf = data.acf;
   return (
     <div className="container">
-      <Hero data={data} />
+      <Hero data={{
+        post: data.post,
+        featured_media: data.featured_media,
+      }} />
       <div className="grid grid-cols-1 gap-0 lg:grid-cols-4 lg:gap-8 mt-10">
         <div className="col-span-3 order-2 lg:order-1">
-          <h1 className="text-3xl">Everest Base Camp Trek</h1>
+          <h1 className="text-3xl">{data.post.post_title}</h1>
           <Separator className="mt-5" />
           <div className="flex items-center gap-5 mt-3 flex-wrap">
             <div className="flex gap-2 items-center font-semibold text-gray-500">
               <i className="fa-regular fa-clock" />
-              14 days
+              {acf.duration}
             </div>
             <div className="flex gap-2 items-center font-semibold text-gray-500">
               <i className="fa-solid fa-person-hiking" />
-              Trekking
+              {data.activities[0]}
             </div>
             <div className="flex gap-2 items-center font-semibold text-gray-500">
               <i className="fa-solid fa-scale-unbalanced" />
-              Strenuous
+              {data.difficulty[0]}
             </div>
             <div className="flex gap-2 items-center font-semibold text-gray-500">
-              <span>Max Pax: 30</span>
+              <span>Max Pax: {acf.group_size.max_group}</span>
             </div>
             <div className="flex gap-2 items-center font-semibold text-gray-500">
-              <span>Min Pax: 2</span>
+              <span>Min Pax: {acf.group_size.min_group}</span>
+            </div>
+            <div className="flex gap-2 items-center font-semibold text-gray-500">
+              <i className="fa-solid fa-tree" />
+              <span>{acf.best_season}</span>
             </div>
           </div>
           <div className="mt-5">
             <div className="prose lg:prose-lg max-w-none text-justify" dangerouslySetInnerHTML={{ __html: data.post.post_content }} />
+            <section>
+              <RouteMap title={data.post.post_title} image={data.acf.route_map} />
+            </section>
             <section className={styles.detailedItinerary} id="detailed_itinerary">
               <DetailedItinerary
                 data={{

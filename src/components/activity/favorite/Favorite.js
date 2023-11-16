@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 
 const Favorite = ({ id }) => {
-  const [favorites, setFavorites] = useState(() => {
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
     const storedFavorites = localStorage.getItem('favorites');
-    return storedFavorites ? JSON.parse(storedFavorites) : [];
-  });
+    setFavorites(storedFavorites ? JSON.parse(storedFavorites) : []);
+  }, []);
 
   const isFavorite = favorites.includes(id);
 
@@ -18,7 +20,10 @@ const Favorite = ({ id }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    setFavorites((prevFavorites) => {
+      localStorage.setItem('favorites', JSON.stringify(prevFavorites));
+      return prevFavorites;
+    });
   }, [favorites]);
 
   return (

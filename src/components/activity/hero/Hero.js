@@ -16,9 +16,17 @@ const Hero = ({ data }) => (
     </div>
     <div className="space-y-2 mt-5">
       <div className="flex flex-col md:flex-row items-start gap-2 md:gap-0 md:items-center justify-between">
-        <h1 className="text-3xl">Everest Base Camp Trek</h1>
-        <div className="flex gap-5 items-center">
-          <Link href="#booking">
+        <div className="flex justify-between items-center w-full md:w-auto">
+          <h1 className="text-3xl">{data.post.post_title}</h1>
+          <Link href="#booking" className="block md:hidden">
+            <button className="px-2 py-1 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
+              <i className="fa-regular fa-calendar-days" />
+              <span className="font-semibold">Booking Dates</span>
+            </button>
+          </Link>
+        </div>
+        <div className="flex gap-5 items-center w-full md:w-auto">
+          <Link href="#booking" className="hidden md:block">
             <button className="px-2 py-1 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
               <i className="fa-regular fa-calendar-days" />
               <span className="font-semibold">Booking Dates</span>
@@ -28,7 +36,7 @@ const Hero = ({ data }) => (
           <Favorite id={data.post.ID} />
         </div>
       </div>
-      <div className="flex gap-10 items-center">
+      <div className="flex gap-5 lg:gap-10 items-center">
         <div className="flex items-center gap-1">
           <Star filled={true} />
           <span className="font-semibold">4.8 <span className="font-semibold text-sm text-gray-500">(100 reviews)</span></span>

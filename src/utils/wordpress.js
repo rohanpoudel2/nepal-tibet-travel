@@ -102,7 +102,7 @@ export async function getTripInfo(data) {
       next: { revalidate: 10 },
       headers: {
         'Content-Type': 'application/json',
-        'X-Trip-Data': JSON.stringify(data),
+        'X-Trip-data': JSON.stringify(data),
       },
     };
     const tripRes = await fetch(`${CUSTOM_BASE_URL}/trip`, options);

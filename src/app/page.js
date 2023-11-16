@@ -8,6 +8,7 @@ import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
 import HomeActivities from '@/components/home/homeActivities/HomeActivities'
 import WorkingWith from '@/components/home/workingWith/WorkingWith'
 import { getFilterActivities, getFilterCountries, getFilterRegions, getPageData } from "@/utils/wordpress";
+import Favorite from '@/components/home/favorite/Favorite'
 
 const getData = async () => {
   const res = await getPageData('home');
@@ -29,6 +30,7 @@ export default async function Home() {
     <div className={styles.home}>
       <Hero data={homeContent?.home_hero} />
       {/* <HomeFilter country={countries} activity={activities} region={region} /> */}
+      <Favorite />
       <PopularDestinations data={homeContent?.popular_destination} />
       <AboutUs data={homeContent?.about_us} />
       {

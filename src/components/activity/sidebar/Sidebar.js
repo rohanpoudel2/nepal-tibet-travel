@@ -42,8 +42,16 @@ const Sidebar = () => (
     <RatingInfo />
     <BookingInfo />
     <div className="space-y-2 mt-5">
-      <SidebarButton color="green" label="Ask a question" />
-      <SidebarButton color="orange" label="Plan your custom trip" />
+      <button
+        className={`bg-green-500 w-full p-2 font-semibold rounded-lg text-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80`}
+      >
+        Ask a question
+      </button>
+      <button
+        className={`bg-orange-500 w-full p-2 font-semibold rounded-lg text-white hover:bg-orange-600 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-80`}
+      >
+        Plan your custom trip
+      </button>
     </div>
   </div>
 );
