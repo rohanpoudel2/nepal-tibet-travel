@@ -1,30 +1,34 @@
-import styles from "./detaileditinerary.module.scss";
+import Title from "@/components/ui/title/Title";
 
 const DetailedItinerary = ({ data }) => {
   return (
-    <div className="container">
-      <div className={styles.detailedItinerary}>
-        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl mb-12">
-          Detailed Itinerary
-        </h2>
-        <div className={styles.days}>
-          {
-            data.itinerary.map((d, i) => (
-              <div className={styles.day} key={i}>
-                <h4 className={`${styles.head} bg-gray-100`}>
-                  Day 0{i + 1} - {d.itinerary.itinerary_title}
-                </h4>
-                <div className={`${styles.desc} text-justify`}>
-                  <p>
-                    {d.itinerary.itinerary_description}
-                  </p>
-                </div>
-              </div>
-            ))
-          }
-        </div>
+    <>
+      <div className="flex items-center justify-between relative">
+        <Title
+          title="Detailed Itinerary"
+        />
+        <button className="px-6 py-2 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
+          <i className="fa-solid fa-arrow-down" />
+          Download this Itinerary
+        </button>
       </div>
-    </div>
+      <div className="mt-10 space-y-8">
+        {
+          data.itinerary.map((d, i) => (
+            <div key={i}>
+              <h4 className="bg-gray-50 py-5 px-2">
+                Day 0{i + 1} - {d.itinerary.itinerary_title}
+              </h4>
+              <div className="mt-5 prose max-w-none">
+                <p>
+                  {d.itinerary.itinerary_description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </>
   )
 }
 

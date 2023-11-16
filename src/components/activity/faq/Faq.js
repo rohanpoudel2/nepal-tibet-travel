@@ -1,4 +1,5 @@
 "use client"
+import Title from '@/components/ui/title/Title';
 import React, { useState } from 'react';
 
 const Faq = ({ data }) => {
@@ -12,11 +13,13 @@ const Faq = ({ data }) => {
 
   return (
     <section className="bg-white">
-      <div className="container px-6 mx-auto">
-        <h1 className="text-2xl font-bold text-gray-800 lg:text-3xl">Frequently asked questions</h1>
-        <div className="mt-8 space-y-8 lg:mt-12">
+      <div>
+        <Title
+          title="Frequently asked questions"
+        />
+        <div className="mt-10 space-y-8">
           {data.map((item, index) => (
-            <div className="p-8 bg-gray-100 rounded-lg" key={index}>
+            <div className="py-8 px-5 bg-gray-100 rounded-lg" key={index}>
               <button
                 className="flex items-center justify-between w-full"
                 onClick={() => toggleExpand(index)}

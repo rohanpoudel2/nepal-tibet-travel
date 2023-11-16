@@ -11,10 +11,10 @@ const TestimonialCard = ({ data }) => {
       <div>
         <StarRating rating={4} />
         <div className="mt-4">
-          <p className="text-2xl font-bold text-sky-600 sm:text-3xl">
+          <span className="text-2xl font-bold text-sky-600 sm:text-3xl">
             {testimonial.customer_review.title}
-          </p>
-          <p className="mt-4 leading-relaxed text-gray-700">
+          </span>
+          <p className="mt-4 leading-relaxed text-gray-700 line-clamp-3">
             {testimonial.customer_review.desc}
           </p>
         </div>

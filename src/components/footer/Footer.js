@@ -14,7 +14,6 @@ const Footer = () => {
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
-
       <div className="px-4 py-6 sm:px-6 lg:col-span-3 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           <div>

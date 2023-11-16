@@ -1,5 +1,5 @@
 "use client";
-import styles from "./booking.module.scss";
+import Title from "@/components/ui/title/Title";
 import ConfirmationModal from "./confirmationModal/ConfirmationModal";
 import { useState } from "react";
 
@@ -14,18 +14,15 @@ const Booking = ({ data, duration, name }) => {
     state: false
   });
   return (
-    <div className="container">
-      <div className={styles.booking}>
-        <h2 className={styles.title}>
-          Booking
-        </h2>
-        <h4 className={styles.subtitle}>
-          Select a departure Month
-        </h4>
-        <div className={styles.dates}>
+    <div>
+      <div>
+        <Title
+          title="Booking"
+        />
+        <div className="flex mt-10 gap-5">
           {
             data.map((booking, i) => (
-              <div key={i} className={`${styles.date} ${i === 0 && styles.selected}`} onClick={() => setOpen({
+              <div key={i} className="p-4 bg-sky-500 w-36 text-center text-white font-semibold rounded-lg hover:bg-sky-700 active:scale-95 cursor-pointer" onClick={() => setOpen({
                 bookingDate: booking.booking_date,
                 state: true
               })}>
