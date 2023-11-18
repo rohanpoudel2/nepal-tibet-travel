@@ -32,6 +32,7 @@ const Activity = async ({ params }) => {
   const activityResponse = await getTripData(slug, params.activity, params.name, getRegionName(params.region));
   const data = activityResponse;
   const acf = data.acf;
+  console.log(acf.recommendation);
   return (
     <div className="container">
       <Hero data={{
