@@ -43,13 +43,13 @@ const Recommendation = async ({ data }) => {
             </Link>
           </div>
         </div>
-        <Image
+        {/* <Image
           src={image.media_details.sizes.large.source_url}
           alt={recommendationData.title.rendered}
           width={800}
           height={300}
           className="w-full h-full object-cover rounded-xl"
-        />
+        /> */}
       </div>
     </section >
   )
