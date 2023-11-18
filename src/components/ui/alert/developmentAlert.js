@@ -23,7 +23,7 @@ const DevelopmentAlert = () => {
 
   if (show) {
     return (
-      <Alert className="fixed bottom-2 left-2 z-10 w-96 space-y-3">
+      <Alert className="fixed bottom-2 right-2 z-10 w-96 space-y-3">
         <AlertTitle className="flex justify-between items-center">
           <div className='flex items-center gap-3'>
             <Image

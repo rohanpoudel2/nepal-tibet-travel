@@ -1,13 +1,12 @@
 import styles from './page.module.scss'
 import Hero from '@/components/home/hero/Hero'
-import HomeFilter from '@/components/home/homefilter/HomeFilter'
 import PopularDestinations from '@/components/home/popularDestinations/PopularDestinations'
 import AboutUs from '@/components/home/aboutUs/AboutUs'
 import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
 import HomeActivities from '@/components/home/homeActivities/HomeActivities'
 import WorkingWith from '@/components/home/workingWith/WorkingWith'
-import { getFilterActivities, getFilterCountries, getFilterRegions, getPageData } from "@/utils/wordpress";
+import { getPageData } from "@/utils/wordpress";
 import Favorite from '@/components/home/favorite/Favorite'
 
 const getData = async () => {
@@ -19,17 +18,11 @@ const getData = async () => {
 }
 
 export default async function Home() {
-
   const homeRes = await getData();
   const homeContent = homeRes[0]?.acf;
-  const countries = JSON.parse(await getFilterCountries());
-  const activities = JSON.parse(await getFilterActivities());
-  const region = JSON.parse(await getFilterRegions());
-
   return (
     <div className={styles.home}>
       <Hero data={homeContent?.home_hero} />
-      {/* <HomeFilter country={countries} activity={activities} region={region} /> */}
       <Favorite />
       <PopularDestinations data={homeContent?.popular_destination} />
       <AboutUs data={homeContent?.about_us} />

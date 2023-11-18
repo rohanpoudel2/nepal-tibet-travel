@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "./hero.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-
 import "swiper/css"
 import "swiper/css/navigation";
 import Link from "next/link";

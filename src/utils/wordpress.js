@@ -195,3 +195,21 @@ export async function getMedia(id) {
     console.log(error);
   }
 }
+
+export async function getFavorites(ids) {
+  try {
+    const options = {
+      method: 'GET',
+      next: { revalidate: 10 },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-heart-data': JSON.stringify(ids),
+      },
+    };
+    const res = await fetch(`${CUSTOM_BASE_URL}/hearted`, options);
+    const tripIdsRes = await res.json();
+    return (JSON.stringify(tripIdsRes));
+  } catch (error) {
+    console.log(error);
+  }
+}
