@@ -4,14 +4,12 @@ import Breadcrumb from "@/components/ui/breadcrumb";
 import Link from "next/link";
 import Favorite from "../favorite/Favorite";
 import { Star } from "@/components/ui/star";
+import GoBack from "./goback/GoBack";
 
 const Hero = ({ data }) => (
   <div>
     <div className="md:flex items-center justify-between hidden">
-      <button className="border-2 border-gray-500 rounded-full px-5 py-2 flex gap-2 items-center text-sm active:scale-95 select-none">
-        <i className="fa-solid fa-chevron-left" />
-        Go Back
-      </button>
+      <GoBack />
       <Breadcrumb />
     </div>
     <div className="space-y-2 mt-5">

@@ -2,11 +2,16 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const NotFound = () => {
+  const router = useRouter();
+  const handleGoBack = () => {
+    router.back();
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
   return (
     <section className="bg-white ">
       <div className="container min-h-screen px-6  mx-auto lg:flex lg:items-start lg:gap-12">
@@ -18,11 +23,11 @@ const NotFound = () => {
             <Link href="/">
               <button className="flex items-center justify-center px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto   hover:bg-gray-100 ">
                 <div className='hidden md:block'>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                   </svg>
                 </div>
-                <span>Go back</span>
+                <span onClick={handleGoBack}>Go back</span>
               </button>
             </Link>
             <Link href="/">
@@ -35,8 +40,8 @@ const NotFound = () => {
             <div>
               <a href="#" className="inline-flex items-center text-sm text-sky-500 gap-x-2  hover:underline">
                 <span>Work with us</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
               </a>
               <p className="mt-2 text-sm text-gray-500 ">Lorem ipsum dolor sit amet consectetur.</p>
@@ -44,8 +49,8 @@ const NotFound = () => {
             <div>
               <a href="#" className="inline-flex items-center text-sm text-sky-500 gap-x-2  hover:underline">
                 <span>Our blog</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
               </a>
               <p className="mt-2 text-sm text-gray-500 ">Lorem ipsum dolor sit amet consectetur.</p>
@@ -53,8 +58,8 @@ const NotFound = () => {
             <div>
               <a href="#" className="inline-flex items-center text-sm text-sky-500 gap-x-2  hover:underline">
                 <span>Get trip quotation</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
               </a>
               <p className="mt-2 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur.</p>
