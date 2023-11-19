@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const TourCard = ({ image, tourName, desc, rating, button }) => {
+const TourCard = ({ image, tourName, price, rating, link }) => {
   return (
     <div className="relative flex w-full max-w-[26rem] sm:max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
       <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 h-40">
@@ -15,7 +15,7 @@ const TourCard = ({ image, tourName, desc, rating, button }) => {
       </div>
       <div className="p-6">
         <div className="mb-3 flex items-center justify-between">
-          <h5 className="block  text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
+          <h5 className="block text-lg font-bold leading-snug tracking-normal text-blue-gray-900 antialiased">
             {tourName}
           </h5>
           <p className="flex items-center gap-1.5  text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
@@ -35,20 +35,19 @@ const TourCard = ({ image, tourName, desc, rating, button }) => {
             {rating}
           </p>
         </div>
-        <p className="text-sm font-light leading-relaxed text-gray-700 line-clamp-3 antialiased">
-          {desc}
+        <p>
+          <span className="text-lg font-bold text-sky-500">{price}</span>
+          <span className="text-slate-400 text-sm">/per person</span>
         </p>
       </div>
       <div className="p-6 pt-1">
-        <Link href={button?.button_link.url}>
+        <Link href={`/country/${link.country}/${link.activities}/${link.destination}/${link.slug}`}>
           <button
             className="block w-full select-none rounded-lg bg-[#47A5CF] py-3.5 px-7 text-center align-middle   text-sm font-bold uppercase text-white shadow-md shadow-sky-500/20 transition-all hover:shadow-lg hover:shadow-sky-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-light="true"
           >
-            {
-              button?.button_text
-            }
+            Explore
           </button>
         </Link>
       </div>

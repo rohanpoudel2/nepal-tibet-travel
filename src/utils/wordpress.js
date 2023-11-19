@@ -11,6 +11,16 @@ export const getPageData = async (slug) => {
   }
 }
 
+export const getHomePage = async () => {
+  try {
+    const res = await fetch(`${CUSTOM_BASE_URL}/home`, { next: { revalidate: 10 } });
+    const parasedRes = await res.json();
+    return (JSON.stringify(parasedRes));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getBlogs(type = 'posts') {
   try {
     const blogRes = await fetch(`${BASE_URL}/${type}?_embed`, { next: { revalidate: 10 } });

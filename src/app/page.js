@@ -6,11 +6,11 @@ import TibetTour from '@/components/home/tibetTour/tibetTour'
 import LatestUpdates from '@/components/home/latestUpdates/LatestUpdates'
 import HomeActivities from '@/components/home/homeActivities/HomeActivities'
 import WorkingWith from '@/components/home/workingWith/WorkingWith'
-import { getPageData } from "@/utils/wordpress";
+import { getHomePage } from "@/utils/wordpress";
 import Favorite from '@/components/home/favorite/Favorite'
 
 const getData = async () => {
-  const res = await getPageData('home');
+  const res = await getHomePage();
   if (!res) {
     return;
   }
@@ -19,7 +19,7 @@ const getData = async () => {
 
 export default async function Home() {
   const homeRes = await getData();
-  const homeContent = homeRes[0]?.acf;
+  const homeContent = homeRes.data;
   return (
     <div className={styles.home}>
       <Hero data={homeContent?.home_hero} />
