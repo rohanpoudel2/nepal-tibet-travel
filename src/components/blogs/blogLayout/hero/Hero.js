@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./hero.module.scss";
 import DetailsCard from "../detailsCard/DetailsCard";
 import moment from "moment";
+import ShareDropDown from "@/components/activity/sharedropdown/ShareDropDown";
 
 const Hero = ({ image, detailCard }) => {
   return (
@@ -31,7 +32,10 @@ const Hero = ({ image, detailCard }) => {
               <h1 className="text-sm text-gray-700 ">{detailCard.author.name}</h1>
             </div>
           </div>
-          <p className="w-fit px-2 text-sm text-gray-700 uppercase font-bold underline">{moment(detailCard.updatedAt).format("MMM DD, YYYY")}</p>
+          <div className="flex items-center gap-2 md:gap-5">
+            <p className="w-fit px-2 text-sm text-gray-700 uppercase font-bold underline">{moment(detailCard.updatedAt).format("MMM DD, YYYY")}</p>
+            <ShareDropDown />
+          </div>
         </div>
       </div>
     </div>

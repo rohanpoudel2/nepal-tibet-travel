@@ -1,11 +1,11 @@
 import Hero from "@/components/blogs/blogLayout/hero/Hero";
-import styles from "./blog.module.scss";
 import BlogContent from "@/components/blogs/blogLayout/blogContent/BlogContent";
 import BlogRecommendation from "@/components/blogs/blogLayout/blogRecommendation/BlogRecommendation";
 import { getBlog } from "@/utils/wordpress";
 import { notFound } from "next/navigation";
 import Sidebar from "@/components/blogs/sidebarRecommendation/Sidebar";
 import { Separator } from "@/components/ui/separator";
+import GoBack from "@/components/activity/hero/goback/GoBack";
 
 const getData = async (slug) => {
   const res = await getBlog(slug);
@@ -23,6 +23,7 @@ const Blog = async ({ params }) => {
   return (
     <section className="bg-white">
       <div className="container px-6 mx-auto">
+        <GoBack className="mb-5" />
         <div className="lg:flex lg:-mx-6 mb-5">
           <Hero
             image={blogData['_embedded']['wp:featuredmedia'][0].source_url}
@@ -33,7 +34,13 @@ const Blog = async ({ params }) => {
               updatedAt: blogData?.modified
             }}
           />
-          <Sidebar top={true} />
+          <Sidebar
+            data={{
+              recommended: blogData.acf.recommended_blog,
+              others: [blogData.acf.other_links]
+            }}
+            top={true}
+          />
         </div>
         <Separator />
         <BlogContent
