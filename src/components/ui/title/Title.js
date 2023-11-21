@@ -6,7 +6,7 @@ const Title = ({ title, subtitle }) => {
       <h3 className={`text-neutral-500 first-letter:uppercase`}>
         {subtitle}
       </h3>
-      <h2 className={`text-3xl font-bold leading-tight`}>
+      <h2 className={`text-3xl font-bold leading-tight capitalize`}>
         {title}
       </h2>
       <Divider />

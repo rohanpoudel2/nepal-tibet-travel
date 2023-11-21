@@ -20,7 +20,7 @@ const CountryActivityCard = ({ data, country, normal = false }) => {
           />
           <div className="relative flex w-full items-center justify-between flex-row-reverse rounded-lg bg-white p-4 text-center">
             <span className="text-sky-600 font-semibold first-letter:uppercase">{activity}</span>
-            <span className="text-lg font-bold text-gray-800 text-left">{name}</span>
+            <span className="text-lg font-bold text-gray-800 text-left line-clamp-1">{name}</span>
           </div>
           <div className="absolute top-0 right-0 p-3 bg-sky-600 font-semibold text-white rounded-s-lg">
             {count} Trips
@@ -41,7 +41,7 @@ const CountryActivityCard = ({ data, country, normal = false }) => {
         />
         <div className="relative flex w-full items-center justify-between flex-row-reverse rounded-lg bg-white p-4 text-center">
           <span className="text-sky-600 font-semibold first-letter:uppercase">{data.activities[0]}</span>
-          <span className="text-lg font-bold text-gray-800 text-left">{data.title.rendered}</span>
+          <span className="text-lg font-bold text-gray-800 text-left line-clamp-1">{data.title.rendered}</span>
         </div>
       </Link>
     </div >

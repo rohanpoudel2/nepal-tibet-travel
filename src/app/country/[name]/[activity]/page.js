@@ -3,6 +3,8 @@ import styles from "./trekking.module.scss"
 import { getCountryRegions } from "@/utils/wordpress";
 import RegionCard from "@/components/country/trekking/regionCard/RegionCard";
 import { notFound } from "next/navigation";
+import Title from "@/components/ui/title/Title";
+import Options from "@/components/country/options/Options";
 
 const getCountryRegion = async (country, activity) => {
   const data = {
@@ -31,10 +33,13 @@ const Trekking = async ({ params }) => {
         media={countryDestinationRes[countryDestinationRes.length - 1].acf.hero.image.sizes['1536x1536']}
         country={name}
         activity={ACTIVITY_NAME}
+        content={countryDestinationRes[countryDestinationRes.length - 1].description}
       />
       <div className="container">
-        <div className={styles.shortDesc} dangerouslySetInnerHTML={{ __html: countryDestinationRes[countryDestinationRes.length - 1].description }} />
         <div className={styles.trekkingAreas}>
+          <Title
+            title={`${ACTIVITY_NAME} Regions in ${name}`}
+          />
           <section className="grid sm:grid-cols-3 md:grid-cols-4 gap-[50px]">
             {
               countryDestinationRes.map((data, i) => {
@@ -55,9 +60,15 @@ const Trekking = async ({ params }) => {
               })
             }
           </section>
+          {
+            countryDestinationRes[countryDestinationRes.length - 1]?.acf?.links &&
+            <section>
+              <Options title="Useful Links" data={countryDestinationRes[countryDestinationRes.length - 1]?.acf?.links} />
+            </section>
+          }
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

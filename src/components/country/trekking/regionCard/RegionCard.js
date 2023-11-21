@@ -9,7 +9,7 @@ const RegionCard = ({ image, name, desc, page_link, country, activity }) => {
         height={400}
         src={image}
         alt="Region Image"
-        className="rounded-t-lg h-[250px] sm:h-[150px] object-cover object-bottom"
+        className="rounded-t-lg h-[150px] object-cover object-bottom"
       />
       <div className="p-5">
         <h5 className="mb-2 text-xl font-medium tracking-normal leading-snug text-blue-gray-900">
