@@ -5,6 +5,7 @@ import Link from "next/link";
 import Favorite from "../favorite/Favorite";
 import { Star } from "@/components/ui/star";
 import GoBack from "./goback/GoBack";
+import BookingBtn from "./bookingbtn/BookingBtn";
 
 const Hero = ({ data }) => (
   <div>
@@ -24,12 +25,7 @@ const Hero = ({ data }) => (
           </Link>
         </div>
         <div className="flex gap-5 items-center w-full md:w-auto">
-          <Link href="#booking" className="hidden md:block">
-            <button className="px-2 py-1 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
-              <i className="fa-regular fa-calendar-days" />
-              <span className="font-semibold">Booking Dates</span>
-            </button>
-          </Link>
+          <BookingBtn />
           <ShareDropDown />
           <Favorite id={data.post.ID} />
         </div>

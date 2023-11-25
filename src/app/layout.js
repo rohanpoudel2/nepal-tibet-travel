@@ -3,6 +3,7 @@ import './globals.scss';
 import { Inter } from 'next/font/google';
 import Footer from '@/components/footer/Footer';
 import DevelopmentAlert from '@/components/ui/alert/developmentAlert';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <Nav />
         {children}
         <DevelopmentAlert />
+        <Toaster />
         <Footer />
       </body>
     </html>

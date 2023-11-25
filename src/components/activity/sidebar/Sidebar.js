@@ -1,5 +1,7 @@
 import { Star } from "@/components/ui/star";
 import Link from "next/link";
+import QuestionButton from "./QuestionButton/QuestionButton";
+import ToID from "./toidlink/ToID";
 
 const PriceInfo = () => (
   <div className="text-3xl font-bold flex flex-col">
@@ -21,19 +23,7 @@ const RatingInfo = () => (
 );
 
 const BookingInfo = () => (
-  <p className="prose prose-a:text-sky-600 mt-5">
-    Please choose a <a href="#booking">designated date</a> or{" "}
-    <Link href="/booking">reach out to us</Link> to arrange private dates or a
-    tailor-made itinerary.
-  </p>
-);
-
-const SidebarButton = ({ color, label }) => (
-  <button
-    className={`bg-${color}-500 w-full p-2 font-semibold rounded-lg text-white hover:bg-${color}-600 focus:outline-none focus:ring focus:ring-${color}-300 focus:ring-opacity-80`}
-  >
-    {label}
-  </button>
+  <ToID />
 );
 
 const Sidebar = () => (
@@ -42,16 +32,7 @@ const Sidebar = () => (
     <RatingInfo />
     <BookingInfo />
     <div className="space-y-2 mt-5">
-      <button
-        className={`bg-green-500 w-full p-2 font-semibold rounded-lg text-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80`}
-      >
-        Ask a question
-      </button>
-      <button
-        className={`bg-orange-500 w-full p-2 font-semibold rounded-lg text-white hover:bg-orange-600 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-80`}
-      >
-        Plan your custom trip
-      </button>
+      <QuestionButton />
     </div>
   </div>
 );
