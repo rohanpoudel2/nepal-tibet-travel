@@ -223,3 +223,17 @@ export async function getFavorites(ids) {
     console.log(error);
   }
 }
+
+export async function getGallery(id) {
+  try {
+    const options = {
+      method: 'GET',
+      next: { revalidate: 10 },
+    }
+    const res = await fetch(`${CUSTOM_BASE_URL}/gallery?id=${id}`, options);
+    const galleryres = await res.json();
+    return (JSON.stringify(galleryres));
+  } catch (error) {
+    console.log(error);
+  }
+}
