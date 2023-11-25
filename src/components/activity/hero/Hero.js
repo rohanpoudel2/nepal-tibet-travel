@@ -53,10 +53,10 @@ const Hero = ({ data }) => (
         alt=""
         className="lg:h-[640px] h-auto w-full rounded-lg object-cover object-center"
       />
-      <div className="text-xs md:text-base absolute bottom-2 left-2 bg-white py-1 px-2 rounded-lg font-semibold space-x-2 cursor-pointer hover:scale-105 transition-all active:scale-95 select-none">
+      <Link href={`/gallery/${data.post.ID}`} className="text-xs md:text-base absolute bottom-2 left-2 bg-white py-1 px-2 rounded-lg font-semibold space-x-2 cursor-pointer hover:scale-105 transition-all active:scale-95 select-none">
         <i className="fa-regular fa-eye" />
         <span>See all photos</span>
-      </div>
+      </Link>
     </div>
   </div>
 );

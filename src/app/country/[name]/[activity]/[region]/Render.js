@@ -14,7 +14,7 @@ const columns = [
         src={imageURL}
         alt="Tour Image"
         width={300}
-        height={200}
+        height={300}
       />
     }
   },
@@ -45,12 +45,10 @@ const columns = [
     accessorKey: "activities",
     header: "Activities",
   }
-]
+];
 
 const Region = ({ d, regionName }) => {
-
   const [data, setData] = useState([]);
-
   useEffect(() => {
     setData(
       d.map(data => ({
@@ -65,10 +63,8 @@ const Region = ({ d, regionName }) => {
         slug: data.slug
       }))
     );
-  }, [d])
-
+  }, [d]);
   const REGION_NAME = regionName;
-
   return (
     <div className="container">
       <DataTable columns={columns} data={data} regionName={getRegionName(REGION_NAME)} />
