@@ -27,7 +27,7 @@ const Fetcher = async ({ params }) => {
       <section>
         <Hero title={getRegionName(params.region)} country={params.name} content={tourRes.description} image={tourRes.image['1536x1536']} />
       </section>
-      <Trips region={getRegionName(params.region)} data={tourRes.tours} />
+      <Trips region={params.region} data={tourRes.tours} />
     </>
   )
 }
