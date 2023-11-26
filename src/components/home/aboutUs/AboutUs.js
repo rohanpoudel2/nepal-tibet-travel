@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styles from "./aboutus.module.scss";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const AboutUs = ({ data }) => (
   <section className="bg-gray-50 py-6 sm:py-8 lg:py-12">
@@ -13,9 +13,14 @@ const AboutUs = ({ data }) => (
             <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
               {data?.description}
             </p>
+            <Link href="/about-us">
+              <Button className="bg-sky-500 hover:bg-sky-600 focus:ring focus:ring-sky-300 md:mr-auto w-full md:w-auto">
+                About us
+              </Button>
+            </Link>
           </div>
           <div>
-            <div className="h-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
+            <div className=" hidden md:block h-36 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
               <Image
                 width={800}
                 height={800}
