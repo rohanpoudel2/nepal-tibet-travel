@@ -1,17 +1,13 @@
 import TourCard from "@/components/ui/tour-card"
 
-const HomeActivity = ({ data }) => (
+const HomeActivity = ({ data, country }) => (
   <TourCard
-    image={data?.featured_image_url}
-    tourName={data?.post_title}
-    rating={data?.rating}
-    price={data?.price}
-    link={{
-      country: data.country,
-      activities: data.activities,
-      destination: data.destination,
-      slug: data.post_name
-    }}
+    image={data?.image}
+    name={data?.term_name}
+    slug={data?.term_slug}
+    description={data?.term_description}
+    country={country}
+    count={data?.count}
   />
 );
 

@@ -10,9 +10,10 @@ const HomeActivities = ({ data }) => (
       />
       <div className='mt-[38px] grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[50px]'>
         {
-          data?.activity.map((data, i) => (
-            <HomeActivity data={data} key={i} />
-          ))
+          Object.keys(data.activity).map((key) => {
+            const activity = data.activity[key];
+            return <HomeActivity country={data.country_name} data={activity} key={key} />
+          })
         }
       </div>
     </section >
