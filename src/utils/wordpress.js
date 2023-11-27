@@ -237,3 +237,31 @@ export async function getGallery(id) {
     console.log(error);
   }
 }
+
+export async function getCrossCountry() {
+  try {
+    const options = {
+      method: 'GET',
+      next: { revalidate: 10 },
+    };
+    const res = await fetch(`${CUSTOM_BASE_URL}/cross-country`, options);
+    const pageres = await res.json();
+    return (JSON.stringify(pageres));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getCrossCountryTrip(slug) {
+  try {
+    const options = {
+      method: 'GET',
+      next: { revalidate: 10 },
+    };
+    const res = await fetch(`${CUSTOM_BASE_URL}/cross-country-trip?slug=${slug}`, options);
+    const pageres = await res.json();
+    return (JSON.stringify(pageres));
+  } catch (error) {
+    console.log(error);
+  }
+}

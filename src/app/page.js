@@ -34,8 +34,8 @@ export default async function Home() {
           </div>
         ))
       }
-      <WorkingWith data={homeContent?.working_with} />
       <LatestUpdates data={homeContent?.latest_updates} />
+      <WorkingWith data={homeContent?.working_with} />
     </div>
   )
 }

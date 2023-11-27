@@ -33,11 +33,16 @@ const Hero = ({ data }) => (
       <div className="flex gap-5 lg:gap-10 items-center">
         <div className="flex items-center gap-1">
           <Star filled={true} />
-          <span className="font-semibold">4.8 <span className="font-semibold text-sm text-gray-500">(100 reviews)</span></span>
+          <span className="font-semibold">{data.ratings}<span className="font-semibold text-sm text-gray-500"> ({data.reviews} reviews)</span></span>
         </div>
         <div className="flex items-center gap-1 font-semibold text-gray-500">
           <i className="fa-regular fa-flag" />
-          <span>Everest region, Nepal</span>
+          {data?.destination?.map((item, index) => (
+            <span key={index}>
+              {item}
+              {index < data.destination.length - 1 && ','}
+            </span>
+          ))}
         </div>
       </div>
     </div>
@@ -45,7 +50,7 @@ const Hero = ({ data }) => (
       <Image
         width={1920}
         height={1080}
-        src={data.featured_media.sizes.full.url}
+        src={data.featured_media?.sizes?.full?.url ?? data.featured_media}
         alt=""
         className="lg:h-[640px] h-auto w-full rounded-lg object-cover object-center"
       />
