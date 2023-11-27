@@ -25,7 +25,7 @@ const Faq = ({ data }) => {
                 onClick={() => toggleExpand(index)}
               >
                 <h1 className="font-semibold text-left text-gray-700">{item.faq.question}</h1>
-                <span className="text-white bg-sky-500 rounded-full">
+                <span className="text-white bg-primary-mac rounded-full">
                   {expanded[index] ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

@@ -46,7 +46,7 @@ const TibetTour = ({ data }) => {
                     </TableCell>
                     <TableCell className="text-right">
                       <Link href={`/country/${data?.country}/${data?.activities}/${data?.destination}/${data?.post_name}`}>
-                        <button className="bg-sky-500 p-2 text-white font-bold rounded-lg hover:bg-sky-600">
+                        <button className="bg-primary-mac p-2 text-white font-bold rounded-lg hover:bg-sky-600">
                           Explore
                         </button>
                       </Link>

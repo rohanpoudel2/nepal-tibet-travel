@@ -3,7 +3,7 @@ import { blogCardDate } from "@/utils/dates";
 const Terms = ({ title, updatedOn, content }) => {
   return (
     <div className='h-full'>
-      <div className='bg-[#47A5CF]'>
+      <div className='bg-primary-mac'>
         <div className='container py-[50px]'>
           <div className='text-white'>
             <h1 className='text-3xl'>{title}</h1>

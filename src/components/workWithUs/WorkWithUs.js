@@ -118,7 +118,7 @@ const WorkWithUs = () => {
           )}
         />
         <Button
-          className="bg-[#47A5CF] hover:bg-sky-600 mr-auto w-40 ring-2 ring-transparent focus:ring-sky-900"
+          className="bg-primary-mac hover:bg-sky-600 mr-auto w-40 ring-2 ring-transparent focus:ring-sky-900"
           type="submit"
         >
           Submit

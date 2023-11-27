@@ -31,7 +31,7 @@ const NotFound = () => {
               </button>
             </div>
             <Link href="/">
-              <button className=" px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-sky-500 rounded-lg shrink-0 sm:w-auto hover:bg-sky-600 ">
+              <button className=" px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-primary-mac rounded-lg shrink-0 sm:w-auto hover:bg-sky-600 ">
                 Take me home
               </button>
             </Link>

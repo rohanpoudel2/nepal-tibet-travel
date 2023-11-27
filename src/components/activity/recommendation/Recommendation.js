@@ -16,7 +16,7 @@ const Recommendation = ({ data }) => {
           <div className="mt-5 text-center">
             <Link
               href={`/country/${data.country}/${data.activities}/${data.destination}/${data.post_name}`}
-              className="block w-full rounded bg-sky-500 px-12 py-3 text-sm font-medium text-white shadow hover:bg-sky-600 focus:outline-none focus:ring active:bg-sky-500 sm:w-auto"
+              className="block w-full rounded bg-primary-mac px-12 py-3 text-sm font-medium text-white shadow hover:bg-sky-600 focus:outline-none focus:ring active:bg-primary-mac sm:w-auto"
             >
               Explore
             </Link>

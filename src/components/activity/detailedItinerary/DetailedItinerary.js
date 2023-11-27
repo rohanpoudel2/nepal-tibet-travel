@@ -6,7 +6,7 @@ const DetailedItinerary = ({ data }) => (
       <Title
         title="Detailed Itinerary"
       />
-      <button className="px-6 py-2 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
+      <button className="px-6 py-2 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-primary-mac rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
         <i className="fa-solid fa-arrow-down" />
         <span className="hidden md:block">Download this Itinerary</span>
       </button>

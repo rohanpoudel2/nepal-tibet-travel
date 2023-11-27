@@ -9,7 +9,7 @@ const LatestUpdateCard = ({ data }) => {
       <h3 className="mb-2 text-2xl">{latest_update?.post_title}</h3>
       <div className="mb-6 text-gray-400 line-clamp-3" dangerouslySetInnerHTML={{ __html: latest_update?.post_content }} />
       <Link href={`/blogs/` + latest_update?.post_name}>
-        <button className="flex items-center space-x-2 rounded-md border-2 border-sky-500 px-4 py-2 font-medium text-sky-600 transition hover:bg-sky-500 hover:text-white">
+        <button className="flex items-center space-x-2 rounded-md border-2 border-sky-500 px-4 py-2 font-medium text-sky-600 transition hover:bg-primary-mac hover:text-white">
           <span> Read Blog </span>
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">

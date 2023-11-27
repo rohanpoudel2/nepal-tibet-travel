@@ -14,7 +14,7 @@ const AboutUs = ({ data }) => (
               {data?.description}
             </p>
             <Link href="/about-us">
-              <Button className="bg-sky-500 hover:bg-sky-600 focus:ring focus:ring-sky-300 md:mr-auto w-full md:w-auto">
+              <Button className="bg-primary-mac hover:bg-sky-600 focus:ring focus:ring-sky-300 md:mr-auto w-full md:w-auto">
                 About us
               </Button>
             </Link>

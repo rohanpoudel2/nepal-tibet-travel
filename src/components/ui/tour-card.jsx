@@ -24,7 +24,7 @@ const TourCard = ({ image, name, slug, country, description, count }) => {
       <div className="p-6 pt-1 mt-2">
         <Link href={`/country/${country.toLowerCase()}/${slug}`}>
           <button
-            className="block w-full select-none rounded-lg bg-sky-500 py-3.5 px-7 text-center align-middle   text-sm font-bold capatilize tracking-wider text-white shadow-md shadow-sky-500/20 transition-all hover:shadow-lg hover:shadow-sky-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="block w-full select-none rounded-lg bg-primary-mac py-3.5 px-7 text-center align-middle   text-sm font-bold capatilize tracking-wider text-white shadow-md shadow-sky-500/20 transition-all hover:shadow-lg hover:shadow-sky-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-light="true"
           >

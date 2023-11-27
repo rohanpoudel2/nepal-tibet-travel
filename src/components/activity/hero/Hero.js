@@ -18,7 +18,7 @@ const Hero = ({ data }) => (
         <div className="flex justify-between items-center w-full md:w-auto">
           <h1 className="text-3xl">{data.post.post_title}</h1>
           <Link href="#booking" className="block md:hidden">
-            <button className="px-2 py-1 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
+            <button className="px-2 py-1 font-medium flex items-center gap-2 tracking-wide text-white transition-colors duration-300 transform bg-primary-mac rounded-lg hover:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-80">
               <i className="fa-regular fa-calendar-days" />
               <span className="font-semibold">Booking Dates</span>
             </button>

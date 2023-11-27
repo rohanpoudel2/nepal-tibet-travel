@@ -28,7 +28,7 @@ const PhotoModal = ({ url, open, close }) => {
     >
       <Box sx={style}>
         <Button
-          className="bg-white text-gray-700 hover:bg-sky-500 hover:text-white ring-sky-300 cursor-pointer absolute shadow-sm top-10 right-10"
+          className="bg-white text-gray-700 hover:bg-primary-mac hover:text-white ring-sky-300 cursor-pointer absolute shadow-sm top-10 right-10"
           onClick={close}
         >
           Close

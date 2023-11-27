@@ -22,7 +22,7 @@ const Booking = ({ data, duration, name }) => {
         <div className="flex mt-10 gap-5">
           {
             data.map((booking, i) => (
-              <div key={i} className="p-4 bg-sky-500 w-36 text-center text-white font-semibold rounded-lg hover:bg-sky-700 active:scale-95 cursor-pointer" onClick={() => setOpen({
+              <div key={i} className="p-4 bg-primary-mac w-36 text-center text-white font-semibold rounded-lg hover:bg-sky-700 active:scale-95 cursor-pointer" onClick={() => setOpen({
                 bookingDate: booking.booking_date,
                 state: true
               })}>

@@ -8,6 +8,7 @@ import HomeActivities from '@/components/home/homeActivities/HomeActivities'
 import WorkingWith from '@/components/home/workingWith/WorkingWith'
 import { getHomePage } from "@/utils/wordpress";
 import Favorite from '@/components/home/favorite/Favorite'
+import CrossCountry from '@/components/home/crossCountry/CrossCountry'
 
 const getData = async () => {
   const res = await getHomePage();
@@ -25,6 +26,7 @@ export default async function Home() {
       <Hero data={homeContent?.home_hero} />
       <Favorite />
       <PopularDestinations data={homeContent?.popular_destination} />
+      <CrossCountry data={homeContent?.cross_country} />
       <AboutUs data={homeContent?.about_us} />
       {
         homeContent?.countries.map((data, i) => (

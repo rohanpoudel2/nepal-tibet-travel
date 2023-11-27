@@ -36,7 +36,7 @@ const DevelopmentAlert = () => {
               Site in Development
             </span>
           </div>
-          <div onClick={handleClose} className='text-xl bg-sky-500 p-1 rounded-full text-white w-6 h-6 flex items-center justify-center cursor-pointer hover:bg-sky-600'>
+          <div onClick={handleClose} className='text-xl bg-primary-mac p-1 rounded-full text-white w-6 h-6 flex items-center justify-center cursor-pointer hover:bg-sky-600'>
             <i className="fa-solid fa-xmark" />
           </div>
         </AlertTitle>

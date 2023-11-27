@@ -42,7 +42,7 @@ const Hero = ({ data }) => {
                 </h3>
                 <div>
                   <Link href={hero?.hero_button?.button_link?.url}>
-                    <button className="px-5 py-2 md:py-3 bg-white text-gray-800 text-base md:text-xl rounded-full font-semibold hover:bg-sky-500 transition-all hover:text-white">
+                    <button className="px-5 py-2 md:py-3 bg-white text-gray-800 text-base md:text-xl rounded-full font-semibold hover:bg-primary-mac transition-all hover:text-white">
                       {hero?.hero_button?.button_text}
                     </button>
                   </Link>

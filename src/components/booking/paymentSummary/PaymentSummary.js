@@ -41,7 +41,7 @@ const PaymentSummary = () => {
         </Button>
       </div>
       <Separator /> */}
-      <div className="flex items-center gap-5 justify-center h-12 text-xl font-bold bg-[#47A5CF] text-white rounded-sm">
+      <div className="flex items-center gap-5 justify-center h-12 text-xl font-bold bg-primary-mac text-white rounded-sm">
         <div>
           Amount Due
         </div>
