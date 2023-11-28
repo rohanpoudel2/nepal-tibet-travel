@@ -15,7 +15,7 @@ const BlogCard = ({ data }) => {
       </div>
       <div className="flex flex-1 flex-col p-4 sm:p-6">
         <h2 className="mb-2 text-lg font-semibold text-gray-800" dangerouslySetInnerHTML={{ __html: data?.title.rendered }} />
-        <div className="mb-8 text-gray-500 line-clamp-3" dangerouslySetInnerHTML={{ __html: data?.excerpt.rendered }} />
+        <div className="mb-8 text-gray-500 line-clamp-2" dangerouslySetInnerHTML={{ __html: data?.excerpt.rendered }} />
         <div className="mt-auto flex items-end justify-between">
           <div className="flex items-center gap-2">
             <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">

@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Fuse from 'fuse.js';
 import Link from "next/link";
 import Image from "next/image";
 import { Input } from '@/components/ui/input';
@@ -8,9 +9,15 @@ import { getRegionName } from '@/utils/functions';
 
 const Trips = ({ data, region }) => {
   const [searchTerm, setSearchTerm] = useState('');
+
+  const fuse = new Fuse(data, {
+    keys: ['name']
+  });
+
   const filteredTours = searchTerm
-    ? data.filter(data => data.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    ? fuse.search(searchTerm).map(result => result.item)
     : data;
+
   return (
     <section className="bg-white ">
       <div className="container px-6 py-10 mx-auto">
