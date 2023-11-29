@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Image from "next/image"
 import Facebook from "@/../public/images/facebook.png";
-import Instagram from "@/../public/images/Instagram.png";
+import Instagram from "@/../public/images/instagram.png";
 import X from "@/../public/images/twitter.png";
 import Reddit from "@/../public/images/reddit.png";
 
