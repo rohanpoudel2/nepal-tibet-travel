@@ -18,7 +18,7 @@ const AboutUs = async () => {
   return (
     <>
       <div className="container">
-        <section id="about" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-5 items-center mb-40 md:h-[80vh]">
+        <section id="about" className="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 gap-20 items-center mb-40 md:h-[80vh]">
           <div className="flex flex-col gap-5">
             <h1 className="text-4xl">
               We're changing the way people experiece <span className="underline decoration-sky-500">Nepal, Tibet and Bhutan</span>.
@@ -27,31 +27,54 @@ const AboutUs = async () => {
               {aboutContent?.short_desc}
             </p>
           </div>
-          <div className="hidden md:grid grid-cols-2 place-items-center md:grid-cols-4 gap-4">
-            {aboutContent?.image_grid.slice(0, 12).map((imageData, index) => (
-              <div key={index} className="grid gap-4">
-                <Image
-                  className="h-full max-w-full rounded-lg"
-                  src={imageData.image.sizes.medium}
-                  alt={imageData.image.alt}
-                  width={200}
-                  height={400}
+          <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+            <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+              <div className="relative">
+
+                <img
+                  src={aboutContent?.image_grid[0].image.sizes.medium_large}
+                  alt=""
+                  className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
               </div>
-            ))}
-          </div>
-          <div className="md:hidden grid grid-cols-2 place-items-center md:grid-cols-4 gap-4">
-            {aboutContent?.image_grid.slice(0, 6).map((imageData, index) => (
-              <div key={index} className="grid gap-4">
-                <Image
-                  className="h-full max-w-full rounded-lg"
-                  src={imageData.image.sizes.medium}
-                  alt={imageData.image.alt}
-                  width={200}
-                  height={400}
+            </div>
+            <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+              <div className="relative">
+                <img
+                  src={aboutContent?.image_grid[1].image.sizes.medium_large}
+                  alt=""
+                  className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
               </div>
-            ))}
+              <div className="relative">
+                <img
+                  src={aboutContent?.image_grid[2].image.sizes.medium_large}
+                  alt=""
+                  className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+              </div>
+            </div>
+            <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+              <div className="relative">
+                <img
+                  src={aboutContent?.image_grid[3].image.sizes.medium_large}
+                  alt=""
+                  className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+              </div>
+              <div className="relative">
+                <img
+                  src={aboutContent?.image_grid[4].image.sizes.medium_large}
+                  alt=""
+                  className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+              </div>
+            </div>
           </div>
         </section>
         <section className="bg-white mb-20">
