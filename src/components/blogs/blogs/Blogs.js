@@ -3,15 +3,10 @@ import BlogCard from "../blogCard/BlogCard";
 
 const Blogs = ({ data }) => {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-8 mt-8">
+    <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
       {
         data?.map((blog) => (
-          <>
-            <Link href={`/blogs/${blog?.slug}`} key={blog?.id}>
-              <BlogCard data={blog} />
-            </Link>
-          </>
-
+          <BlogCard data={blog} />
         ))
       }
     </div>

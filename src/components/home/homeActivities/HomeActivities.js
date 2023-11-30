@@ -8,11 +8,13 @@ const HomeActivities = ({ data }) => (
         title={data?.title}
         subtitle={data?.sub_title}
       />
-      <div className='mt-[38px] grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[50px]'>
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mt-[38px]">
         {
           Object.keys(data.activity).map((key) => {
             const activity = data.activity[key];
-            return <HomeActivity country={data.country_name} data={activity} key={key} />
+            return (
+              <HomeActivity country={data.country_name} data={activity} key={key} />
+            )
           })
         }
       </div>

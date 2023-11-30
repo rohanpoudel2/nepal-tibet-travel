@@ -3,36 +3,25 @@ import Link from "next/link"
 
 const TourCard = ({ image, name, slug, country, description, count }) => {
   return (
-    <div className="relative flex w-full max-w-[26rem] sm:max-w-[16rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-      <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 h-40">
+    <article className="relative rounded-xl bg-white overflow-hidden text-gray-700 shadow-lg h-64">
+      <Link href={`/country/${country.toLowerCase()}/${slug}`}>
         <Image
           src={image}
-          alt="Everest Base Camp Trek"
+          alt={name}
           width={416}
           height={400}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover hover:scale-110 brightness-[98%]  transition duration-200 "
         />
-      </div>
-      <div className="p-6 pb-0 space-y-2">
-        <h5 className="block text-xl font-bold leading-snug tracking-normal text-blue-gray-900 antialiased">
-          {name}
-        </h5>
-        <p className="prose line-clamp-2 text-sm leading-6">
-          {description}
-        </p>
-      </div>
-      <div className="p-6 pt-1 mt-2">
-        <Link href={`/country/${country.toLowerCase()}/${slug}`}>
-          <button
-            className="block w-full select-none rounded-lg bg-primary-mac py-3.5 px-7 text-center align-middle   text-sm font-bold capatilize tracking-wider text-white shadow-md shadow-sky-500/20 transition-all hover:shadow-lg hover:shadow-sky-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-            data-ripple-light="true"
-          >
-            {count} Trips Available
-          </button>
-        </Link>
-      </div>
-    </div>
+        <h3 className="absolute bottom-3 left-3 z-10 text-3xl font-bold text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_80%)]">{name}</h3>
+        <div
+          className="absolute top-0 right-0 p-2 text-sm rounded-lg font-semibold text-white bg-primary-mac"
+          type="button"
+          data-ripple-light="true"
+        >
+          {count} Trips Available
+        </div>
+      </Link>
+    </article>
   )
 }
 

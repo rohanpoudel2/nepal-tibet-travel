@@ -4,6 +4,14 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
+const navigation = {
+  main: [
+    { name: "Work with us", href: "/work-with-us" },
+    { name: "Our Blogs", href: "/blogs" },
+    { name: "Get Trip quotation", href: "/about-us" },
+  ]
+}
+
 const NotFound = () => {
   const router = useRouter();
   const handleGoBack = () => {
@@ -37,33 +45,19 @@ const NotFound = () => {
             </Link>
           </div>
           <div className="mt-10 space-y-6">
-            <div>
-              <a href="#" className="inline-flex items-center text-sm text-sky-500 gap-x-2  hover:underline">
-                <span>Work with us</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg>
-              </a>
-              <p className="mt-2 text-sm text-gray-500 ">Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
-            <div>
-              <a href="#" className="inline-flex items-center text-sm text-sky-500 gap-x-2  hover:underline">
-                <span>Our blog</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg>
-              </a>
-              <p className="mt-2 text-sm text-gray-500 ">Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
-            <div>
-              <a href="#" className="inline-flex items-center text-sm text-sky-500 gap-x-2  hover:underline">
-                <span>Get trip quotation</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg>
-              </a>
-              <p className="mt-2 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
+            {
+              navigation.main.map((link) => (
+                <div key={link.name}>
+                  <Link href={link.href} className="inline-flex items-center text-sm text-sky-500 gap-x-2  hover:underline">
+                    <span>{link.name}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                    </svg>
+                  </Link>
+                  <p className="mt-2 text-sm text-gray-500 ">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+              ))
+            }
           </div>
         </div>
         <div className="relative w-full mt-8 lg:w-1/2 lg:mt-0">
