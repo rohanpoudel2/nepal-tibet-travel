@@ -5,7 +5,6 @@ const nextConfig = {
       "localhost",
       "images.pexels.com",
       "images.unsplash.com",
-      "1.gravatar.com",
     ],
     remotePatterns: [
       {
@@ -14,6 +13,12 @@ const nextConfig = {
         port: '',
         pathname: '/wp-content/**',
       },
+      {
+        protocol: 'https',
+        hostname: '1.gravatar.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 }
