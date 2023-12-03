@@ -1,23 +1,14 @@
-"use client"
-import Link from "next/link";
-import { useParams } from "next/navigation";
-
-import { useEffect } from "react";
+'use client'
+import { usePathname } from 'next/navigation';
 import HomeFooter from "./HomeFooter";
 import SlimFooter from "./SlimFooter";
 
 const Footer = () => {
-  const params = useParams();
+  const pathname = usePathname();
 
-  if (Object.keys(params).length === 0) {
-    return (
-      <HomeFooter />
-    )
-  }
+  const isHomepage = pathname === '/';
 
-  return (
-    <SlimFooter />
-  )
-}
+  return isHomepage ? <HomeFooter /> : <SlimFooter />;
+};
 
-export default Footer
+export default Footer;
