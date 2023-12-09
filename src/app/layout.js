@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Footer from '@/components/footer/Footer';
 import DevelopmentAlert from '@/components/ui/alert/developmentAlert';
 import { Toaster } from '@/components/ui/toaster';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
         <DevelopmentAlert />
         <Toaster />
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   )
