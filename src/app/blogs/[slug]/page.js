@@ -23,7 +23,7 @@ const Blog = async ({ params }) => {
   return (
     <section className="bg-white">
       <div className="container px-6 mx-auto">
-        <GoBack className="mb-5" />
+        <GoBack className="mb-5 block md:hidden" />
         <div className="lg:flex lg:-mx-6 mb-5">
           <Hero
             image={blogData['_embedded']['wp:featuredmedia'][0].source_url}

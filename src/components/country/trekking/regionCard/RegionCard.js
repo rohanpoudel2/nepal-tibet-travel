@@ -15,7 +15,7 @@ const RegionCard = ({ image, name, desc, page_link, country, activity }) => {
         <h5 className="mb-2 text-xl font-medium tracking-normal leading-snug text-blue-gray-900">
           {name}
         </h5>
-        <p className="mb-3 text-sm font-light text-gray-700 line-clamp-3">
+        <p className="mb-3 text-sm font-light text-gray-700 line-clamp-2">
           {desc}
         </p>
         <Link href={`/country/${country}/${activity.toLowerCase()}/${page_link}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-mac rounded-lg hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
